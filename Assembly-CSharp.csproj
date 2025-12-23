@@ -61,7 +61,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.64f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\DistanceTracker.cs" />
+    <Compile Include="Assets\Script\EnergySystem.cs" />
+    <Compile Include="Assets\Script\DashInput.cs" />
     <Compile Include="Assets\Script\test.cs" />
+    <Compile Include="Assets\Script\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
