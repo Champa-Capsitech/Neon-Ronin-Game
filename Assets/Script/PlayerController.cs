@@ -262,15 +262,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(TrailRenderer))]
+[RequireComponent(typeof(EnergySystem))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Dash Settings")]
     public float dashForce = 15f;
-    public float energyCostPerDash = 30f;
-
-    [Header("Energy")]
-    public float maxEnergy = 100f;
-    public float currentEnergy = 100f;
 
     [Header("Physics")]
     public float gravityScale = 0.65f;
@@ -281,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     TrailRenderer trail;
+    EnergySystem energy;
 
     Vector2 pointerStart;
     Vector2 pointerCurrent;
@@ -290,6 +287,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
+        energy = GetComponent<EnergySystem>();
 
         rb.gravityScale = gravityScale;
         rb.linearDamping = airDrag;
@@ -329,18 +327,17 @@ public class PlayerController : MonoBehaviour
 
     void TryDash()
     {
-        if (currentEnergy < energyCostPerDash)
+        if (!energy.CanDash())
             return;
 
         Vector2 dragDirection = pointerCurrent - pointerStart;
 
-        // We ONLY care about Y axis
+        // ONLY Y AXIS MOVEMENT
         float yDirection = Mathf.Sign(dragDirection.y);
-
         if (yDirection == 0)
             return;
 
-        currentEnergy -= energyCostPerDash;
+        energy.ConsumeDashEnergy(); // 🔥 ENERGY DECREASES HERE
 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * yDirection * dashForce, ForceMode2D.Impulse);
@@ -356,7 +353,6 @@ public class PlayerController : MonoBehaviour
 
     void UpdateScore()
     {
-        // Score based on time survived (simple & effective)
         distanceScore += Time.deltaTime * 10f;
     }
 
@@ -366,3 +362,4 @@ public class PlayerController : MonoBehaviour
         return new Vector2(world.x, world.y);
     }
 }
+
