@@ -19,8 +19,8 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        // if (GameManager.instance != null && GameManager.instance.isGameOver)
-        //     return;
+        if (GameManager.instance.currentState != GameManager.GameState.Running)
+            return;
 
         float randomY = Random.Range(ySpawnMin, ySpawnMax);
         Vector2 spawnPos = new Vector2(spawnX, randomY);

@@ -13,18 +13,18 @@ public class EnemyRotator : MonoBehaviour
     {
     if (!collision.CompareTag("Player")) return;
 
-    //PlayerController player = collision.GetComponent<PlayerController>();
+    PlayerController player = collision.GetComponent<PlayerController>();
 
-    //if (player == null) return;
+        if (player == null) return;
 
-    //if (player.IsDashing)
-    //{
-    //    player.ResetDash();
-    //    Destroy(gameObject);
-    //}
-    //else
-    //{
-    //    player.Die();
-    //}
+        if (player.isDragging)
+        {
+            //player.ResetDash();
+            Destroy(gameObject);
+        }
+        else
+        {
+            player.Die();
+        }
     }
 }

@@ -1,27 +1,33 @@
-
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
 
-    public float speed;
+    private float speed=8;
     private float leftBound = -13;
+    Rigidbody2D PlayerRB;
 
-    void Start() 
+    private void Awake()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            PlayerRB = player.GetComponent<Rigidbody2D>();
+            //speed = PlayerRB.linearVelocity.y;
+            //speed = 8;
+        }
     }
+
 
     //background move left
     void Update()
     {
-        // if (!GameManager.instance.isGameOver)
-        // {
-            transform.Translate(speed * Time.deltaTime * Vector3.left, Space.World);
-        // }
-
+        if (GameManager.instance.currentState == GameManager.GameState.Running)
+        {
+            //Debug.Log("speed" + speed);
+            transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
+        }
         if (transform.position.x < leftBound && !gameObject.CompareTag("Background"))
         {
             Destroy(gameObject);
