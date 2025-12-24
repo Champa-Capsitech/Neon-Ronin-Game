@@ -5,7 +5,7 @@ public class EnergySystem : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
 
-    public float dashCost = 30f;
+    public float dashCost = 25f;
 
     void Awake()
     {
