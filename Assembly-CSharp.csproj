@@ -61,7 +61,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.64f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Script\Environment\YellowWallBox.cs" />
+=======
+    <Compile Include="Assets\Script\UI\EnergyBarUI.cs" />
+>>>>>>> origin/devanshu
     <Compile Include="Assets\Script\DistanceTracker.cs" />
     <Compile Include="Assets\Script\SpawnManager.cs" />
     <Compile Include="Assets\Script\EnergySystem.cs" />

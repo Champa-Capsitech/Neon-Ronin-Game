@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(TrailRenderer))]
+[RequireComponent(typeof(EnergySystem))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Dash Settings")]
@@ -25,9 +27,14 @@ public class PlayerController : MonoBehaviour
     Color originalColor;
     private bool isOnPlatform = false;
 
+    [Header("Score")]
+    public float distanceScore;
+
+    
 
     Rigidbody2D rb;
     TrailRenderer trail;
+    EnergySystem energy;
 
     Vector2 pointerStart;
     Vector2 pointerCurrent;
@@ -40,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
+        energy = GetComponent<EnergySystem>();
 
         rb.gravityScale = gravityScale;
         rb.linearDamping = airDrag;
@@ -100,13 +108,12 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dragDirection = pointerCurrent - pointerStart;
 
-        // We ONLY care about Y axis
+        // ONLY Y AXIS MOVEMENT
         float yDirection = Mathf.Sign(dragDirection.y);
-
         if (yDirection == 0)
             return;
 
-        currentEnergy -= energyCostPerDash;
+        energy.ConsumeDashEnergy(); // 🔥 ENERGY DECREASES HERE
 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * yDirection * dashForce, ForceMode2D.Impulse);
@@ -169,3 +176,4 @@ public class PlayerController : MonoBehaviour
 
 
 }
+
