@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     void TryDash()
     {
-        if (currentEnergy < energyCostPerDash)
+        if (!energy.CanDash())
         {
             Die();
             Debug.Log("Energy : 0");
