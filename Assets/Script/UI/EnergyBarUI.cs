@@ -3,17 +3,33 @@ using UnityEngine.UI;
 
 public class EnergyBarUI : MonoBehaviour
 {
-    public EnergySystem energy;
-    public Slider slider;
+    public PlayerController player; //  MUST be assigned
+    public Slider slider;            //  MUST be assigned
 
     void Start()
     {
-        slider.maxValue = energy.maxEnergy;
-        slider.value = energy.currentEnergy;
+        if (player == null)
+        {
+            Debug.LogError("EnergyBarUI: PlayerController NOT assigned");
+            return;
+        }
+
+        if (slider == null)
+        {
+            Debug.LogError("EnergyBarUI: Slider NOT assigned");
+            return;
+        }
+
+        slider.maxValue = player.maxEnergy;
+        slider.value = player.currentEnergy;
     }
 
     void Update()
     {
-        slider.value = energy.currentEnergy; // 🔥 SAME AS: slider.value = health
+        if (player == null || slider == null)
+            return;
+
+        slider.value = player.currentEnergy;
     }
 }
+

@@ -2,44 +2,43 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(TrailRenderer))]
-[RequireComponent(typeof(EnergySystem))]
+//[RequireComponent(typeof(Rigidbody2D))]
+//[RequireComponent(typeof(TrailRenderer))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Dash Settings")]
+    
     public float dashForce = 15f;
-    private float energyCostPerDash = 25f;
 
-    [Header("Energy")]
+    //  ENERGY
+    
     public float maxEnergy = 100f;
-    public float currentEnergy = 100f;
+    public float currentEnergy;
+    public float dashCost = 25f;
 
-    [Header("Physics")]
+    //  ENERGY UI
+    
+    public Slider energySlider;
+
+    
     public float gravityScale = 0.65f;
     public float airDrag = 2f;
 
-
-    [Header("Platform Refill")]
+    
     public float flashDuration = 2f;
     public Color flashColor;
     SpriteRenderer spriteRenderer;
     Color originalColor;
     private bool isOnPlatform = false;
 
-    [Header("Score")]
-    public float distanceScore;
 
-    
+    public float distanceScore;
 
     Rigidbody2D rb;
     TrailRenderer trail;
-    EnergySystem energy;
 
     Vector2 pointerStart;
     Vector2 pointerCurrent;
     public bool isDragging;
-
 
     private float deathY = -10f;
 
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
-        energy = GetComponent<EnergySystem>();
 
         rb.gravityScale = gravityScale;
         rb.linearDamping = airDrag;
@@ -57,6 +55,16 @@ public class PlayerController : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        //  INIT ENERGY
+        currentEnergy = maxEnergy;
+
+        //  INIT UI
+        if (energySlider != null)
+        {
+            energySlider.maxValue = maxEnergy;
+            energySlider.value = currentEnergy;
+        }
     }
 
     void Update()
@@ -65,7 +73,9 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("isOnPlatform" + isOnPlatform);
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
+
         HandlePointerInput();
+        UpdateEnergyUI();
 
         if (transform.position.y < deathY)
         {
@@ -99,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void TryDash()
     {
-        if (!energy.CanDash())
+        if (!CanDash())
         {
             Die();
             Debug.Log("Energy : 0");
@@ -113,7 +123,7 @@ public class PlayerController : MonoBehaviour
         if (yDirection == 0)
             return;
 
-        energy.ConsumeDashEnergy(); // 🔥 ENERGY DECREASES HERE
+        ConsumeDashEnergy(); //  ENERGY DECREASES HERE
 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * yDirection * dashForce, ForceMode2D.Impulse);
@@ -134,27 +144,47 @@ public class PlayerController : MonoBehaviour
         //gameObject.SetActive(false);
     }
 
-    //void UpdateScore()
-    //{
-    //    // Score based on time survived (simple & effective)
-    //    distanceScore += Time.deltaTime * 10f;
-    //}
-
     Vector2 ScreenToWorld(Vector2 screenPos)
     {
         Vector3 world = Camera.main.ScreenToWorldPoint(screenPos);
         return new Vector2(world.x, world.y);
     }
 
+    //  ENERGY LOGIC (MERGED FROM EnergySystem)
+
+    bool CanDash()
+    {
+        return currentEnergy >= dashCost;
+    }
+
+    void ConsumeDashEnergy()
+    {
+        currentEnergy -= dashCost;
+        currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
+    }
+
+    void RefillFullEnergy()
+    {
+        currentEnergy = maxEnergy;
+    }
+
+    void UpdateEnergyUI()
+    {
+        if (energySlider != null)
+        {
+            energySlider.value = currentEnergy;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Plateform"))
             return;
+
         Debug.Log("Player collide with platform");
 
         isOnPlatform = true;
-        currentEnergy = maxEnergy;
+        RefillFullEnergy();
         //StartCoroutine(FlashPlayer());
     }
 
@@ -172,8 +202,4 @@ public class PlayerController : MonoBehaviour
     //    yield return new WaitForSeconds(flashDuration);
     //    spriteRenderer.color = originalColor;
     //}
-
-
-
 }
-
