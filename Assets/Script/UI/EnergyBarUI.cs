@@ -1,19 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class EnergyBarUI : MonoBehaviour
 {
     public EnergySystem energy;
-    public Image fillImage;
+    public Slider slider;
 
-    public Color fullColor = Color.cyan;
-    public Color lowColor = Color.red;
+    void Start()
+    {
+        slider.maxValue = energy.maxEnergy;
+        slider.value = energy.currentEnergy;
+    }
 
     void Update()
     {
-        float fillAmount = energy.currentEnergy / energy.maxEnergy;
-        fillImage.fillAmount = fillAmount;
-        fillImage.color = Color.Lerp(lowColor, fullColor, fillAmount);
+        slider.value = energy.currentEnergy; // 🔥 SAME AS: slider.value = health
     }
 }
-
