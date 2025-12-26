@@ -965,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5817895719393215362, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5817895719393215362, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -998,6 +998,18 @@ PrefabInstance:
     - target: {fileID: 5817895719393215362, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953641206332219924, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      propertyPath: flashColor.b
+      value: 0.004494493
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953641206332219924, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      propertyPath: flashColor.g
+      value: 0.02251347
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953641206332219924, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      propertyPath: flashColor.r
+      value: 0.9528302
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1943,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655830147492933243, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 655830147492933243, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1991,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6897345210833434400, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(TrailRenderer))]
@@ -15,6 +16,14 @@ public class PlayerController : MonoBehaviour
     [Header("Physics")]
     public float gravityScale = 0.65f;
     public float airDrag = 2f;
+
+
+    [Header("Platform Refill")]
+    public float flashDuration = 2f;
+    public Color flashColor;
+    SpriteRenderer spriteRenderer;
+    Color originalColor;
+    private bool isOnPlatform = false;
 
 
     Rigidbody2D rb;
@@ -37,10 +46,15 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         trail.emitting = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     void Update()
     {
+        //Debug.Log("currentEnergy" + currentEnergy);
+        //Debug.Log("isOnPlatform" + isOnPlatform);
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
         HandlePointerInput();
@@ -124,4 +138,34 @@ public class PlayerController : MonoBehaviour
         Vector3 world = Camera.main.ScreenToWorldPoint(screenPos);
         return new Vector2(world.x, world.y);
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Plateform"))
+            return;
+        Debug.Log("Player collide with platform");
+
+        isOnPlatform = true;
+        currentEnergy = maxEnergy;
+        //StartCoroutine(FlashPlayer());
+    }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Plateform"))
+    //    {
+    //        isOnPlatform = false;
+    //    }
+    //}
+
+    //IEnumerator FlashPlayer()
+    //{
+    //    spriteRenderer.color = flashColor;
+    //    yield return new WaitForSeconds(flashDuration);
+    //    spriteRenderer.color = originalColor;
+    //}
+
+
+
 }

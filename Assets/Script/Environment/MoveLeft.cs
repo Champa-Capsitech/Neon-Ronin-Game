@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
+    private float baseSpeed = 8f;   // minimum speed
+    private float speedMultiplier = 1f;
+    private float leftBound = -25f;
 
-    private float speed=8;
-    private float leftBound = -13;
-    Rigidbody2D PlayerRB;
+    Rigidbody2D playerRB;
 
     private void Awake()
     {
@@ -13,26 +14,27 @@ public class MoveLeft : MonoBehaviour
 
         if (player != null)
         {
-            PlayerRB = player.GetComponent<Rigidbody2D>();
-            //speed = PlayerRB.linearVelocity.y;
-            //speed = 8;
+            playerRB = player.GetComponent<Rigidbody2D>();
         }
     }
 
-
-    //background move left
     void Update()
     {
-        if (GameManager.instance.currentState == GameManager.GameState.Running)
-        {
-            //Debug.Log("speed" + speed);
-            transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
-        }
-        if (transform.position.x < leftBound && !gameObject.CompareTag("Background"))
+        if (GameManager.instance.currentState != GameManager.GameState.Running)
+            return;
+
+        float playerSpeed = baseSpeed;
+
+        //if (playerRB != null)
+        //{
+        //    playerSpeed += Mathf.Abs(playerRB.linearVelocity.y) * speedMultiplier;
+        //}
+
+        transform.Translate(Vector2.left * playerSpeed * Time.deltaTime, Space.World);
+
+        if (transform.position.x < leftBound && !CompareTag("Background"))
         {
             Destroy(gameObject);
         }
-
     }
 }
-

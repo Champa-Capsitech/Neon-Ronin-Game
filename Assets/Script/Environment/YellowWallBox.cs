@@ -44,6 +44,6 @@ public class YellowWallBox : MonoBehaviour
             Instantiate(breakFX, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

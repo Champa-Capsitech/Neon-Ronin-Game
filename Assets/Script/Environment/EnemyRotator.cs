@@ -11,20 +11,10 @@ public class EnemyRotator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player")) return;
 
-    PlayerController player = collision.GetComponent<PlayerController>();
-
-        if (player == null) return;
-
-        if (player.isDragging)
-        {
-            //player.ResetDash();
-            Destroy(gameObject);
-        }
-        else
-        {
-            player.Die();
-        }
+        //Destroy(collision.gameObject);
+        Destroy(gameObject);
+        GameManager.instance.GameOver();
     }
 }
