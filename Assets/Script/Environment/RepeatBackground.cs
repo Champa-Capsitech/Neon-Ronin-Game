@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
@@ -38,7 +38,13 @@ public class RepeatBackground : MonoBehaviour
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
-        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+
+        if (PlayerRB == null) return;
+        float playerSpeedX = PlayerRB.linearVelocity.x;
+
+        float effectiveSpeed = Mathf.Max(0f, playerSpeedX);
+
+        transform.Translate(Vector2.left * effectiveSpeed * Time.deltaTime);
 
         if (transform.position.x <= startPos.x - repeatDistance)
         {

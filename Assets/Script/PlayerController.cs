@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float currentEnergy;
 
     // Energy cost for one dash
-    public float dashCost = 25f;
+    private float dashCost = 5f;
 
     //ENERGY UI
     // Slider used to show energy
