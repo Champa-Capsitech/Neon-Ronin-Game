@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private float deathY = -10f;
 
-    
+
     void Awake()
     {
         // Get required components
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
     void Update()
     {
         // Run only when game is running
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
     void HandlePointerInput()
     {
         // Mouse button pressed
@@ -240,8 +240,3 @@ public class PlayerController : MonoBehaviour
     //    spriteRenderer.color = originalColor;
     //}
 }
-
-
-
-
-

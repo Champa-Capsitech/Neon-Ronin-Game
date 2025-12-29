@@ -1,11 +1,12 @@
-﻿
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private float playerStartX; //player's starting pos at x = 0
+
 
     [SerializeField] GameObject player;
 
@@ -64,23 +65,28 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (currentState == GameState.Running)
+        if (currentState == GameState.Running && player != null)
         {
-            score += Time.deltaTime * scoreRate;
-            GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
+            // Distance travelled relative to start
+            float distanceTravelled = player.transform.position.x - playerStartX;
 
-            //AddScore(score);
+            score = distanceTravelled * scoreRate;
+
+            GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
         }
     }
+
 
     //STATE CONTROL
 
     public void StartGame()
     {
         score = 0;
+        playerStartX = player.transform.position.x;  // <-- add this line
         Debug.Log("StartGame ");
         SetState(GameState.Running);
     }
+
 
 
     public void GameOver()
