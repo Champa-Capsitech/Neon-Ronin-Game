@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour
 
     //SCREEN LIMITS
     [Header("Screen Limits")]
-    private float xMin = -15f;
-    private float xMax = 15f;
-    private float yMin = -4f;
-    private float yMax = 6f;
+    private float xMin = -10f;
+    private float xMax = 5f;
+    private float yMin = -8f;
+    private float yMax = 8f;
 
     //PLATFORM REFILL
     public float flashDuration = 2f;
