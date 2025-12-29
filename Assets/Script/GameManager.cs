@@ -83,9 +83,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("Game Over!!");
         if (currentState != GameState.Running) return;
 
-        Debug.Log("Game Over!!");
+        
         GameOverScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
         SetState(GameState.GameOver);
     }

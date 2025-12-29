@@ -125,9 +125,17 @@ public class PlayerController : MonoBehaviour
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
     }
+
+
+
     private void OnDestroy()
     {
         Debug.Log("player got destroyed");
+    }
+    
+    private void OnDisable()
+    {
+        Debug.Log("player got disabled");
     }
     void StopTrail()
     {
