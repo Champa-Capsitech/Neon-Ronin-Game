@@ -8,7 +8,6 @@ public class EnemyRotator : MonoBehaviour
     {
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
