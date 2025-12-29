@@ -2,48 +2,27 @@ using UnityEngine;
 
 public class YellowWallBox : MonoBehaviour
 {
-    [Header("Break Settings")]
-    public float breakVelocity = 12f;
-
-    [Header("FX")]
-    public GameObject breakFX; // Yellow particle prefab
-
-    private bool isBroken = false;
+    private float breakVelocity = 12f;
+    public GameObject breakFX;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isBroken) return;
-
-        //Only Player can interact
-         if (!collision.collider.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player"))
             return;
-
-        PlayerController player = collision.collider.GetComponent<PlayerController>();
-        if (player == null)
-            return;
-
         float impactSpeed = collision.relativeVelocity.magnitude;
 
-        // Break ONLY if dashing AND fast enough
-        if (player.isDragging && impactSpeed >= breakVelocity)
+        if (impactSpeed >= breakVelocity)
         {
-            Break(player);
+            Break();
         }
     }
 
-    private void Break(PlayerController player)
+    private void Break()
     {
-        isBroken = true;
-
-        // Reset dash / energy
-        //player.ResetDash();
-
-        // Spawn yellow particle effect
         if (breakFX != null)
         {
             Instantiate(breakFX, transform.position, Quaternion.identity);
         }
-
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

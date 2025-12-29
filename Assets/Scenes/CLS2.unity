@@ -2308,7 +2308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6897345210833434400, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2409,12 +2409,11 @@ MonoBehaviour:
   dashForce: 15
   maxEnergy: 100
   currentEnergy: 100
-  dashCost: 25
   energySlider: {fileID: 1587201601}
   gravityScale: 0.65
   airDrag: 2
   flashDuration: 2
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
+  flashColor: {r: 0.9528302, g: 0.02251347, b: 0.004494493, a: 0}
   distanceScore: 0
   isDragging: 0
 --- !u!212 &8100346904201890737

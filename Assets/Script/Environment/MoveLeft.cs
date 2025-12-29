@@ -1,3 +1,5 @@
+
+
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
@@ -6,7 +8,7 @@ public class MoveLeft : MonoBehaviour
     private float speedMultiplier = 1f;
     private float leftBound = -25f;
 
-    Rigidbody2D playerRB;
+    Rigidbody2D PlayerRB;
 
     private void Awake()
     {
@@ -14,7 +16,7 @@ public class MoveLeft : MonoBehaviour
 
         if (player != null)
         {
-            playerRB = player.GetComponent<Rigidbody2D>();
+            PlayerRB = player.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -23,16 +25,20 @@ public class MoveLeft : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
+        //Case 1: Obstacles move left at a constant speed
         float playerSpeed = baseSpeed;
-
-        //if (playerRB != null)
-        //{
-        //    playerSpeed += Mathf.Abs(playerRB.linearVelocity.y) * speedMultiplier;
-        //}
 
         transform.Translate(Vector2.left * playerSpeed * Time.deltaTime, Space.World);
 
-        if (transform.position.x < leftBound && !CompareTag("Background"))
+        //Case 2: Obstacles move left based on player speed
+
+        //if (PlayerRB == null) return;
+        //float playerSpeedX = PlayerRB.linearVelocity.x;
+
+        //float effectiveSpeed = Mathf.Max(0f, playerSpeedX);
+
+        //transform.Translate(Vector2.left * effectiveSpeed * Time.deltaTime);
+        if (transform.position.x < leftBound)
         {
             Destroy(gameObject);
         }

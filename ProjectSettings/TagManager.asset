@@ -8,6 +8,7 @@ TagManager:
   - Yellow_wall_box
   - Background
   - Plateform
+  - Platform
   layers:
   - Default
   - TransparentFX

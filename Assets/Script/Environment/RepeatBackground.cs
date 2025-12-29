@@ -1,15 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
     private Vector2 startPos;
-
     public float divide = 2f;
-
     private float moveSpeed = 8f;
-
     private float repeatDistance;
-
     Rigidbody2D PlayerRB;
 
     private void Awake()
@@ -19,9 +15,6 @@ public class RepeatBackground : MonoBehaviour
         if (player != null)
         {
             PlayerRB = player.GetComponent<Rigidbody2D>();
-            //moveSpeed = PlayerRB.linearVelocity.y;
-            //moveSpeed = 8;
-            //Debug.Log("speed" + moveSpeed);
         }
     }
     void Start()
@@ -38,7 +31,13 @@ public class RepeatBackground : MonoBehaviour
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
-        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+
+        if (PlayerRB == null) return;
+        float playerSpeedX = PlayerRB.linearVelocity.x;
+
+        float effectiveSpeed = Mathf.Max(0f, playerSpeedX);
+
+        transform.Translate(Vector2.left * effectiveSpeed * Time.deltaTime);
 
         if (transform.position.x <= startPos.x - repeatDistance)
         {

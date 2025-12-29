@@ -30,9 +30,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3670014563362669102}
   - {fileID: 20627847590102647}
   - {fileID: 4630764701357151062}
+  - {fileID: 3295701442635889557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-5342908953484012481
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36782800647632e45a4d2b2d5eac17a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1684247716179434493
+--- !u!1001 &580273390394319430
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -57,11 +57,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2715992263340415443, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 2715992263340415443, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.33078468
       objectReference: {fileID: 0}
     - target: {fileID: 2715992263340415443, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99,19 +99,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_Blue_1
       objectReference: {fileID: 0}
-    - target: {fileID: 3137452075437625659, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
-      propertyPath: m_TagString
-      value: Plateform
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
---- !u!4 &3670014563362669102 stripped
+--- !u!4 &3295701442635889557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2715992263340415443, guid: e8ec9b340cb353e4c86bd9bfe45677ad, type: 3}
-  m_PrefabInstance: {fileID: 1684247716179434493}
+  m_PrefabInstance: {fileID: 580273390394319430}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1767318793949027146
 PrefabInstance:
