@@ -1392,19 +1392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5817895720702549659}
-  yOffset: -1.5
-  smoothSpeed: 5
---- !u!114 &1587201601 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6420341804422978066, guid: 87a7319141dafed4bbd98165e1c5c956, type: 3}
-  m_PrefabInstance: {fileID: 496775526}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1658716831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2230,6 @@ GameObject:
   - component: {fileID: 8100346904201890737}
   - component: {fileID: 7953641204956544781}
   - component: {fileID: 274819044892578498}
-  - component: {fileID: 6341645329770268767}
   - component: {fileID: 2843284419266353702}
   - component: {fileID: 8603476734474292119}
   - component: {fileID: 7051289770153031693}
@@ -2338,20 +2324,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &6341645329770268767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5545719021745926647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7ad1b8157ee8041b85e1a6c9724fc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startY: 0
-  distance: 0
 --- !u!60 &7051289770153031693
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2417,11 +2389,10 @@ MonoBehaviour:
   dashForce: 15
   maxEnergy: 100
   currentEnergy: 100
-  energySlider: {fileID: 1587201601}
+  energyPerDash: 5
+  energyBar: {fileID: 0}
   gravityScale: 0.65
   airDrag: 2
-  flashDuration: 2
-  flashColor: {r: 0.9528302, g: 0.02251347, b: 0.004494493, a: 0}
   distanceScore: 0
 --- !u!212 &8100346904201890737
 SpriteRenderer:
