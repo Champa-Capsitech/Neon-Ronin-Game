@@ -1,11 +1,9 @@
-
-
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
     private float baseSpeed = 8f;   // minimum speed
-    private float speedMultiplier = 1f;
+    //private float speedMultiplier = 1f;
     private float leftBound = -25f;
 
     Rigidbody2D PlayerRB;
