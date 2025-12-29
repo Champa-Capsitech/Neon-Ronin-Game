@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // -------- STATE CONTROL --------
+    //STATE CONTROL
 
     public void StartGame()
     {
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Running) return;
 
-        Debug.Log("☠ Game Over");
+        Debug.Log("Game Over!!");
         GameOverScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
         SetState(GameState.GameOver);
     }
@@ -110,16 +110,18 @@ public class GameManager : MonoBehaviour
         if (newState == GameState.Start)
         {
             player.SetActive(false);
+            Debug.Log("GameState.Start");
         }
         else if (newState == GameState.Running)
         {
             player.SetActive(true);
+            Debug.Log("GameState.Running");
         }
     }
 
 
 
-    // -------- SCORE --------
+    //SCORE
 
     public void AddScore(float amount)
     {
