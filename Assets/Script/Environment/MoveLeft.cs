@@ -25,17 +25,13 @@ public class MoveLeft : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-      
-
-
+        //Case 1: Obstacles move left at a constant speed
         float playerSpeed = baseSpeed;
 
-        //if (playerRB != null)
-        //{
-        //    playerSpeed += Mathf.Abs(playerRB.linearVelocity.y) * speedMultiplier;
-        //}
-
         transform.Translate(Vector2.left * playerSpeed * Time.deltaTime, Space.World);
+
+        //Case 2: Obstacles move left based on player speed
+
         //if (PlayerRB == null) return;
         //float playerSpeedX = PlayerRB.linearVelocity.x;
 

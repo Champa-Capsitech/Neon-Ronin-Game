@@ -18,16 +18,11 @@ public class GameManager : MonoBehaviour
 
     public GameState currentState;
 
-
-    [Header("UI Screens")]
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
 
-
-
-    [Header("Score")]
     public float score;
     public float scoreRate = 10f;
 
@@ -73,8 +68,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //STATE CONTROL
-
     public void StartGame()
     {
         score = 0;
@@ -118,10 +111,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameState.Running");
         }
     }
-
-
-
-    //SCORE
 
     public void AddScore(float amount)
     {

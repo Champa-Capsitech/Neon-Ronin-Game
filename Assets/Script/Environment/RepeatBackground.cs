@@ -3,13 +3,9 @@
 public class RepeatBackground : MonoBehaviour
 {
     private Vector2 startPos;
-
     public float divide = 2f;
-
     private float moveSpeed = 8f;
-
     private float repeatDistance;
-
     Rigidbody2D PlayerRB;
 
     private void Awake()
@@ -19,9 +15,6 @@ public class RepeatBackground : MonoBehaviour
         if (player != null)
         {
             PlayerRB = player.GetComponent<Rigidbody2D>();
-            //moveSpeed = PlayerRB.linearVelocity.y;
-            //moveSpeed = 8;
-            //Debug.Log("speed" + moveSpeed);
         }
     }
     void Start()
