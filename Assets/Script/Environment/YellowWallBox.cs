@@ -1,9 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class YellowWallBox : MonoBehaviour
 {
-    private float breakVelocity = 12f;
+    private float breakVelocity = 5f;
     public GameObject breakFX;
+    private float fxDuration = 0.5f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -11,18 +13,30 @@ public class YellowWallBox : MonoBehaviour
             return;
         float impactSpeed = collision.relativeVelocity.magnitude;
 
+
         if (impactSpeed >= breakVelocity)
         {
-            Break();
+            Break(collision.gameObject.transform);
         }
     }
 
-    private void Break()
+    private void Break(Transform followTarget)
     {
         if (breakFX != null)
         {
-            Instantiate(breakFX, transform.position, Quaternion.identity);
+            GameObject fx = Instantiate(breakFX, transform.position, Quaternion.identity);
+
+            fx.transform.SetParent(followTarget);
+
+            StartCoroutine(DestroyFXAfterTime(fx));
         }
+
         Destroy(gameObject);
     }
+    private IEnumerator DestroyFXAfterTime(GameObject fx)
+    {
+        yield return new WaitForSeconds(fxDuration);
+        Destroy(fx);
+    }
+
 }

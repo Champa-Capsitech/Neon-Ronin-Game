@@ -35,13 +35,15 @@ public class PlayerController : MonoBehaviour
     Vector2 dragEnd;
     bool isDragging;
 
+    // public bool isDead { get; private set; }
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
 
         rb.gravityScale = gravityScale;
-        rb.linearDamping = airDrag;          // keep (not obsolete)
+        rb.linearDamping = airDrag; // keep (not obsolete)
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         trail.emitting = false;
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log("isDragging" + isDragging);
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
@@ -115,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = dragDirection.normalized;
 
-        currentEnergy -= energyPerDash;                             // energyCostPerDash
+        currentEnergy -= energyPerDash; // energyCostPerDash
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
         rb.linearVelocity = Vector2.zero;
@@ -190,6 +193,11 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+
+        // if (isDead) return;
+
+        // isDead = true;
+
         rb.linearVelocity = Vector2.zero;
         GameManager.instance.GameOver();
     }

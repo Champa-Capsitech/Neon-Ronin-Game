@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea613bebe73a3f478522694ad554603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakVelocity: 12
   breakFX: {fileID: 3057280390665989596, guid: 72128f359d364df45af3b2f752917a4e, type: 3}
+  smashText: {fileID: 795655507082659263, guid: 87a7319141dafed4bbd98165e1c5c956, type: 3}
 --- !u!1 &1335190887844220234
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea613bebe73a3f478522694ad554603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakVelocity: 12
   breakFX: {fileID: 3057280390665989596, guid: 72128f359d364df45af3b2f752917a4e, type: 3}
+  smashText: {fileID: 795655507082659263, guid: 87a7319141dafed4bbd98165e1c5c956, type: 3}
 --- !u!1 &4186448066622791064
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,8 +709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea613bebe73a3f478522694ad554603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakVelocity: 12
   breakFX: {fileID: 3057280390665989596, guid: 72128f359d364df45af3b2f752917a4e, type: 3}
+  smashText: {fileID: 795655507082659263, guid: 87a7319141dafed4bbd98165e1c5c956, type: 3}
 --- !u!1 &5332724190494733371
 GameObject:
   m_ObjectHideFlags: 0
