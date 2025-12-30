@@ -1,45 +1,39 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    //MOVEMENT
     public float dashForce = 15f;
+
+    //ENERGY
     public float maxEnergy = 100f;
     public float currentEnergy;
-    private float dashCost = 5f;
+    public float energyPerDash = 5f;
+    public Slider energyBar;
 
-    public Slider energySlider;
-
+    //PHYSICS
     public float gravityScale = 0.65f;
     public float airDrag = 2f;
 
-    private float xMin = -10f;
-    private float xMax = 5f;
-    private float yMin = -8f;
-    private float yMax = 8f;
+    //LIMITS
+    private float minY = -20f;
+    private float maxY = 8f;
 
-    public float flashDuration = 2f;
-    public Color flashColor;
+    //DEATH
+    private float deathY = -20f;
 
-    SpriteRenderer spriteRenderer;
-    Color originalColor;
-
-    private bool isOnPlatform = false;
-
+    //DISTANCE SCORE
     public float distanceScore;
+    private float startX;
 
     Rigidbody2D rb;
     TrailRenderer trail;
 
     //INPUT
-    Vector2 pointerStart;
-    Vector2 pointerCurrent;
-
-    public bool isDragging;
-
-    private float deathY = -10f;
-
+    Vector2 dragStart;
+    Vector2 dragEnd;
+    bool isDragging;
 
     void Awake()
     {
@@ -47,80 +41,85 @@ public class PlayerController : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
 
         rb.gravityScale = gravityScale;
-        rb.linearDamping = airDrag;
+        rb.linearDamping = airDrag;          // keep (not obsolete)
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         trail.emitting = false;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
-
         currentEnergy = maxEnergy;
 
-        if (energySlider != null)
+        if (energyBar != null)
         {
-            energySlider.maxValue = maxEnergy;
-            energySlider.value = currentEnergy;
+            energyBar.maxValue = maxEnergy;
+            energyBar.value = currentEnergy;
         }
     }
 
+    void Start()
+    {
+        startX = transform.position.x; // score starts from 0
+    }
 
     void Update()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        HandlePointerInput();
+        HandleInput();
         UpdateEnergyUI();
-
-        if (transform.position.y < deathY)
-        {
-            Debug.Log("y position is less than death limit");
-            Die();
-        }
+        CheckDeath();
+        UpdateDistanceScore();
     }
 
-
-    void HandlePointerInput()
+    //INPUT
+    void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            pointerStart = ScreenToWorld(Input.mousePosition);
+            dragStart = ScreenToWorld(Input.mousePosition);
             isDragging = true;
         }
 
         if (Input.GetMouseButton(0) && isDragging)
         {
-            pointerCurrent = ScreenToWorld(Input.mousePosition);
+            dragEnd = ScreenToWorld(Input.mousePosition);
+
+            Vector2 dragDirection = dragEnd - dragStart;
+            if (dragDirection != Vector2.zero)
+            {
+                RotateTowardsDrag(dragDirection);
+            }
         }
 
         if (Input.GetMouseButtonUp(0) && isDragging)
         {
-            TryDash();
+            Dash();
             isDragging = false;
         }
     }
 
-    void TryDash()
+    //DASH
+    void Dash()
     {
-        if (!CanDash())
+        if (currentEnergy < energyPerDash)
         {
-            Debug.Log("Energy Empty");
             Die();
             return;
         }
 
-        Vector2 dragDirection = pointerCurrent - pointerStart;
+        Vector2 dragDirection = dragEnd - dragStart;
 
-        if (dragDirection == Vector2.zero)
+        // Block backward movement
+        if (dragDirection.x <= 0f)
             return;
 
-        Vector2 dashDirection = dragDirection.normalized;
+        Vector2 direction = dragDirection.normalized;
 
-        ConsumeDashEnergy();
+        currentEnergy -= energyPerDash;                             // energyCostPerDash
+        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+        rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
 
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
@@ -142,50 +141,51 @@ public class PlayerController : MonoBehaviour
         trail.emitting = false;
     }
 
-    bool CanDash()
-    {
-        return currentEnergy >= dashCost;
-    }
-
-    void ConsumeDashEnergy()
-    {
-        currentEnergy -= dashCost;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
-    }
-
-    void RefillFullEnergy()
-    {
-        currentEnergy = maxEnergy;
-    }
-
+    //ENERGY
     void UpdateEnergyUI()
     {
-        if (energySlider != null)
+        if (energyBar != null)
+            energyBar.value = currentEnergy;
+    }
+
+    void RefillEnergy()
+    {
+        currentEnergy = maxEnergy;
+
+        if (energyBar != null)
+            energyBar.value = currentEnergy;
+    }
+
+    //COLLISION
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            energySlider.value = currentEnergy;
+            RefillEnergy();
         }
     }
 
+    //ROTATION
+    void RotateTowardsDrag(Vector2 direction)
+    {
+        transform.up = direction; // triangle head faces drag
+    }
+
+    //LIMITS
     void LateUpdate()
     {
         Vector3 pos = transform.position;
-
-        pos.x = Mathf.Clamp(pos.x, xMin, xMax);
-        pos.y = Mathf.Clamp(pos.y, yMin, yMax);
-
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
         transform.position = pos;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //DEATH
+    void CheckDeath()
     {
-        if (!collision.gameObject.CompareTag("Platform"))
-            return;
-
-        Debug.Log("Player collided with platform");
-
-        isOnPlatform = true;
-        RefillFullEnergy();
-        //StartCoroutine(FlashPlayer());
+        if (transform.position.y < deathY)
+        {
+            Die();
+        }
     }
 
     public void Die()
@@ -194,16 +194,27 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.GameOver();
     }
 
+    //SCORE
+    void UpdateDistanceScore()
+    {
+        distanceScore = transform.position.x - startX;
+        distanceScore = Mathf.Max(distanceScore, 0f);
+    }
+
+    //UTILITY
     Vector2 ScreenToWorld(Vector2 screenPos)
     {
         Vector3 world = Camera.main.ScreenToWorldPoint(screenPos);
         return new Vector2(world.x, world.y);
     }
 
-    //IEnumerator FlashPlayer()
-    //{
-    //    spriteRenderer.color = flashColor;
-    //    yield return new WaitForSeconds(flashDuration);
-    //    spriteRenderer.color = originalColor;
-    //}
+    public float GetCurrentSpeed()
+    {
+        return rb.linearVelocity.magnitude;
+    }
+
+    public bool IsDragging()
+    {
+        return isDragging;
+    }
 }
