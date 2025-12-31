@@ -3,37 +3,39 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //MOVEMENT
     public float dashForce = 15f;
 
-    //ENERGY
+    // ENERGY
     public float maxEnergy = 100f;
     public float currentEnergy;
     public float energyPerDash = 5f;
     public Slider energyBar;
 
-    //PHYSICS
+    // PHYSICS
     public float gravityScale = 0.65f;
     public float airDrag = 2f;
 
-    //LIMITS
+    // LIMITS
     private float minY = -20f;
     private float maxY = 8f;
 
-    //DEATH
+    // DEATH
     private float deathY = -20f;
 
-    //DISTANCE SCORE
+    // SCORE
     public float distanceScore;
     private float startX;
 
     Rigidbody2D rb;
     TrailRenderer trail;
 
-    //INPUT
+    // INPUT
     Vector2 dragStart;
     Vector2 dragEnd;
     bool isDragging;
+
+    // 🔹 NEW: block state
+    bool isBlockedByYellow;
 
     void Awake()
     {
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
 
         rb.gravityScale = gravityScale;
-        rb.linearDamping = airDrag;          // keep (not obsolete)
+        rb.linearDamping = airDrag;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         trail.emitting = false;
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        startX = transform.position.x; // score starts from 0
+        startX = transform.position.x;
     }
 
     void Update()
@@ -69,9 +71,12 @@ public class PlayerController : MonoBehaviour
         UpdateEnergyUI();
         CheckDeath();
         UpdateDistanceScore();
+
+        //  Tell GameManager if player is blocked
+        GameManager.instance.playerBlocked = isBlockedByYellow;
     }
 
-    //INPUT
+    // INPUT
     void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -83,12 +88,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0) && isDragging)
         {
             dragEnd = ScreenToWorld(Input.mousePosition);
+            Vector2 dragDir = dragEnd - dragStart;
 
-            Vector2 dragDirection = dragEnd - dragStart;
-            if (dragDirection != Vector2.zero)
-            {
-                RotateTowardsDrag(dragDirection);
-            }
+            if (dragDir != Vector2.zero)
+                RotateTowardsDrag(dragDir);
         }
 
         if (Input.GetMouseButtonUp(0) && isDragging)
@@ -98,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //DASH
+    // DASH
     void Dash()
     {
         if (currentEnergy < energyPerDash)
@@ -109,13 +112,12 @@ public class PlayerController : MonoBehaviour
 
         Vector2 dragDirection = dragEnd - dragStart;
 
-        // Block backward movement
         if (dragDirection.x <= 0f)
             return;
 
         Vector2 direction = dragDirection.normalized;
 
-        currentEnergy -= energyPerDash;                             // energyCostPerDash
+        currentEnergy -= energyPerDash;
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
         rb.linearVelocity = Vector2.zero;
@@ -123,6 +125,9 @@ public class PlayerController : MonoBehaviour
 
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
+
+        //  Player is trying to move → unblock
+        isBlockedByYellow = false;
     }
 
     void StopTrail()
@@ -130,7 +135,7 @@ public class PlayerController : MonoBehaviour
         trail.emitting = false;
     }
 
-    //ENERGY
+    // ENERGY
     void UpdateEnergyUI()
     {
         if (energyBar != null)
@@ -140,27 +145,43 @@ public class PlayerController : MonoBehaviour
     void RefillEnergy()
     {
         currentEnergy = maxEnergy;
-
         if (energyBar != null)
             energyBar.value = currentEnergy;
     }
 
-    //COLLISION
+    // COLLISION
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
             RefillEnergy();
         }
+
+        //  Player stuck at Yellow Box
+        if (collision.gameObject.CompareTag("Yellow_wall_box"))
+        {
+            if (rb.linearVelocity.x <= 0.1f)
+            {
+                isBlockedByYellow = true;
+            }
+        }
     }
 
-    //ROTATION
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Yellow_wall_box"))
+        {
+            isBlockedByYellow = false;
+        }
+    }
+
+    // ROTATION
     void RotateTowardsDrag(Vector2 direction)
     {
-        transform.up = direction; // triangle head faces drag
+        transform.up = direction;
     }
 
-    //LIMITS
+    // LIMITS
     void LateUpdate()
     {
         Vector3 pos = transform.position;
@@ -168,13 +189,11 @@ public class PlayerController : MonoBehaviour
         transform.position = pos;
     }
 
-    //DEATH
+    // DEATH
     void CheckDeath()
     {
         if (transform.position.y < deathY)
-        {
             Die();
-        }
     }
 
     public void Die()
@@ -183,14 +202,14 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.GameOver();
     }
 
-    //SCORE
+    // SCORE
     void UpdateDistanceScore()
     {
         distanceScore = transform.position.x - startX;
         distanceScore = Mathf.Max(distanceScore, 0f);
     }
 
-    //UTILITY
+    // UTILITY
     Vector2 ScreenToWorld(Vector2 screenPos)
     {
         Vector3 world = Camera.main.ScreenToWorldPoint(screenPos);

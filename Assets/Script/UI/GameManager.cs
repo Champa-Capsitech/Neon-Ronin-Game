@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private float playerStartX; //player's starting pos at x = 0
+    public bool playerBlocked;
+
 
 
     [SerializeField] GameObject player;

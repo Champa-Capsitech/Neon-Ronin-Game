@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
 
     public float spawnX = 15f;
 
+    public Transform Camera;
+
     void Start()
     {
         InvokeRepeating(nameof(SpawnObstacle), startDelay, repeatRate);
@@ -22,11 +24,15 @@ public class SpawnManager : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
+        if (GameManager.instance.playerBlocked)
+            return; // STOP SPAWNING
+
         float randomY = Random.Range(ySpawnMin, ySpawnMax);
-        Vector2 spawnPos = new Vector2(spawnX, randomY);
+        Vector2 spawnPos = new Vector2(spawnX + Camera.position.x, randomY);
 
         int index = Random.Range(0, obstaclePrefabs.Length);
 
         Instantiate(obstaclePrefabs[index], spawnPos, Quaternion.identity);
     }
+
 }
