@@ -205,8 +205,8 @@ public class PlayerController : MonoBehaviour
     //SCORE
     void UpdateDistanceScore()
     {
-        distanceScore = transform.position.x - startX;
-        distanceScore = Mathf.Max(distanceScore, 0f);
+        //distanceScore = transform.position.x - startX;
+        //distanceScore = Mathf.Max(distanceScore, 0f);
     }
 
     //UTILITY

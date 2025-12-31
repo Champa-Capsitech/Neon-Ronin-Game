@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,10 +26,18 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI GameOverScoreText;
 
     public float score;
+    public float extraScore = 0;
     public float scoreRate = 10f;
 
 
     public static bool restartFromGameOver = false;
+
+    public TextMeshProUGUI smashText;
+    private float smashTextDuration = 0.5f;
+    private int smashCombo = 0;
+    private float comboResetTime = 0.5f;
+    private Coroutine comboResetCoroutine;
+
 
     void Awake()
     {
@@ -62,10 +71,9 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == GameState.Running && player != null)
         {
-            // Distance travelled relative to start
             float distanceTravelled = player.transform.position.x - playerStartX;
 
-            score = distanceTravelled * scoreRate;
+            score = distanceTravelled * scoreRate + extraScore;
 
             GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
         }
@@ -74,7 +82,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         score = 0;
-        playerStartX = player.transform.position.x;  // <-- add this line
+        playerStartX = player.transform.position.x;
         Debug.Log("StartGame ");
         SetState(GameState.Running);
     }
@@ -86,7 +94,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over!!");
         if (currentState != GameState.Running) return;
 
-        
+
         GameOverScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
         SetState(GameState.GameOver);
     }
@@ -123,5 +131,67 @@ public class GameManager : MonoBehaviour
         score += amount;
 
     }
+    public void AddExtraScore(float amount)
+    {
+        extraScore += amount;
+
+    }
+
+
+    public void ShowSmashText()
+    {
+        smashCombo++;
+
+        if (comboResetCoroutine != null)
+            StopCoroutine(comboResetCoroutine);
+
+        comboResetCoroutine = StartCoroutine(ComboResetTimer());
+
+        UpdateSmashText();
+        StartCoroutine(SmashTextRoutine());
+    }
+
+    private IEnumerator ComboResetTimer()
+    {
+        yield return new WaitForSeconds(comboResetTime);
+        smashCombo = 0;
+    }
+
+    private void UpdateSmashText()
+    {
+        if (smashCombo <= 1)
+            smashText.text = "SMASH";
+        else
+            smashText.text = $"SMASH x{smashCombo}";
+    }
+
+
+    private IEnumerator SmashTextRoutine()
+    {
+        smashText.gameObject.SetActive(true);
+
+        RectTransform rect = smashText.rectTransform;
+
+        rect.localScale = Vector3.zero;
+
+        float popTime = 0.15f;
+        float timer = 0f;
+
+        while (timer < popTime)
+        {
+            timer += Time.deltaTime;
+            float t = timer / popTime;
+
+            rect.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 1.2f, t);
+            yield return null;
+        }
+
+        rect.localScale = Vector3.one;
+
+        yield return new WaitForSeconds(smashTextDuration);
+
+        smashText.gameObject.SetActive(false);
+    }
+
 }
 
