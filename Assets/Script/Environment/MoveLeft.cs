@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
@@ -17,28 +17,21 @@ public class MoveLeft : MonoBehaviour
             PlayerRB = player.GetComponent<Rigidbody2D>();
         }
     }
-
     void Update()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        //Case 1: Obstacles move left at a constant speed
-        float playerSpeed = baseSpeed;
+        if (GameManager.instance.playerBlocked)
+            return; //  STOP MOVING WORLD
 
-        transform.Translate(Vector2.left * playerSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector2.left * baseSpeed * Time.deltaTime, Space.World);
 
-        //Case 2: Obstacles move left based on player speed
-
-        //if (PlayerRB == null) return;
-        //float playerSpeedX = PlayerRB.linearVelocity.x;
-
-        //float effectiveSpeed = Mathf.Max(0f, playerSpeedX);
-
-        //transform.Translate(Vector2.left * effectiveSpeed * Time.deltaTime);
         if (transform.position.x < leftBound)
         {
             Destroy(gameObject);
         }
     }
+
+
 }
