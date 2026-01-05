@@ -2393,14 +2393,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4700432485843521587, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5346612691746617825, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
-      propertyPath: moveSpeed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6897345210833434400, guid: 125dec9d7162e5c4facfa93b2864ac30, type: 3}
       propertyPath: m_Name
       value: BackGround
