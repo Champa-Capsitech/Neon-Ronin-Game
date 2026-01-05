@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+ 
 public class PlayerController : MonoBehaviour
 {
     //Dash_Force
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // ENERGY
     public float maxEnergy = 100f;
     public float currentEnergy;
+    private float energyPerDash = 25f;
     private float energyPerDash = 25f;
     public Slider energyBar;
     // PHYSICS
@@ -90,9 +92,9 @@ public class PlayerController : MonoBehaviour
             Die();
             return;
         }
-
+ 
         Vector2 dragDirection = dragEnd - dragStart;
-
+ 
         if (dragDirection.x <= 0f)
             return;
 
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         currentEnergy -= currentEnergy * energyPerDash / 100;
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-
+ 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * dynamicForce, ForceMode2D.Impulse);
 

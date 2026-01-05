@@ -94,11 +94,13 @@ public class GameManager : MonoBehaviour
         score = 0;
         extraScore = 0;
         playerStartX = player.transform.position.x;
+        // Debug.Log("StartGame ");
         SetState(GameState.Running);
     }
 
     public void GameOver()
     {
+        // Debug.Log("Game Over!!");
         if (currentState != GameState.Running) return;
 
         GameOverScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
@@ -115,13 +117,28 @@ public class GameManager : MonoBehaviour
     {
         currentState = newState;
 
+        // Debug.Log("Current State: " + newState);
+
         gameStartScreen.SetActive(newState == GameState.Start);
         gameOverScreen.SetActive(newState == GameState.GameOver);
 
-        player.SetActive(newState == GameState.Running);
+        if (newState == GameState.Start)
+        {
+            player.SetActive(false);
+            // Debug.Log("GameState.Start");
+        }
+        else if (newState == GameState.Running)
+        {
+            player.SetActive(true);
+            // Debug.Log("GameState.Running");
+        }
     }
 
-    //  REQUIRED BY YellowWallBox
+    public void AddScore(float amount)
+    {
+        score += amount;
+
+    }
     public void AddExtraScore(float amount)
     {
         extraScore += amount;
