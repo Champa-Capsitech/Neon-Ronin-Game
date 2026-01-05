@@ -2,36 +2,35 @@
 
 public class MoveLeft : MonoBehaviour
 {
-    private float baseSpeed = 8f;   // minimum speed
-    //private float speedMultiplier = 1f;
-    private float leftBound = -25f;
-
-    Rigidbody2D PlayerRB;
-
-    private void Awake()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
-        {
-            PlayerRB = player.GetComponent<Rigidbody2D>();
-        }
-    }
     void Update()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        if (GameManager.instance.playerBlocked)
-            return; //  STOP MOVING WORLD
+        float worldSpeed = GameManager.instance.worldSpeed;
 
-        transform.Translate(Vector2.left * baseSpeed * Time.deltaTime, Space.World);
+        if (worldSpeed <= 0f)
+            return;
 
-        if (transform.position.x < leftBound)
+        // Move object left relative to player
+        transform.Translate(Vector2.left * worldSpeed * Time.deltaTime, Space.World);
+
+        DestroyIfOffCamera();
+    }
+
+    void DestroyIfOffCamera()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        float leftEdge =
+            cam.transform.position.x - cam.orthographicSize * cam.aspect;
+
+        // Small buffer so object is fully off-screen
+        if (transform.position.x < leftEdge - 2f)
         {
             Destroy(gameObject);
         }
     }
-
-
 }
+

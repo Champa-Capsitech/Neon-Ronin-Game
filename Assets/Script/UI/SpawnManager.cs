@@ -7,32 +7,41 @@ public class SpawnManager : MonoBehaviour
     public float ySpawnMin = -4f;
     public float ySpawnMax = 1f;
 
-    public float startDelay = 1f;
-    public float repeatRate = 2f;
-
-    public float spawnX = 15f;
+    public float spawnGap = 6f;       // distance between obstacles
+    public float spawnXOffset = 15f;
 
     public Transform Camera;
 
-    void Start()
-    {
-        InvokeRepeating(nameof(SpawnObstacle), startDelay, repeatRate);
-    }
+    float distanceCounter;
 
-    void SpawnObstacle()
+    void Update()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        if (GameManager.instance.playerBlocked)
-            return; // STOP SPAWNING
+        float speed = GameManager.instance.worldSpeed;
 
-        float randomY = Random.Range(ySpawnMin, ySpawnMax);
-        Vector2 spawnPos = new Vector2(spawnX + Camera.position.x, randomY);
+        // 🔑 No movement → no spawning
+        if (speed <= 0f)
+            return;
 
-        int index = Random.Range(0, obstaclePrefabs.Length);
+        distanceCounter += speed * Time.deltaTime;
 
-        Instantiate(obstaclePrefabs[index], spawnPos, Quaternion.identity);
+        if (distanceCounter >= spawnGap)
+        {
+            SpawnObstacle();
+            distanceCounter = 0f;
+        }
     }
 
+    void SpawnObstacle()
+    {
+        float randomY = Random.Range(ySpawnMin, ySpawnMax);
+        Vector2 spawnPos = new Vector2(Camera.position.x + spawnXOffset, randomY);
+
+        int index = Random.Range(0, obstaclePrefabs.Length);
+        Instantiate(obstaclePrefabs[index], spawnPos, Quaternion.identity);
+    }
 }
+
+
