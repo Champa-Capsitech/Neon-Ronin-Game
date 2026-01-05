@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
     private float energyPerDash = 25f;
-    private float energyPerDash = 25f;
+    //private float energyPerDash = 25f;
     public Slider energyBar;
     // PHYSICS
     public float gravityScale = 0.65f;

@@ -13,6 +13,7 @@ public class EnemyRotator : MonoBehaviour
         if (!collision.CompareTag("Player")) return;
 
         Destroy(gameObject);
+        Destroy(collision.gameObject);
         GameManager.instance.GameOver();
     }
 }
