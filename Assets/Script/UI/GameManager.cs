@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         playerStartX = player.transform.position.x;
-        Debug.Log("StartGame ");
+        // Debug.Log("StartGame ");
         SetState(GameState.Running);
     }
 
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over!!");
+        // Debug.Log("Game Over!!");
         if (currentState != GameState.Running) return;
 
 
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = newState;
 
-        Debug.Log("Current State: " + newState);
+        // Debug.Log("Current State: " + newState);
 
         gameStartScreen.SetActive(newState == GameState.Start);
         gameOverScreen.SetActive(newState == GameState.GameOver);
@@ -119,12 +119,12 @@ public class GameManager : MonoBehaviour
         if (newState == GameState.Start)
         {
             player.SetActive(false);
-            Debug.Log("GameState.Start");
+            // Debug.Log("GameState.Start");
         }
         else if (newState == GameState.Running)
         {
             player.SetActive(true);
-            Debug.Log("GameState.Running");
+            // Debug.Log("GameState.Running");
         }
     }
 
