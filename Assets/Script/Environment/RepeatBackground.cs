@@ -4,7 +4,6 @@ public class RepeatBackground : MonoBehaviour
 {
     private Vector2 startPos;
     private float divide = 4f;
-    //private float moveSpeed = 8f;
     private float repeatDistance;
     Rigidbody2D PlayerRB;
 

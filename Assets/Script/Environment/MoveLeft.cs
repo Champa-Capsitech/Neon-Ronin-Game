@@ -12,7 +12,6 @@ public class MoveLeft : MonoBehaviour
         if (worldSpeed <= 0f)
             return;
 
-        // Move object left relative to player
         transform.Translate(Vector2.left * worldSpeed * Time.deltaTime, Space.World);
 
         DestroyIfOffCamera();
@@ -26,8 +25,7 @@ public class MoveLeft : MonoBehaviour
         float leftEdge =
             cam.transform.position.x - cam.orthographicSize * cam.aspect;
 
-        // Small buffer so object is fully off-screen
-        if (transform.position.x < leftEdge - 2f)
+        if (transform.position.x < leftEdge - 5f)
         {
             Destroy(gameObject);
         }

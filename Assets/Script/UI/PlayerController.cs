@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        ApplyAirResistance(); //projectile feel
+        ApplyAirResistance();
     }
 
     void HandleInput()
@@ -128,12 +128,11 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = dragDirection.normalized;
 
-        currentEnergy -= currentEnergy * energyPerDash / 100f;      // Energy consumption
+        currentEnergy -= currentEnergy * energyPerDash / 100f; 
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
         rb.linearVelocity = Vector2.zero;
 
-        // Apply impulse (projectile start)
         rb.AddForce(direction * dynamicForce, ForceMode2D.Impulse);
 
         trail.emitting = true;
