@@ -25,7 +25,7 @@ public class YellowWallBox : MonoBehaviour
         if (breakFX != null)
         {
             GameObject fx = Instantiate(breakFX, transform.position, Quaternion.identity);
-            GameManager.instance.AddExtraScore(500);
+            GameManager.instance.AddExtraScore(100);
             GameManager.instance.ShowSmashText();
             fx.transform.SetParent(followTarget);
 

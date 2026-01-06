@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5080258175895014831}
   m_Layer: 0
   m_Name: Pink_Square_4
-  m_TagString: Untagged
+  m_TagString: Pink_Square
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
