@@ -7,8 +7,8 @@ public class SpawnManager : MonoBehaviour
     public float ySpawnMin = -4f;
     public float ySpawnMax = 1f;
 
-    public float spawnGap = 6f;       // distance between obstacles
-    public float spawnXOffset = 15f;
+    private float spawnGap = 6f;
+    private float spawnXOffset = 15f;
 
     public Transform Camera;
 
@@ -21,7 +21,6 @@ public class SpawnManager : MonoBehaviour
 
         float speed = GameManager.instance.worldSpeed;
 
-        // 🔑 No movement → no spawning
         if (speed <= 0f)
             return;
 
