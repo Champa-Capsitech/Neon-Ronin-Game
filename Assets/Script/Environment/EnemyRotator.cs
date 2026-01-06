@@ -1,19 +1,29 @@
 using UnityEngine;
 
-public class EnemyRotator : MonoBehaviour
+public class EnemyTrigger : MonoBehaviour
 {
-    public float rotationSpeed = 90f;
+    private float breakVelocity = 5f;
+    public int scoreReward = 500;
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player")) return;
+        if (!other.CompareTag("Player"))
+            return;
 
-        Destroy(gameObject);
-        Destroy(collision.gameObject);
-        GameManager.instance.GameOver();
+        Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
+        if (playerRb == null) return;
+
+        float playerSpeed = playerRb.linearVelocity.magnitude;
+
+        if (playerSpeed >= breakVelocity)
+        {
+            GameManager.instance.AddExtraScore(scoreReward);
+            Destroy(gameObject);          
+        }
+        else
+        {
+            GameManager.instance.GameOver();
+            Destroy(other.gameObject);    
+        }
     }
 }
