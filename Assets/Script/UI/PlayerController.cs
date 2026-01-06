@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
             {
                 isBlockedByYellow = true;
             }
+            RefillEnergy();
         }
     }
     void OnCollisionExit2D(Collision2D collision)
