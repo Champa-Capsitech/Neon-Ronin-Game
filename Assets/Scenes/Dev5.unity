@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5545719021745926647}
+  InGame_Scoretext: {fileID: 2024066214}
   worldSpeed: 0
   speedMultiplier: 1
   playerBlocked: 0

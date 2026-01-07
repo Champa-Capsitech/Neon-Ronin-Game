@@ -104,13 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0429b08ae62c39e4481aac0770cca802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 15
+  ringPrefab: {fileID: 5039912117826882298, guid: 90167d4941206284a82916c617a56c7c, type: 3}
   maxEnergy: 100
   currentEnergy: 100
-  energyPerDash: 5
   energyBar: {fileID: 0}
-  gravityScale: 0.65
-  airDrag: 2
   distanceScore: 0
 --- !u!114 &9169043770528379769
 MonoBehaviour:

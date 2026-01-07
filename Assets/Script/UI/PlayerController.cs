@@ -3,39 +3,43 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //  DASH SETTINGS 
+    //Shockwave //Dash
+    public GameObject ringPrefab;
+
+
+    //Dash Setting 
     private float minDashForce = 6f;
     private float maxDashForce = 15f;
     private float dragSensitivity = 0.8f;
 
-    //  ENERGY 
+    //Energy 
     public float maxEnergy = 100f;
     public float currentEnergy;
     private float energyPerDash = 25f;
     public Slider energyBar;
 
-    //  PHYSICS 
+    //Physics 
     private float gravityScale = 0.65f;          
     private float airResistance = 5f;        
 
-    //  LIMITS 
+    //Limits 
     private float minY = -12f;
     private float maxY = 3.5f;
     private float deathY = -12f;
 
-    //  SCORE 
+    //Score 
     public float distanceScore;
     private float startX;
 
     Rigidbody2D rb;
     TrailRenderer trail;
 
-    //INPUT
+    //Input
     Vector2 dragStart;
     Vector2 dragEnd;
     bool isDragging;
 
-    //STATE
+    //State
     bool isBlockedByYellow;
 
     void Awake()
@@ -128,16 +132,23 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = dragDirection.normalized;
 
-        currentEnergy -= currentEnergy * energyPerDash / 100f; 
+        currentEnergy -= currentEnergy * energyPerDash / 100f;
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
 
-        rb.linearVelocity = Vector2.zero;
+        Vector3 dashStartPosition = transform.position;
 
+        rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * dynamicForce, ForceMode2D.Impulse);
+
+        if (ringPrefab != null)
+        {
+            Instantiate(ringPrefab, dashStartPosition, Quaternion.identity);
+        }
 
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
     }
+
 
     //air resistance
     void ApplyAirResistance()

@@ -2430,6 +2430,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 779480679504236528, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      propertyPath: ringPrefab
+      value: 
+      objectReference: {fileID: 5039912117826882298, guid: 90167d4941206284a82916c617a56c7c, type: 3}
     - target: {fileID: 1286685459476218500, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.2
