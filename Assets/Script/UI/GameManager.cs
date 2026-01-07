@@ -41,8 +41,10 @@ public class GameManager : MonoBehaviour
 
  
     public TextMeshProUGUI smashText;
+    public TextMeshProUGUI executedText;
     private float smashTextDuration = 0.5f;
     private int smashCombo = 0;
+    private int ExecutedCombo = 0;
     private float comboResetTime = 0.5f;
     private Coroutine comboResetCoroutine;
 
@@ -163,6 +165,32 @@ public class GameManager : MonoBehaviour
         smashText.gameObject.SetActive(true);
         yield return new WaitForSeconds(smashTextDuration);
         smashText.gameObject.SetActive(false);
+    }
+
+    // Executed UI
+    public void ShowExecutedText()
+    {
+        ExecutedCombo++;
+
+        if (comboResetCoroutine != null)
+            StopCoroutine(comboResetCoroutine);
+
+        comboResetCoroutine = StartCoroutine(ComboResetTimer2());
+        executedText.text = ExecutedCombo <= 1 ? "EXECUTED" : $"EXECUTED x{ExecutedCombo}";
+        StartCoroutine(ExecutedTextRoutine());
+    }
+
+    IEnumerator ComboResetTimer2()
+    {
+        yield return new WaitForSeconds(comboResetTime);
+        ExecutedCombo = 0;
+    }
+
+    IEnumerator ExecutedTextRoutine()
+    {
+        executedText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(smashTextDuration);
+        executedText.gameObject.SetActive(false);
     }
 }
 

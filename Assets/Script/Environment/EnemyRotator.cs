@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    private float breakVelocity = 5f;
+    private float breakVelocity = 10f;
     public int scoreReward = 500;
     public float rotationSpeed = 90f;
 
@@ -24,6 +24,7 @@ public class EnemyTrigger : MonoBehaviour
         if (playerSpeed >= breakVelocity)
         {
             GameManager.instance.AddExtraScore(scoreReward);
+            GameManager.instance.ShowExecutedText();
             Destroy(gameObject);          
         }
         else
