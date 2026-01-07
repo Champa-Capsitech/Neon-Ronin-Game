@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
  
     [SerializeField] GameObject player;
+    public TextMeshProUGUI InGame_Scoretext;
     private float playerStartX;
 
 
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
         {
             player.SetActive(true);
         }
+        InGame_Scoretext.gameObject.SetActive(newState == GameState.Running);
     }
 
     public void AddScore(float amount)

@@ -9,6 +9,7 @@ TagManager:
   - Background
   - Plateform
   - Platform
+  - Pink_Square
   layers:
   - Default
   - TransparentFX
