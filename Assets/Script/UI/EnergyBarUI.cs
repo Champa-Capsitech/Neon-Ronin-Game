@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class EnergyBarUI : MonoBehaviour
 {
-    public PlayerController player; //  MUST be assigned
-    public Slider slider;            //  MUST be assigned
+    public PlayerController player; 
+    public Slider slider; 
 
     void Start()
     {

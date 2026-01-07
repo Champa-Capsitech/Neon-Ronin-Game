@@ -71,7 +71,6 @@
     <Compile Include="Assets\Script\Environment\EnemyRotator.cs" />
     <Compile Include="Assets\Script\UI\CameraFollow.cs" />
     <Compile Include="Assets\Script\UI\GameManager.cs" />
-    <Compile Include="Assets\Script\UI\DistanceTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

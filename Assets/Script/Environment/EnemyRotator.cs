@@ -4,6 +4,12 @@ public class EnemyTrigger : MonoBehaviour
 {
     private float breakVelocity = 5f;
     public int scoreReward = 500;
+    public float rotationSpeed = 90f;
+
+    void Update()
+    {
+        transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
