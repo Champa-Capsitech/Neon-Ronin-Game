@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     private float airResistance = 5f;        
 
     //  LIMITS 
-    private float minY = -20f;
-    private float maxY = 8f;
-    private float deathY = -20f;
+    private float minY = -12f;
+    private float maxY = 3.5f;
+    private float deathY = -12f;
 
     //  SCORE 
     public float distanceScore;
