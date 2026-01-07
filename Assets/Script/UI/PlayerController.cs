@@ -3,33 +3,30 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //Shockwave //Dash
+
     public GameObject ringPrefab;
 
+    public CameraFollow cameraFollow;
 
-    //Dash Setting 
     private float minDashForce = 6f;
     private float maxDashForce = 15f;
     private float dragSensitivity = 0.8f;
 
     //Energy 
     public float maxEnergy = 100f;
+
     public float currentEnergy;
-    private float energyPerDash = 25f;
+    public float energyCost = 10f;
     public Slider energyBar;
 
     //Physics 
-    private float gravityScale = 0.65f;          
-    private float airResistance = 5f;        
+    private float gravityScale = 0.65f;
+    private float airResistance = 5f;
 
     //Limits 
     private float minY = -12f;
     private float maxY = 3.5f;
     private float deathY = -12f;
-
-    //Score 
-    public float distanceScore;
-    private float startX;
 
     Rigidbody2D rb;
     TrailRenderer trail;
@@ -59,11 +56,8 @@ public class PlayerController : MonoBehaviour
             energyBar.maxValue = maxEnergy;
             energyBar.value = currentEnergy;
         }
-    }
-    void Start()
-    {
-        startX = transform.position.x;
-    }
+        }
+    
 
     void Update()
     {
@@ -71,13 +65,13 @@ public class PlayerController : MonoBehaviour
             return;
 
         HandleInput();
+        EnergyDrain();
         UpdateEnergyUI();
         CheckDeath();
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
     }
 
-    // Physics Update projectile retardation
     void FixedUpdate()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
@@ -113,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (currentEnergy < 1.5f)
+        if (currentEnergy <= 0f)
         {
             Die2();
             return;
@@ -132,9 +126,6 @@ public class PlayerController : MonoBehaviour
 
         Vector2 direction = dragDirection.normalized;
 
-        currentEnergy -= currentEnergy * energyPerDash / 100f;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-
         Vector3 dashStartPosition = transform.position;
 
         rb.linearVelocity = Vector2.zero;
@@ -147,15 +138,31 @@ public class PlayerController : MonoBehaviour
 
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
+        if (cameraFollow != null)
+        {
+            cameraFollow.Shake();
+        }
     }
 
 
-    //air resistance
+    void EnergyDrain()
+    {
+        if (rb.linearVelocity.magnitude < 0.1f)
+            return;
+        if (currentEnergy <= 0f)
+        {
+            currentEnergy = 0f;
+            Die();
+            return;
+        }
+        currentEnergy -= energyCost * Time.deltaTime;
+        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+    }
+
     void ApplyAirResistance()
     {
         Vector2 velocity = rb.linearVelocity;
 
-        // slowXbutY
         velocity.x = Mathf.MoveTowards(
             velocity.x,
             0f,
