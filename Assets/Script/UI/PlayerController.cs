@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     //State
     bool isBlockedByYellow;
+    bool isOnPlatform;
+
 
     void Awake()
     {
@@ -54,9 +56,8 @@ public class PlayerController : MonoBehaviour
             energyBar.maxValue = GameManager.instance.maxEnergy;
             energyBar.value = GameManager.instance.currentEnergy;
         }
-        }
+    }
     
-
     void Update()
     {
         if (GameManager.instance.currentState != GameManager.GameState.Running)
@@ -66,6 +67,8 @@ public class PlayerController : MonoBehaviour
         EnergyDrain();
         UpdateEnergyUI();
         CheckDeath();
+        RefillEnergy_wrt_Time();
+
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
     }
@@ -142,7 +145,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void EnergyDrain()
     {
         if (rb.linearVelocity.magnitude < 0.1f)
@@ -174,20 +176,23 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            RefillEnergy_wrt_Time();
+            isOnPlatform = true;
         }
 
         if (collision.gameObject.CompareTag("Yellow_wall_box"))
         {
             if (rb.linearVelocity.x < 5f)
                 isBlockedByYellow = true;
-
-            //RefillEnergy();
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            isOnPlatform = false;
+        }
+
         if (collision.gameObject.CompareTag("Yellow_wall_box"))
             isBlockedByYellow = false;
     }
@@ -221,19 +226,31 @@ public class PlayerController : MonoBehaviour
             energyBar.value = GameManager.instance.currentEnergy;
     }
 
-    void RefillEnergy()
-    {
-        GameManager.instance.RefillFullEnergy();
-        if (energyBar != null)
-            energyBar.value = GameManager.instance.currentEnergy;
-    }
+    //void RefillEnergy()
+    //{
+    //    GameManager.instance.RefillFullEnergy();
+    //    if (energyBar != null)
+    //        energyBar.value = GameManager.instance.currentEnergy;
+    //}
 
     void RefillEnergy_wrt_Time()
     {
-        GameManager.instance.RefillFullEnergy();
-        if (energyBar != null)
-            energyBar.value = GameManager.instance.currentEnergy;
+        if (!isOnPlatform)
+            return;
+
+        if (GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
+            return;
+
+        float refillSpeed = 20f;
+
+        GameManager.instance.currentEnergy += refillSpeed * Time.deltaTime;
+        GameManager.instance.currentEnergy = Mathf.Clamp(
+            GameManager.instance.currentEnergy,
+            0f,
+            GameManager.instance.maxEnergy
+        );
     }
+
 
     public void Die()
     {
