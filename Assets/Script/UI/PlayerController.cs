@@ -13,9 +13,7 @@ public class PlayerController : MonoBehaviour
     private float dragSensitivity = 0.8f;
 
     //Energy 
-    public float maxEnergy = 100f;
-
-    public float currentEnergy;
+  
     public float energyCost = 10f;
     public Slider energyBar;
 
@@ -50,11 +48,11 @@ public class PlayerController : MonoBehaviour
 
         trail.emitting = false;
 
-        currentEnergy = maxEnergy;
+        GameManager.instance.currentEnergy = GameManager.instance.maxEnergy;
         if (energyBar != null)
         {
-            energyBar.maxValue = maxEnergy;
-            energyBar.value = currentEnergy;
+            energyBar.maxValue = GameManager.instance.maxEnergy;
+            energyBar.value = GameManager.instance.currentEnergy;
         }
         }
     
@@ -107,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (currentEnergy <= 0f)
+        if (GameManager.instance.currentEnergy <= 0f)
         {
             Die2();
             return;
@@ -149,14 +147,14 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.linearVelocity.magnitude < 0.1f)
             return;
-        if (currentEnergy <= 0f)
+        if (GameManager.instance.currentEnergy <= 0f)
         {
-            currentEnergy = 0f;
+            GameManager.instance.currentEnergy = 0f;
             Die();
             return;
         }
-        currentEnergy -= energyCost * Time.deltaTime;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+        GameManager.instance.currentEnergy -= energyCost * Time.deltaTime;
+        GameManager.instance.currentEnergy = Mathf.Clamp(GameManager.instance.currentEnergy, 0f, GameManager.instance.maxEnergy);
     }
 
     void ApplyAirResistance()
@@ -176,15 +174,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            RefillEnergy();
+            RefillEnergy_wrt_Time();
         }
 
         if (collision.gameObject.CompareTag("Yellow_wall_box"))
         {
-            if (rb.linearVelocity.x <= 0.1f)
+            if (rb.linearVelocity.x < 5f)
                 isBlockedByYellow = true;
 
-            RefillEnergy();
+            //RefillEnergy();
         }
     }
 
@@ -220,14 +218,21 @@ public class PlayerController : MonoBehaviour
     void UpdateEnergyUI()
     {
         if (energyBar != null)
-            energyBar.value = currentEnergy;
+            energyBar.value = GameManager.instance.currentEnergy;
     }
 
     void RefillEnergy()
     {
-        currentEnergy = maxEnergy;
+        GameManager.instance.RefillFullEnergy();
         if (energyBar != null)
-            energyBar.value = currentEnergy;
+            energyBar.value = GameManager.instance.currentEnergy;
+    }
+
+    void RefillEnergy_wrt_Time()
+    {
+        GameManager.instance.RefillFullEnergy();
+        if (energyBar != null)
+            energyBar.value = GameManager.instance.currentEnergy;
     }
 
     public void Die()

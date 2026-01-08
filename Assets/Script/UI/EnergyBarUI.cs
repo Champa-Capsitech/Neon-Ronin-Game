@@ -20,8 +20,8 @@ public class EnergyBarUI : MonoBehaviour
             return;
         }
 
-        slider.maxValue = player.maxEnergy;
-        slider.value = player.currentEnergy;
+        slider.maxValue = GameManager.instance.maxEnergy;
+        slider.value = GameManager.instance.currentEnergy;
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class EnergyBarUI : MonoBehaviour
         if (player == null || slider == null)
             return;
 
-        slider.value = player.currentEnergy;
+        slider.value = GameManager.instance.currentEnergy;
     }
 }
 

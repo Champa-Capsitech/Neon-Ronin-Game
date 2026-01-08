@@ -25,6 +25,7 @@ public class EnemyTrigger : MonoBehaviour
         {
             GameManager.instance.AddExtraScore(scoreReward);
             GameManager.instance.ShowExecutedText();
+            GameManager.instance.RefillFullEnergy();
             Destroy(gameObject);          
         }
         else

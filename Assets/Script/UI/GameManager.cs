@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
     private float comboResetTime = 0.5f;
     private Coroutine comboResetCoroutine;
 
+    public float maxEnergy = 100f;
+    public float currentEnergy;
+
     void Awake()
     {
         if (instance == null)
@@ -191,6 +194,11 @@ public class GameManager : MonoBehaviour
         executedText.gameObject.SetActive(true);
         yield return new WaitForSeconds(smashTextDuration);
         executedText.gameObject.SetActive(false);
+    }
+
+    public void RefillFullEnergy()
+    {
+       currentEnergy = maxEnergy;
     }
 }
 
