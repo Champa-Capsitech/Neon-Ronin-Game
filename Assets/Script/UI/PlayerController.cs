@@ -255,7 +255,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         rb.linearVelocity = Vector2.zero;
+        trail.emitting = false;
         GameManager.instance.GameOver();
+        Destroy(gameObject);
+
     }
 
     public void Die2()
