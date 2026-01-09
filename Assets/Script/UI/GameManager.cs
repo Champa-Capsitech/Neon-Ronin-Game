@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
         executedText.gameObject.SetActive(false);
     }
 
-    public void RefillFullEnergy()
+    public void FullEnergy()
     {
        currentEnergy = maxEnergy;
     }
