@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         EnergyDrain();
         UpdateEnergyUI();
         CheckDeath();
-        RefillEnergy_wrt_Time();
+        RefillEnergy();
 
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
@@ -226,14 +226,7 @@ public class PlayerController : MonoBehaviour
             energyBar.value = GameManager.instance.currentEnergy;
     }
 
-    //void RefillEnergy()
-    //{
-    //    GameManager.instance.RefillFullEnergy();
-    //    if (energyBar != null)
-    //        energyBar.value = GameManager.instance.currentEnergy;
-    //}
-
-    void RefillEnergy_wrt_Time()
+    void RefillEnergy()
     {
         if (!isOnPlatform)
             return;
@@ -241,7 +234,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
             return;
 
-        float refillSpeed = 20f;
+        float refillSpeed = 40f;
 
         GameManager.instance.currentEnergy += refillSpeed * Time.deltaTime;
         GameManager.instance.currentEnergy = Mathf.Clamp(
@@ -250,7 +243,6 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.maxEnergy
         );
     }
-
 
     public void Die()
     {

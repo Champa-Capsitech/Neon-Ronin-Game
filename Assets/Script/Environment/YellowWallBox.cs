@@ -27,7 +27,7 @@ public class YellowWallBox : MonoBehaviour
             GameObject fx = Instantiate(breakFX, transform.position, Quaternion.identity);
             GameManager.instance.AddExtraScore(100);
             GameManager.instance.ShowSmashText();
-            GameManager.instance.RefillFullEnergy();
+            GameManager.instance.FullEnergy();
             fx.transform.SetParent(followTarget);
 
             StartCoroutine(DestroyFXAfterTime(fx));
