@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentEnergy <= 0f)
         {
             GameManager.instance.currentEnergy = 0f;
-            Die();
+            //Die2();
             return;
         }
         GameManager.instance.currentEnergy -= energyCost * Time.deltaTime;
@@ -258,7 +258,6 @@ public class PlayerController : MonoBehaviour
         trail.emitting = false;
         GameManager.instance.GameOver();
         Destroy(gameObject);
-
     }
 
     public void Die2()
