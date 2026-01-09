@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class EnemyTrigger : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private float breakVelocity = 10f;
-    public int scoreReward = 500;
-    public float rotationSpeed = 90f;
+    private int scoreReward = 500;
+    private float rotationSpeed = 90f;
+
 
     void Update()
     {
@@ -26,12 +27,12 @@ public class EnemyTrigger : MonoBehaviour
             GameManager.instance.AddExtraScore(scoreReward);
             GameManager.instance.ShowExecutedText();
             GameManager.instance.FullEnergy();
-            Destroy(gameObject);          
+            Destroy(gameObject);
         }
         else
         {
             GameManager.instance.GameOver();
-            Destroy(other.gameObject);    
+            Destroy(other.gameObject);
         }
     }
 }

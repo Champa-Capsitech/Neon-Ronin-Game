@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6396519817770928156}
   - component: {fileID: 8069976924726532608}
-  - component: {fileID: 6331599349313275264}
   - component: {fileID: 5080258175895014831}
+  - component: {fileID: -3298342220639050086}
   m_Layer: 0
   m_Name: Pink_Square_4
   m_TagString: Pink_Square
@@ -89,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6331599349313275264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2752597860435041330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650cc215f740f67449de868379b92009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 90
 --- !u!61 &5080258175895014831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +135,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3298342220639050086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2752597860435041330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c9d7ff990aa904fa4c96a3ca34ffbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
