@@ -105,10 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ringPrefab: {fileID: 5039912117826882298, guid: 90167d4941206284a82916c617a56c7c, type: 3}
-  maxEnergy: 100
-  currentEnergy: 100
+  cameraFollow: {fileID: 0}
+  energyCost: 10
   energyBar: {fileID: 0}
-  distanceScore: 0
 --- !u!114 &9169043770528379769
 MonoBehaviour:
   m_ObjectHideFlags: 0

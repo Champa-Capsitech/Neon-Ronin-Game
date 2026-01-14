@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
   
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
+    public GameObject inGameScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
 
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         currentState = newState;
         gameStartScreen.SetActive(newState == GameState.Start);
         gameOverScreen.SetActive(newState == GameState.GameOver);
+        inGameScreen.SetActive(newState == GameState.Running);
 
         if (newState == GameState.Start)
         {
