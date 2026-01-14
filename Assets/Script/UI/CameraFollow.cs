@@ -1,52 +1,77 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
 
-    [Header("Safe Area (world units)")]
-    public float safeZoneHalfHeight = 2.5f;
-    public float safeZoneHalfWidth = 3.5f;
+    public float safeZoneWidth = 10f;  
 
-    [Header("Camera Shake")]
+    private float cameraTopLimitY = 4f; 
+
     public float shakeStrength = 2f;
     public float shakeDuration = 0.15f;
 
-    Vector3 basePosition;
+    private float followStartOffsetY = 0f;
+
     float shakeTimer;
+    Camera cam;
+
+    void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
 
     void LateUpdate()
     {
         if (player == null) return;
 
-        Vector3 camPos = transform.position;
+        Vector3 cameraPosition = transform.position;
 
-        float deltaY = player.position.y - camPos.y;
-        float deltaX = player.position.x - camPos.x;
+        float cameraHalfHeight = cam.orthographicSize;
+        float cameraHalfWidth = cam.orthographicSize * cam.aspect;
 
-        if (Mathf.Abs(deltaY) > safeZoneHalfHeight)
+        float cameraLeftX = cameraPosition.x - cameraHalfWidth;
+
+        float safeZoneRightX = cameraLeftX + safeZoneWidth;
+
+        if (player.position.x > safeZoneRightX)
         {
-            camPos.y += deltaY - Mathf.Sign(deltaY) * safeZoneHalfHeight;
+            float moveAmount = player.position.x - safeZoneRightX;
+            cameraPosition.x += moveAmount;
         }
 
-        if (Mathf.Abs(deltaX) > safeZoneHalfWidth)
+        float followLineY = cameraPosition.y + followStartOffsetY;
+        if (player.position.y < followLineY)
         {
-            camPos.x += deltaX - Mathf.Sign(deltaX) * safeZoneHalfWidth;
+            float moveAmount = player.position.y - followLineY;
+            cameraPosition.y += moveAmount;
         }
 
-        basePosition = camPos;
+        if (player.position.y > followLineY)
+        {
+            float moveAmount = player.position.y - followLineY;
+            cameraPosition.y += moveAmount;
+        }
+
+        float maxCameraY = cameraTopLimitY - cameraHalfHeight;
+        if (cameraPosition.y > maxCameraY)
+        {
+            cameraPosition.y = maxCameraY;
+        }
 
         if (shakeTimer > 0f)
         {
-            camPos += (Vector3)Random.insideUnitCircle * shakeStrength;
+            Vector2 randomShake = Random.insideUnitCircle * shakeStrength;
+            cameraPosition.x += randomShake.x;
+            cameraPosition.y += randomShake.y;
+
             shakeTimer -= Time.deltaTime;
         }
 
-        transform.position = camPos;
+        transform.position = cameraPosition;
     }
-
     public void Shake()
     {
         shakeTimer = shakeDuration;
     }
 }
+

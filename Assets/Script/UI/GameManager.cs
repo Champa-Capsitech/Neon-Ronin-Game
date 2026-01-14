@@ -201,4 +201,3 @@ public class GameManager : MonoBehaviour
        currentEnergy = maxEnergy;
     }
 }
-

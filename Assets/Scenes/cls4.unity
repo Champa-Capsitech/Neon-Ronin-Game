@@ -1666,8 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5817895720702549659}
-  safeZoneHalfHeight: 3.5
-  safeZoneHalfWidth: 2
+  safeZoneWidth: 10
   shakeStrength: 0.05
   shakeDuration: 0.15
 --- !u!1 &1658716831
@@ -2835,7 +2834,7 @@ PrefabInstance:
       objectReference: {fileID: 1582169713}
     - target: {fileID: 1286685459476218500, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.2
+      value: -8.75
       objectReference: {fileID: 0}
     - target: {fileID: 1286685459476218500, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_LocalPosition.y
