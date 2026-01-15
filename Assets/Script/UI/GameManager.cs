@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
- 
+
     [SerializeField] GameObject player;
     public TextMeshProUGUI InGame_Scoretext;
     private float playerStartX;
@@ -26,21 +26,21 @@ public class GameManager : MonoBehaviour
 
     public GameState currentState;
 
-  
+
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
     public GameObject inGameScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
 
-   
+
     public float score;
     public float extraScore = 0;
     public float scoreRate = 10f;
 
     public static bool restartFromGameOver = false;
 
- 
+
     public TextMeshProUGUI smashText;
     public TextMeshProUGUI executedText;
     private float smashTextDuration = 0.5f;
@@ -200,6 +200,6 @@ public class GameManager : MonoBehaviour
 
     public void FullEnergy()
     {
-       currentEnergy = maxEnergy;
+        currentEnergy = maxEnergy;
     }
 }
