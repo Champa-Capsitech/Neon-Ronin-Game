@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Enemy : MonoBehaviour
     private int scoreReward = 500;
     private float rotationSpeed = 90f;
 
+    public GameObject breakFX;
+    private float fxDuration = 0.5f;
 
     void Update()
     {
@@ -24,6 +27,7 @@ public class Enemy : MonoBehaviour
 
         if (playerSpeed >= breakVelocity)
         {
+            SpawnBreakFX(other.transform);
             GameManager.instance.AddExtraScore(scoreReward);
             GameManager.instance.ShowExecutedText();
             GameManager.instance.FullEnergy();
@@ -34,5 +38,21 @@ public class Enemy : MonoBehaviour
             GameManager.instance.GameOver();
             Destroy(other.gameObject);
         }
+    }
+
+    private void SpawnBreakFX(Transform followTarget)
+    {
+        if (breakFX == null) return;
+
+        GameObject fx = Instantiate(breakFX, transform.position, Quaternion.identity);
+        fx.transform.SetParent(followTarget);
+
+        StartCoroutine(DestroyFXAfterTime(fx));
+    }
+
+    private IEnumerator DestroyFXAfterTime(GameObject fx)
+    {
+        yield return new WaitForSeconds(fxDuration);
+        Destroy(fx);
     }
 }
