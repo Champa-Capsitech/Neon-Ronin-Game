@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
     public GameObject ringPrefab;
     public CameraFollow cameraFollow;
 
-    private float minDashForce = 6f;
-    private float maxDashForce = 15f;
+    private float minDashForce = 10f;
+    private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
 
     public float energyCost = 10f;

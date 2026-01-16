@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-    private float breakVelocity = 10f;
+    private float breakVelocity = 9f;
     private int scoreReward = 500;
     private float rotationSpeed = 90f;
 
