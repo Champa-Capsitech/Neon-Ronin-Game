@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
 
+
+    public int overallHighScore;
+    public TextMeshProUGUI overallHighScoreText;
+
+
     void Awake()
     {
         if (instance == null)
@@ -65,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         if (restartFromGameOver)
         {
             restartFromGameOver = false;
@@ -107,8 +113,17 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if (currentState != GameState.Running) return;
+        int finalScore=Mathf.CeilToInt(score);
+        GameOverScoreText.text = "SCORE : " + finalScore;
 
-        GameOverScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
+
+    if (finalScore > overallHighScore)
+    {
+        overallHighScore = finalScore;
+        PlayerPrefs.SetInt("HighScore", overallHighScore);
+        PlayerPrefs.Save(); 
+    }
+    overallHighScoreText.text="HIGH SCORE : " + overallHighScore;
         SetState(GameState.GameOver);
     }
 
