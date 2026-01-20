@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e016f7914808f6f478076766bef13817
+guid: 47ee04dd08a9f584495d4b6a1ee504ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1917789662028094354
-    second: Ronin_0
+      213: -2071204629032589779
+    second: Ronin 2.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ronin_0
+      name: Ronin 2.0_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 38
-        width: 278
-        height: 197
+        x: 175
+        y: 78
+        width: 311
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 29bd917698b5d9a10800000000000000
-      internalID: 1917789662028094354
+      spriteID: d262e551d5a9143e0800000000000000
+      internalID: -2071204629032589779
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ronin_0: 1917789662028094354
+      Ronin 2.0_0: -2071204629032589779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

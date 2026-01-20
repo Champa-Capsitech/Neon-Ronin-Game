@@ -3,32 +3,44 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public enum PlayerState
+    {
+        IdleFalling,
+        Dashing,
+        Depleted
+    }
+
+    public PlayerState currentState;
+
     public GameObject ringPrefab;
     public CameraFollow cameraFollow;
-
-    private float minDashForce = 6f;
-    private float maxDashForce = 15f;
-    private float dragSensitivity = 0.8f;
+    public GameObject outlineObject;
 
     public float energyCost = 10f;
     public Slider energyBar;
-
-    private float gravityScale = 0.65f;
-    private float airResistance = 5f;
-
-    private float minY = -12f;
-    private float maxY = 3.5f;
-    private float deathY = -12f;
 
     Rigidbody2D rb;
     TrailRenderer trail;
 
     Vector2 dragStart;
     Vector2 dragEnd;
-    bool isDragging;
 
+    bool isDragging;
     bool isBlockedByYellow;
     bool isOnPlatform;
+    bool isSupported;
+
+    private float minDashForce = 10f;
+    private float maxDashForce = 20f;
+    private float dragSensitivity = 0.8f;
+
+    private float gravityScale = 0.65f;
+    private float gravityRotateSpeed = 0.5f;
+    private float airResistance = 5f;
+
+    private float minY = -12f;
+    private float maxY = 3.5f;
+    private float deathY = -12f;
 
     void Awake()
     {
@@ -36,21 +48,24 @@ public class PlayerController : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
 
         rb.gravityScale = gravityScale;
-        rb.linearDamping = 0f;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.linearDamping = 0f;
 
         trail.emitting = false;
+        currentState = PlayerState.IdleFalling;
     }
 
     void Start()
     {
         GameManager.instance.currentEnergy = GameManager.instance.maxEnergy;
 
-        if (energyBar != null)
+        if (energyBar)
         {
             energyBar.maxValue = GameManager.instance.maxEnergy;
             energyBar.value = GameManager.instance.currentEnergy;
         }
+
+        UpdateVisualState();
     }
 
     void Update()
@@ -60,9 +75,9 @@ public class PlayerController : MonoBehaviour
 
         HandleInput();
         EnergyDrain();
+        RefillEnergy();
         UpdateEnergyUI();
         CheckDeath();
-        RefillEnergy();
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
     }
@@ -77,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
     void HandleInput()
     {
+        if (currentState == PlayerState.Depleted)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             dragStart = ScreenToWorld(Input.mousePosition);
@@ -84,13 +102,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetMouseButton(0) && isDragging)
-        {
             dragEnd = ScreenToWorld(Input.mousePosition);
-            Vector2 dragDir = dragEnd - dragStart;
-
-            if (dragDir != Vector2.zero)
-                RotateTowardsDrag(dragDir);
-        }
 
         if (Input.GetMouseButtonUp(0) && isDragging)
         {
@@ -103,34 +115,36 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.instance.currentEnergy <= 0f)
         {
-            Die2();
+            currentState = PlayerState.Depleted;
+            UpdateVisualState();
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
         Vector2 dragDirection = dragEnd - dragStart;
-
         if (dragDirection.x <= 0f)
             return;
 
+        currentState = PlayerState.Dashing;
+        UpdateVisualState();
         isBlockedByYellow = false;
 
-        float dragLength = dragDirection.magnitude;
-        float dynamicForce = dragLength * dragSensitivity;
-        dynamicForce = Mathf.Clamp(dynamicForce, minDashForce, maxDashForce);
-
-        Vector2 direction = dragDirection.normalized;
-        Vector3 dashStartPosition = transform.position;
+        float force = Mathf.Clamp(
+            dragDirection.magnitude * dragSensitivity,
+            minDashForce,
+            maxDashForce
+        );
 
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * dynamicForce, ForceMode2D.Impulse);
+        rb.AddForce(dragDirection.normalized * force, ForceMode2D.Impulse);
 
-        if (ringPrefab != null)
-            Instantiate(ringPrefab, dashStartPosition, Quaternion.identity);
+        if (ringPrefab)
+            Instantiate(ringPrefab, transform.position, Quaternion.identity);
 
         trail.emitting = true;
         Invoke(nameof(StopTrail), 0.15f);
 
-        if (cameraFollow != null)
+        if (cameraFollow)
             cameraFollow.Shake();
     }
 
@@ -139,37 +153,54 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude < 0.1f)
             return;
 
+        GameManager.instance.currentEnergy -= energyCost * Time.deltaTime;
+        GameManager.instance.currentEnergy = Mathf.Clamp(
+            GameManager.instance.currentEnergy,
+            0f,
+            GameManager.instance.maxEnergy
+        );
+
         if (GameManager.instance.currentEnergy <= 0f)
         {
-            GameManager.instance.currentEnergy = 0f;
-            return;
+            currentState = PlayerState.Depleted;
+            UpdateVisualState();
         }
-
-        GameManager.instance.currentEnergy -= energyCost * Time.deltaTime;
-        GameManager.instance.currentEnergy = Mathf.Clamp(GameManager.instance.currentEnergy, 0f, GameManager.instance.maxEnergy);
     }
 
     void ApplyAirResistance()
     {
-        Vector2 velocity = rb.linearVelocity;
-        velocity.x = Mathf.MoveTowards(velocity.x, 0f, airResistance * Time.fixedDeltaTime);
-        rb.linearVelocity = velocity;
+        rb.linearVelocity = new Vector2(
+            Mathf.MoveTowards(rb.linearVelocity.x, 0f, airResistance * Time.fixedDeltaTime),
+            rb.linearVelocity.y
+        );
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        EvaluateSupport(collision);
+
         if (collision.gameObject.CompareTag("Platform"))
             isOnPlatform = true;
 
-        if (collision.gameObject.CompareTag("Yellow_wall_box"))
+        if (collision.gameObject.CompareTag("Yellow_wall_box") && rb.linearVelocity.x < 5f)
+            isBlockedByYellow = true;
+
+        if (currentState == PlayerState.Dashing)
         {
-            if (rb.linearVelocity.x < 5f)
-                isBlockedByYellow = true;
+            currentState = PlayerState.IdleFalling;
+            UpdateVisualState();
         }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        EvaluateSupport(collision);
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        isSupported = false;
+
         if (collision.gameObject.CompareTag("Platform"))
             isOnPlatform = false;
 
@@ -177,22 +208,75 @@ public class PlayerController : MonoBehaviour
             isBlockedByYellow = false;
     }
 
-    void RotateTowardsDrag(Vector2 direction)
+    void EvaluateSupport(Collision2D collision)
     {
-        transform.right = direction;
+        foreach (ContactPoint2D c in collision.contacts)
+        {
+            if (c.normal.y > 0.5f)
+            {
+                isSupported = true;
+                return;
+            }
+        }
+
+        isSupported = false;
     }
 
     void LateUpdate()
     {
-        Vector3 pos = transform.position;
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        transform.position = pos;
+        transform.position = new Vector3(
+            transform.position.x,
+            Mathf.Clamp(transform.position.y, minY, maxY),
+            transform.position.z
+        );
+
+        if (currentState == PlayerState.Dashing &&
+            rb.linearVelocity.magnitude < minDashForce)
+        {
+            currentState = PlayerState.IdleFalling;
+            UpdateVisualState();
+        }
+
+        RotateTowardsDominantForce();
     }
 
-    void CheckDeath()
+    void RotateTowardsDominantForce()
     {
-        if (transform.position.y < deathY)
-            Die();
+        if (currentState == PlayerState.Dashing && rb.linearVelocity.magnitude > 0.1f)
+        {
+            transform.right = rb.linearVelocity.normalized;
+            return;
+        }
+
+        if (isSupported)
+            return;
+
+        transform.right = Vector2.Lerp(
+            transform.right,
+            Vector2.down,
+            gravityRotateSpeed * Time.deltaTime
+        );
+    }
+
+    void RefillEnergy()
+    {
+        if (!isOnPlatform || GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
+            return;
+
+        GameManager.instance.currentEnergy += 40f * Time.deltaTime;
+
+        if (currentState == PlayerState.Depleted &&
+            GameManager.instance.currentEnergy > 0f)
+        {
+            currentState = PlayerState.IdleFalling;
+            UpdateVisualState();
+        }
+    }
+
+    void UpdateVisualState()
+    {
+        if (outlineObject)
+            outlineObject.SetActive(currentState == PlayerState.IdleFalling);
     }
 
     void StopTrail()
@@ -200,43 +284,26 @@ public class PlayerController : MonoBehaviour
         trail.emitting = false;
     }
 
+    void CheckDeath()
+    {
+        if (transform.position.y < deathY)
+        {
+            rb.linearVelocity = Vector2.zero;
+            trail.emitting = false;
+            GameManager.instance.GameOver();
+            Destroy(gameObject);
+        }
+    }
+
     void UpdateEnergyUI()
     {
-        if (energyBar != null)
+        if (energyBar)
             energyBar.value = GameManager.instance.currentEnergy;
-    }
-
-    void RefillEnergy()
-    {
-        if (!isOnPlatform)
-            return;
-
-        if (GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
-            return;
-
-        float refillSpeed = 40f;
-
-        GameManager.instance.currentEnergy += refillSpeed * Time.deltaTime;
-        GameManager.instance.currentEnergy = Mathf.Clamp(GameManager.instance.currentEnergy, 0f, GameManager.instance.maxEnergy);
-    }
-
-    public void Die()
-    {
-        rb.linearVelocity = Vector2.zero;
-        trail.emitting = false;
-        GameManager.instance.GameOver();
-        Destroy(gameObject);
-    }
-
-    public void Die2()
-    {
-        rb.linearVelocity = Vector2.zero;
     }
 
     Vector2 ScreenToWorld(Vector2 screenPos)
     {
-        Vector3 world = Camera.main.ScreenToWorldPoint(screenPos);
-        return new Vector2(world.x, world.y);
+        return Camera.main.ScreenToWorldPoint(screenPos);
     }
 
     public float GetCurrentSpeed()
