@@ -42,5 +42,3 @@ public class SpawnManager : MonoBehaviour
         Instantiate(obstaclePrefabs[index], spawnPos, Quaternion.identity);
     }
 }
-
-

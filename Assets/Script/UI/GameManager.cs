@@ -26,20 +26,17 @@ public class GameManager : MonoBehaviour
 
     public GameState currentState;
 
-
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
     public GameObject inGameScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
 
-
     public float score;
     public float extraScore = 0;
     public float scoreRate = 10f;
 
     public static bool restartFromGameOver = false;
-
 
     public TextMeshProUGUI smashText;
     public TextMeshProUGUI executedText;
@@ -52,10 +49,8 @@ public class GameManager : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
 
-
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
-
 
     void Awake()
     {
