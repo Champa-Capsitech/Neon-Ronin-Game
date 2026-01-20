@@ -64,7 +64,6 @@
     <Compile Include="Assets\Script\Environment\YellowWallBox.cs" />
     <Compile Include="Assets\Script\Environment\ShockwaveEffect.cs" />
     <Compile Include="Assets\Script\UI\SpawnManager.cs" />
-    <Compile Include="Assets\Script\UI\DashInput.cs" />
     <Compile Include="Assets\Script\UI\EnergyBarUI.cs" />
     <Compile Include="Assets\Script\Environment\DontDestroyObject.cs" />
     <Compile Include="Assets\Script\Environment\Enemy.cs" />
