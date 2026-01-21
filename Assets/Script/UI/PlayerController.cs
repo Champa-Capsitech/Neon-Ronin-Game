@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     {
         IdleFalling,
         Dashing,
-        Depleted,
+        Depleted
     }
 
     public PlayerState currentState;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public CameraFollow cameraFollow;
     public GameObject outlineObject;
 
-    private float energyCost = 15f;
+    public float energyCost = 10f;
     public Slider energyBar;
 
     Rigidbody2D rb;
@@ -241,12 +241,6 @@ public class PlayerController : MonoBehaviour
             transform.position.z
         );
 
-        if (currentState == PlayerState.Dashing && rb.linearVelocity.magnitude < minDashForce)
-        {
-            currentState = PlayerState.IdleFalling;
-            UpdateVisualState();
-        }
-
         RotateTowardsDominantForce();
     }
 
@@ -275,7 +269,8 @@ public class PlayerController : MonoBehaviour
 
         GameManager.instance.currentEnergy += 40f * Time.deltaTime;
 
-        if (currentState == PlayerState.Depleted && GameManager.instance.currentEnergy > 0f)
+        if (currentState == PlayerState.Depleted &&
+            GameManager.instance.currentEnergy > 0f)
         {
             currentState = PlayerState.IdleFalling;
             UpdateVisualState();
