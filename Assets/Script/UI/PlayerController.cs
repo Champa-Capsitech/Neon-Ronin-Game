@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private float gravityRotateSpeed = 0.5f;
 
     private float minY = -12f;
-    private float maxY = 3.5f;
+    private float maxY = 2f;
     private float deathY = -12f;
 
     private float dashDuration = 0.15f;
