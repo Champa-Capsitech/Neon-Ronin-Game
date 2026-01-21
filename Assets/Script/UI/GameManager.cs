@@ -1,17 +1,16 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-
-    [SerializeField] GameObject player;
+    [SerializeField]
+    GameObject player;
     public TextMeshProUGUI InGame_Scoretext;
     private float playerStartX;
-
 
     public float worldSpeed;
     public float speedMultiplier = 1f;
@@ -21,13 +20,14 @@ public class GameManager : MonoBehaviour
     {
         Start,
         Running,
-        GameOver
+        Paused,
+        GameOver,
     }
 
     public GameState currentState;
-
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
+    public GameObject pauseGameScreen;
     public GameObject inGameScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
+    private bool isPaused = false;
+    public static bool soundOn = true;
 
     void Awake()
     {
@@ -61,11 +63,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        AudioListener.volume = PlayerPrefs.GetInt("SoundOn", 1) == 1 ? 1f : 0f;
     }
 
     void Start()
     {
-         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
+        soundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+        overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         if (restartFromGameOver)
         {
             restartFromGameOver = false;
@@ -79,6 +83,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentState == GameState.Running)
+                PauseGame();
+            else if (currentState == GameState.Paused)
+                ResumeGame();
+        }
+
         if (currentState != GameState.Running || player == null)
         {
             worldSpeed = 0f;
@@ -107,25 +119,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (currentState != GameState.Running) return;
-        int finalScore=Mathf.CeilToInt(score);
+        if (currentState != GameState.Running)
+            return;
+        Time.timeScale = 1f;
+        isPaused = false;
+        int finalScore = Mathf.CeilToInt(score);
         GameOverScoreText.text = "SCORE : " + finalScore;
 
-
-    if (finalScore > overallHighScore)
-    {
-        overallHighScore = finalScore;
-        PlayerPrefs.SetInt("HighScore", overallHighScore);
-        PlayerPrefs.Save(); 
-    }
-    overallHighScoreText.text="HIGH SCORE : " + overallHighScore;
+        if (finalScore > overallHighScore)
+        {
+            overallHighScore = finalScore;
+            PlayerPrefs.SetInt("HighScore", overallHighScore);
+            PlayerPrefs.Save();
+        }
+        overallHighScoreText.text = "HIGH SCORE : " + overallHighScore;
         SetState(GameState.GameOver);
-    }
-
-    public void RestartGame()
-    {
-        restartFromGameOver = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void SetState(GameState newState)
@@ -134,6 +142,7 @@ public class GameManager : MonoBehaviour
         gameStartScreen.SetActive(newState == GameState.Start);
         gameOverScreen.SetActive(newState == GameState.GameOver);
         inGameScreen.SetActive(newState == GameState.Running);
+        pauseGameScreen.SetActive(newState == GameState.Paused);
 
         if (newState == GameState.Start)
         {
@@ -149,8 +158,8 @@ public class GameManager : MonoBehaviour
     public void AddScore(float amount)
     {
         score += amount;
-
     }
+
     public void AddExtraScore(float amount)
     {
         extraScore += amount;
@@ -211,5 +220,53 @@ public class GameManager : MonoBehaviour
     public void FullEnergy()
     {
         currentEnergy = maxEnergy;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+        restartFromGameOver = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PauseGame()
+    {
+        if (currentState != GameState.Running)
+            return;
+
+        Time.timeScale = 0f;
+        isPaused = true;
+        SetState(GameState.Paused);
+    }
+
+    public void ResumeGame()
+    {
+        if (!isPaused)
+            return;
+
+        Time.timeScale = 1f;
+        isPaused = false;
+        SetState(GameState.Running);
+    }
+
+    public void ToggleSound()
+    {
+        soundOn = !soundOn;
+
+        PlayerPrefs.SetInt("SoundOn", soundOn ? 1 : 0);
+        PlayerPrefs.Save();
+
+        // Optional: apply globally
+        // AudioListener.volume = soundOn ? 1f : 0f;
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
