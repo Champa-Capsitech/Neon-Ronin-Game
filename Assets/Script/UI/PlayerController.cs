@@ -36,11 +36,14 @@ public class PlayerController : MonoBehaviour
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
-    private float airResistance = 5f;
-
+    
     private float minY = -12f;
     private float maxY = 3.5f;
     private float deathY = -12f;
+
+    private float dashDuration = 0.15f;
+    private float dashTimer;
+    private float originalGravity;
 
     void Awake()
     {
@@ -50,6 +53,8 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = gravityScale;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         rb.linearDamping = 0f;
+
+        originalGravity = gravityScale;
 
         trail.emitting = false;
         currentState = PlayerState.IdleFalling;
@@ -87,7 +92,18 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        ApplyAirResistance();
+        if (currentState == PlayerState.Dashing)
+        {
+            dashTimer -= Time.fixedDeltaTime;
+
+            if (dashTimer <= 0f)
+            {
+                rb.gravityScale = originalGravity;
+                currentState = PlayerState.IdleFalling;
+                UpdateVisualState();
+            }
+            return; 
+        }
     }
 
     void HandleInput()
@@ -129,14 +145,16 @@ public class PlayerController : MonoBehaviour
         UpdateVisualState();
         isBlockedByYellow = false;
 
-        float force = Mathf.Clamp(
+        float dashSpeed = Mathf.Clamp(
             dragDirection.magnitude * dragSensitivity,
             minDashForce,
             maxDashForce
         );
 
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(dragDirection.normalized * force, ForceMode2D.Impulse);
+        rb.linearVelocity = dragDirection.normalized * dashSpeed;
+
+        rb.gravityScale = 0f;
+        dashTimer = dashDuration;
 
         if (ringPrefab)
             Instantiate(ringPrefab, transform.position, Quaternion.identity);
@@ -167,14 +185,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ApplyAirResistance()
-    {
-        rb.linearVelocity = new Vector2(
-            Mathf.MoveTowards(rb.linearVelocity.x, 0f, airResistance * Time.fixedDeltaTime),
-            rb.linearVelocity.y
-        );
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         EvaluateSupport(collision);
@@ -187,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentState == PlayerState.Dashing)
         {
+            rb.gravityScale = originalGravity;
             currentState = PlayerState.IdleFalling;
             UpdateVisualState();
         }
@@ -229,13 +240,6 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(transform.position.y, minY, maxY),
             transform.position.z
         );
-
-        if (currentState == PlayerState.Dashing &&
-            rb.linearVelocity.magnitude < minDashForce)
-        {
-            currentState = PlayerState.IdleFalling;
-            UpdateVisualState();
-        }
 
         RotateTowardsDominantForce();
     }
