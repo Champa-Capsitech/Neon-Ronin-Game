@@ -3,21 +3,12 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum PlayerState
-    {
-        IdleFalling,
-        Dashing,
-        Depleted
-    }
-
-    public PlayerState currentState;
-
     public GameObject ringPrefab;
     public CameraFollow cameraFollow;
     public GameObject outlineObject;
 
-    private float energyCost = 10f;
     public Slider energyBar;
+    private float energyCost = 10f;
 
     Rigidbody2D rb;
     TrailRenderer trail;
@@ -36,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
-    
+
     private float minY = -12f;
     private float maxY = 3.5f;
     private float deathY = -12f;
@@ -44,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private float dashDuration = 0.15f;
     private float dashTimer;
     private float originalGravity;
+
+    private bool collidedThisFrame;
 
     void Awake()
     {
@@ -57,7 +50,6 @@ public class PlayerController : MonoBehaviour
         originalGravity = gravityScale;
 
         trail.emitting = false;
-        currentState = PlayerState.IdleFalling;
     }
 
     void Start()
@@ -70,7 +62,7 @@ public class PlayerController : MonoBehaviour
             energyBar.value = GameManager.instance.currentEnergy;
         }
 
-        UpdateVisualState();
+        UpdateOutline();
     }
 
     void Update()
@@ -85,6 +77,10 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
+
+        UpdateOutline();
+
+        collidedThisFrame = false; 
     }
 
     void FixedUpdate()
@@ -92,23 +88,17 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        if (currentState == PlayerState.Dashing)
+        if (dashTimer > 0f)
         {
             dashTimer -= Time.fixedDeltaTime;
-
             if (dashTimer <= 0f)
-            {
                 rb.gravityScale = originalGravity;
-                currentState = PlayerState.IdleFalling;
-                UpdateVisualState();
-            }
-            return; 
         }
     }
 
     void HandleInput()
     {
-        if (currentState == PlayerState.Depleted)
+        if (GameManager.instance.currentEnergy <= 0f)
             return;
 
         if (Input.GetMouseButtonDown(0))
@@ -131,8 +121,6 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.instance.currentEnergy <= 0f)
         {
-            currentState = PlayerState.Depleted;
-            UpdateVisualState();
             rb.linearVelocity = Vector2.zero;
             return;
         }
@@ -141,10 +129,6 @@ public class PlayerController : MonoBehaviour
         if (dragDirection.x <= 0f)
             return;
 
-        currentState = PlayerState.Dashing;
-        UpdateVisualState();
-        isBlockedByYellow = false;
-
         float dashSpeed = Mathf.Clamp(
             dragDirection.magnitude * dragSensitivity,
             minDashForce,
@@ -152,7 +136,6 @@ public class PlayerController : MonoBehaviour
         );
 
         rb.linearVelocity = dragDirection.normalized * dashSpeed;
-
         rb.gravityScale = 0f;
         dashTimer = dashDuration;
 
@@ -177,12 +160,6 @@ public class PlayerController : MonoBehaviour
             0f,
             GameManager.instance.maxEnergy
         );
-
-        if (GameManager.instance.currentEnergy <= 0f)
-        {
-            currentState = PlayerState.Depleted;
-            UpdateVisualState();
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -195,12 +172,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Yellow_wall_box") && rb.linearVelocity.x < 5f)
             isBlockedByYellow = true;
 
-        if (currentState == PlayerState.Dashing)
-        {
-            rb.gravityScale = originalGravity;
-            currentState = PlayerState.IdleFalling;
-            UpdateVisualState();
-        }
+        collidedThisFrame = true;
+
+        rb.gravityScale = originalGravity;
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -246,20 +220,10 @@ public class PlayerController : MonoBehaviour
 
     void RotateTowardsDominantForce()
     {
-        if (currentState == PlayerState.Dashing && rb.linearVelocity.magnitude > 0.1f)
-        {
+        if (rb.linearVelocity.magnitude > 0.1f)
             transform.right = rb.linearVelocity.normalized;
-            return;
-        }
-
-        if (isSupported)
-            return;
-
-        transform.right = Vector2.Lerp(
-            transform.right,
-            Vector2.down,
-            gravityRotateSpeed * Time.deltaTime
-        );
+        else if (!isSupported)
+            transform.right = Vector2.Lerp(transform.right, Vector2.down, gravityRotateSpeed * Time.deltaTime);
     }
 
     void RefillEnergy()
@@ -268,19 +232,19 @@ public class PlayerController : MonoBehaviour
             return;
 
         GameManager.instance.currentEnergy += 40f * Time.deltaTime;
-
-        if (currentState == PlayerState.Depleted &&
-            GameManager.instance.currentEnergy > 0f)
-        {
-            currentState = PlayerState.IdleFalling;
-            UpdateVisualState();
-        }
     }
 
-    void UpdateVisualState()
+    void UpdateOutline()
     {
-        if (outlineObject)
-            outlineObject.SetActive(currentState == PlayerState.IdleFalling);
+        if (!outlineObject) return;
+
+        bool dashForceLow = rb.linearVelocity.magnitude < minDashForce && rb.linearVelocity.magnitude > 0.1f;
+        bool idle = rb.linearVelocity.magnitude <= 0.1f;
+
+        bool shouldShowOutline = dashForceLow || collidedThisFrame || idle;
+
+        if (outlineObject.activeSelf != shouldShowOutline)
+            outlineObject.SetActive(shouldShowOutline);
     }
 
     void StopTrail()
@@ -309,14 +273,5 @@ public class PlayerController : MonoBehaviour
     {
         return Camera.main.ScreenToWorldPoint(screenPos);
     }
-
-    public float GetCurrentSpeed()
-    {
-        return rb.linearVelocity.magnitude;
-    }
-
-    public bool IsDragging()
-    {
-        return isDragging;
-    }
 }
+

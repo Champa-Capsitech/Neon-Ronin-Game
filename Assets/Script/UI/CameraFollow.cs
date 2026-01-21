@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
 
-    public float safeZoneWidth = 10f;
+    [Range(0f, 1f)]
+    public float safeZonePercent = 0.4f; 
 
     private float cameraTopLimitY = 4f;
 
@@ -29,8 +31,9 @@ public class CameraFollow : MonoBehaviour
         float cameraHalfHeight = cam.orthographicSize;
         float cameraHalfWidth = cam.orthographicSize * cam.aspect;
 
-        float cameraLeftX = cameraPosition.x - cameraHalfWidth;
+        float safeZoneWidth = cameraHalfWidth * 2f * safeZonePercent;
 
+        float cameraLeftX = cameraPosition.x - cameraHalfWidth;
         float safeZoneRightX = cameraLeftX + safeZoneWidth;
 
         if (player.position.x > safeZoneRightX)
@@ -40,6 +43,7 @@ public class CameraFollow : MonoBehaviour
         }
 
         float followLineY = cameraPosition.y + followStartOffsetY;
+
         if (player.position.y < followLineY)
         {
             float moveAmount = player.position.y - followLineY;
@@ -69,6 +73,7 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = cameraPosition;
     }
+
     public void Shake()
     {
         shakeTimer = shakeDuration;
