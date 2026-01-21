@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public CameraFollow cameraFollow;
     public GameObject outlineObject;
 
-    private float energyCost = 15f;
+    private float energyCost = 10f;
     public Slider energyBar;
 
     Rigidbody2D rb;

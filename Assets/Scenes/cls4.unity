@@ -293,9 +293,9 @@ RectTransform:
   - {fileID: 1506353374}
   m_Father: {fileID: 756799611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73823669
@@ -871,11 +871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0429b08ae62c39e4481aac0770cca802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  ringPrefab: {fileID: 5039912117826882298, guid: 90167d4941206284a82916c617a56c7c, type: 3}
-  cameraFollow: {fileID: 1582169713}
-  outlineObject: {fileID: 913805992}
-  energyBar: {fileID: 73823670}
 --- !u!96 &449654779
 TrailRenderer:
   serializedVersion: 3
@@ -1108,7 +1103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &453104293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1122,12 +1117,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 602876390}
-  m_Father: {fileID: 1812539987}
+  m_Father: {fileID: 756799611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.9042223}
-  m_AnchorMax: {x: 0.5, y: 0.9042223}
+  m_AnchorMin: {x: 0.5, y: 0.31}
+  m_AnchorMax: {x: 0.5, y: 0.31}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 70}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &453104294
 MonoBehaviour:
@@ -1198,15 +1193,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.97792387, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -657784902727625836, guid: eecc572ff11d0a749ab59c87d255e200, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -1280,7 +1275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pause
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1389,6 +1384,7 @@ RectTransform:
   m_Children:
   - {fileID: 1036306648}
   - {fileID: 73823668}
+  - {fileID: 453104293}
   m_Father: {fileID: 1812539987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.906, y: 0.9282963}
@@ -2258,8 +2254,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 756799611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4285,7 +4281,6 @@ RectTransform:
   - {fileID: 756799611}
   - {fileID: 2024066213}
   - {fileID: 907447633}
-  - {fileID: 453104293}
   m_Father: {fileID: 1658716835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -4928,6 +4923,10 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 1582169711}
+    - target: {fileID: 2119398568101080673, guid: 2d72d9b2c81382d48ab336a2563f2ef3, type: 3}
+      propertyPath: 'obstaclePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1496965632819513881, guid: 399c54a60bbb26c4682885506d5ba830, type: 3}
     - target: {fileID: 3716681499992024680, guid: 2d72d9b2c81382d48ab336a2563f2ef3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2899895
@@ -5040,7 +5039,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1750558658672737732, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 449654780}
+    - targetCorrespondingSourceObject: {fileID: 1750558658672737732, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 449654779}
   m_SourcePrefab: {fileID: 100100000, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

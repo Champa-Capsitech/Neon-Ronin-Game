@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     private int ExecutedCombo = 0;
     private float comboResetTime = 0.5f;
     private Coroutine comboResetCoroutine;
+    private Coroutine executedResetCoroutine;
 
     public float maxEnergy = 100f;
     public float currentEnergy;
@@ -196,10 +197,10 @@ public class GameManager : MonoBehaviour
     {
         ExecutedCombo++;
 
-        if (comboResetCoroutine != null)
-            StopCoroutine(comboResetCoroutine);
+        if (executedResetCoroutine != null)
+            StopCoroutine(executedResetCoroutine);
 
-        comboResetCoroutine = StartCoroutine(ComboResetTimer2());
+        executedResetCoroutine = StartCoroutine(ComboResetTimer2());
         executedText.text = ExecutedCombo <= 1 ? "EXECUTED" : $"EXECUTED x{ExecutedCombo}";
         StartCoroutine(ExecutedTextRoutine());
     }
