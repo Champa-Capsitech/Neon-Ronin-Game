@@ -3,9 +3,9 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform player;
 
-    public float safeZoneWidth = 10f;  
+    public float safeZoneWidth = 10f;
 
-    private float cameraTopLimitY = 4f; 
+    private float cameraTopLimitY = 4f;
 
     public float shakeStrength = 2f;
     public float shakeDuration = 0.15f;
@@ -74,4 +74,3 @@ public class CameraFollow : MonoBehaviour
         shakeTimer = shakeDuration;
     }
 }
-
