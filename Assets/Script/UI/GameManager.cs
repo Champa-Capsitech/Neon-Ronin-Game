@@ -19,11 +19,13 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         Start,
+        Setting,
         Running,
         Paused,
         GameOver,
     }
 
+    public GameObject gameSettingScreen;
     public GameState currentState;
     public GameObject gameStartScreen;
     public GameObject gameOverScreen;
@@ -144,6 +146,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(newState == GameState.GameOver);
         inGameScreen.SetActive(newState == GameState.Running);
         pauseGameScreen.SetActive(newState == GameState.Paused);
+        gameSettingScreen.SetActive(newState == GameState.Setting);
 
         if (newState == GameState.Start)
         {
@@ -260,6 +263,25 @@ public class GameManager : MonoBehaviour
 
         // Optional: apply globally
         // AudioListener.volume = soundOn ? 1f : 0f;
+    }
+
+    public void ToggleSettingMode()
+    {
+        if (currentState == GameState.Setting)
+            SetState(GameState.Start);
+        else
+            SetState(GameState.Setting);
+    }
+
+    public void GotoMainMenu()
+    {
+        if (currentState == GameState.Start)
+            return;
+        Time.timeScale = 1f;
+        isPaused = false;
+        SetState(GameState.Start);
+        // restartFromGameOver = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitGame()

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject outlineObject;
 
     public Slider energyBar;
-    private float energyCost = 10f;
+    private float energyCost = 20f;
 
     Rigidbody2D rb;
     TrailRenderer trail;
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateOutline();
 
-        collidedThisFrame = false; 
+        collidedThisFrame = false;
     }
 
     void FixedUpdate()
@@ -223,7 +223,11 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > 0.1f)
             transform.right = rb.linearVelocity.normalized;
         else if (!isSupported)
-            transform.right = Vector2.Lerp(transform.right, Vector2.down, gravityRotateSpeed * Time.deltaTime);
+            transform.right = Vector2.Lerp(
+                transform.right,
+                Vector2.down,
+                gravityRotateSpeed * Time.deltaTime
+            );
     }
 
     void RefillEnergy()
@@ -236,9 +240,11 @@ public class PlayerController : MonoBehaviour
 
     void UpdateOutline()
     {
-        if (!outlineObject) return;
+        if (!outlineObject)
+            return;
 
-        bool dashForceLow = rb.linearVelocity.magnitude < minDashForce && rb.linearVelocity.magnitude > 0.1f;
+        bool dashForceLow =
+            rb.linearVelocity.magnitude < minDashForce && rb.linearVelocity.magnitude > 0.1f;
         bool idle = rb.linearVelocity.magnitude <= 0.1f;
 
         bool shouldShowOutline = dashForceLow || collidedThisFrame || idle;
@@ -274,4 +280,3 @@ public class PlayerController : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(screenPos);
     }
 }
-
