@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     bool isOnPlatform;
     bool isSupported;
 
+    private AudioSource playerAudio;
+    public AudioClip DashSound;
+    public AudioClip CrashSound;
+
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
