@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     [Range(0f, 1f)]
     public float safeZonePercent = 0.4f; 
 
-    private float cameraTopLimitY = 4f;
+    private float cameraTopLimitY = 3f;
 
     public float shakeStrength = 2f;
     public float shakeDuration = 0.15f;
