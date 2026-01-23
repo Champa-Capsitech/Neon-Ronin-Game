@@ -31,14 +31,21 @@ public class Enemy : MonoBehaviour
         if (playerSpeed >= breakVelocity)
         {
             isBroken = true;
+
+            GameManager.instance.PlayEnemySmashSound();
+
             SpawnBreakFX(other.transform);
             Destroy(gameObject);
         }
+
         else
         {
+            GameManager.instance.PlayCrashSound();
             GameManager.instance.GameOver();
             Destroy(other.gameObject);
         }
+
+
     }
 
     private void SpawnBreakFX(Transform followTarget)

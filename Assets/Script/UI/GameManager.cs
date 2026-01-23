@@ -55,7 +55,17 @@ public class GameManager : MonoBehaviour
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
     private bool isPaused = false;
-    public static bool soundOn = true;
+
+    //public static bool soundOn = true;
+    [SerializeField] private AudioSource sfxSource;
+
+    [SerializeField] private AudioClip dashSound;
+    [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip enemySmashSound;
+    [SerializeField] private AudioClip wallSmashSound;
+
+    public bool soundOn = true;
+    public bool musicOn = true;
 
     void Awake()
     {
@@ -66,12 +76,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        AudioListener.volume = PlayerPrefs.GetInt("SoundOn", 1) == 1 ? 1f : 0f;
+        soundOn = PlayerPrefs.GetInt("soundOn", 1) == 1;
+        musicOn = PlayerPrefs.GetInt("musicOn", 1) == 1;
     }
 
     void Start()
     {
-        soundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+        soundOn = PlayerPrefs.GetInt("soundOn", 1) == 1;
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         if (restartFromGameOver)
         {
@@ -257,13 +268,17 @@ public class GameManager : MonoBehaviour
     public void ToggleSound()
     {
         soundOn = !soundOn;
-
-        PlayerPrefs.SetInt("SoundOn", soundOn ? 1 : 0);
+        PlayerPrefs.SetInt("soundOn", soundOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        // Optional: apply globally
-        // AudioListener.volume = soundOn ? 1f : 0f;
     }
+
+    public void ToggleMusic()
+    {
+        musicOn = !musicOn;
+        PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
 
     public void ToggleSettingMode()
     {
@@ -283,6 +298,36 @@ public class GameManager : MonoBehaviour
         // restartFromGameOver = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    private void PlaySFX(AudioClip clip)
+    {
+        if (!soundOn || clip == null || sfxSource == null)
+            return;
+
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayDashSound()
+    {
+        PlaySFX(dashSound);
+    }
+
+    public void PlayCrashSound()
+    {
+        PlaySFX(crashSound);
+    }
+
+    public void PlayEnemySmashSound()
+    {
+        PlaySFX(enemySmashSound);
+    }
+
+    public void PlayWallSmashSound()
+    {
+        PlaySFX(wallSmashSound);
+    }
+
+
 
     public void QuitGame()
     {

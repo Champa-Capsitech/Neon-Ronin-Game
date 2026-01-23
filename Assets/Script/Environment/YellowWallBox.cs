@@ -19,8 +19,12 @@ public class YellowWallBox : MonoBehaviour
         if (impactSpeed >= breakVelocity)
         {
             isBroken = true;
+
+            GameManager.instance.PlayWallSmashSound();
+
             Break(collision.gameObject.transform);
         }
+
     }
 
     private void Break(Transform followTarget)

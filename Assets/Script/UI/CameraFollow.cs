@@ -3,6 +3,7 @@
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
+    private AudioSource musicSource;
 
     [Range(0f, 1f)]
     public float safeZonePercent = 0.4f; 
@@ -20,6 +21,7 @@ public class CameraFollow : MonoBehaviour
     void Awake()
     {
         cam = GetComponent<Camera>();
+        musicSource = GetComponent<AudioSource>();
     }
 
     void LateUpdate()
@@ -70,6 +72,21 @@ public class CameraFollow : MonoBehaviour
 
             shakeTimer -= Time.deltaTime;
         }
+
+        if (musicSource)
+        {
+            if (GameManager.instance.musicOn)
+            {
+                if (!musicSource.isPlaying)
+                    musicSource.Play();
+            }
+            else
+            {
+                if (musicSource.isPlaying)
+                    musicSource.Stop();
+            }
+        }
+
 
         transform.position = cameraPosition;
     }
