@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
         GameOver,
     }
 
+    public TMP_Dropdown soundDropdown;
+    public TMP_Dropdown musicDropdown;
     public GameObject gameSettingScreen;
     public GameState currentState;
     public GameObject gameStartScreen;
@@ -55,7 +58,8 @@ public class GameManager : MonoBehaviour
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
     private bool isPaused = false;
-    public static bool soundOn = true;
+    public bool soundOn = true;
+    public bool musicOn = true;
 
     void Awake()
     {
@@ -66,12 +70,21 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        AudioListener.volume = PlayerPrefs.GetInt("SoundOn", 1) == 1 ? 1f : 0f;
+
+        soundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+        musicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
+
+        AudioListener.volume = soundOn ? 1f : 0f;
     }
 
     void Start()
     {
-        soundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+        soundDropdown.value = soundOn ? 0 : 1;
+        musicDropdown.value = musicOn ? 0 : 1;
+
+        soundDropdown.onValueChanged.AddListener(OnSoundChanged);
+        musicDropdown.onValueChanged.AddListener(OnMusicChanged);
+
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         if (restartFromGameOver)
         {
@@ -110,6 +123,9 @@ public class GameManager : MonoBehaviour
         float distanceTravelled = player.transform.position.x - playerStartX;
         score = distanceTravelled * scoreRate + extraScore;
         GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
+
+        // Debug.Log($"Sound: {soundOn}");
+        // Debug.Log($"Sound: {soundOn}, Music: {musicOn}");
     }
 
     public void StartGame()
@@ -260,9 +276,6 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("SoundOn", soundOn ? 1 : 0);
         PlayerPrefs.Save();
-
-        // Optional: apply globally
-        // AudioListener.volume = soundOn ? 1f : 0f;
     }
 
     public void ToggleSettingMode()
@@ -291,5 +304,25 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void OnSoundChanged(int value)
+    {
+        soundOn = value == 0;
+
+        AudioListener.volume = soundOn ? 1f : 0f;
+
+        PlayerPrefs.SetInt("SoundOn", soundOn ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void OnMusicChanged(int value)
+    {
+        musicOn = value == 0;
+
+        // MusicManager.Instance.SetMusic(musicOn);
+
+        PlayerPrefs.SetInt("MusicOn", musicOn ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }
