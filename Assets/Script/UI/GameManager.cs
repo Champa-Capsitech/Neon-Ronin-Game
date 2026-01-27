@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField]
-    GameObject player;
+    [SerializeField] GameObject player;
     public TextMeshProUGUI InGame_Scoretext;
     private float playerStartX;
 
@@ -59,7 +58,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI overallHighScoreText;
     private bool isPaused = false;
 
-    //public static bool soundOn = true;
+    [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
 
     [SerializeField] private AudioClip dashSound;
@@ -72,13 +71,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
+
+        instance = this;
+
         soundOn = PlayerPrefs.GetInt("soundOn", 1) == 1;
         musicOn = PlayerPrefs.GetInt("musicOn", 1) == 1;
     }
@@ -92,6 +92,9 @@ public class GameManager : MonoBehaviour
         musicDropdown.onValueChanged.AddListener(OnMusicChanged);
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        HandleMusic();
+
         if (restartFromGameOver)
         {
             restartFromGameOver = false;
@@ -120,18 +123,12 @@ public class GameManager : MonoBehaviour
         }
 
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        worldSpeed = (playerBlocked || rb.linearVelocity.x <= 0.01f)
+            ? 0f
+            : rb.linearVelocity.x * speedMultiplier;
 
-        if (playerBlocked || rb.linearVelocity.x <= 0.01f)
-            worldSpeed = 0f;
-        else
-            worldSpeed = rb.linearVelocity.x * speedMultiplier;
-
-        float distanceTravelled = player.transform.position.x - playerStartX;
-        score = distanceTravelled * scoreRate + extraScore;
+        score = (player.transform.position.x - playerStartX) * scoreRate + extraScore;
         GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
-
-        // Debug.Log($"Sound: {soundOn}");
-        // Debug.Log($"Sound: {soundOn}, Music: {musicOn}");
     }
 
     public void StartGame()
@@ -146,8 +143,10 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Running)
             return;
+
         Time.timeScale = 1f;
         isPaused = false;
+
         int finalScore = Mathf.CeilToInt(score);
         GameOverScoreText.text = "SCORE : " + finalScore;
 
@@ -157,6 +156,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", overallHighScore);
             PlayerPrefs.Save();
         }
+
         overallHighScoreText.text = "HIGH SCORE : " + overallHighScore;
         SetState(GameState.GameOver);
     }
@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour
     void SetState(GameState newState)
     {
         currentState = newState;
+
         gameStartScreen.SetActive(newState == GameState.Start);
         gameOverScreen.SetActive(newState == GameState.GameOver);
         inGameScreen.SetActive(newState == GameState.Running);
@@ -191,7 +192,6 @@ public class GameManager : MonoBehaviour
         extraScore += amount;
     }
 
-    // Smash UI
     public void ShowSmashText()
     {
         smashCombo++;
@@ -217,7 +217,6 @@ public class GameManager : MonoBehaviour
         smashText.gameObject.SetActive(false);
     }
 
-    // Executed UI
     public void ShowExecutedText()
     {
         ExecutedCombo++;
@@ -286,27 +285,40 @@ public class GameManager : MonoBehaviour
     public void ToggleMusic()
     {
         musicOn = !musicOn;
+        HandleMusic();
         PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
     }
 
-
     public void ToggleSettingMode()
     {
-        if (currentState == GameState.Setting)
-            SetState(GameState.Start);
+        SetState(currentState == GameState.Setting ? GameState.Start : GameState.Setting);
+    }
+
+    private void HandleMusic()
+    {
+        if (musicSource == null)
+            return;
+
+        if (musicOn)
+        {
+            if (!musicSource.isPlaying)
+                musicSource.Play();
+        }
         else
-            SetState(GameState.Setting);
+        {
+            musicSource.Stop();
+        }
     }
 
     public void GotoMainMenu()
     {
         if (currentState == GameState.Start)
             return;
+
         Time.timeScale = 1f;
         isPaused = false;
         SetState(GameState.Start);
-        // restartFromGameOver = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -318,27 +330,19 @@ public class GameManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
-    public void PlayDashSound()
-    {
-        PlaySFX(dashSound);
+
+    public void PlayDashSound() { 
+        PlaySFX(dashSound); 
     }
-
-    public void PlayCrashSound()
-    {
-        PlaySFX(crashSound);
+    public void PlayCrashSound() { 
+        PlaySFX(crashSound); 
     }
-
-    public void PlayEnemySmashSound()
-    {
-        PlaySFX(enemySmashSound);
+    public void PlayEnemySmashSound() { 
+        PlaySFX(enemySmashSound); 
     }
-
-    public void PlayWallSmashSound()
-    {
-        PlaySFX(wallSmashSound);
+    public void PlayWallSmashSound() { 
+        PlaySFX(wallSmashSound); 
     }
-
-
 
     public void QuitGame()
     {
@@ -352,20 +356,15 @@ public class GameManager : MonoBehaviour
     public void OnSoundChanged(int value)
     {
         soundOn = value == 0;
-
-        AudioListener.volume = soundOn ? 1f : 0f;
-
-        PlayerPrefs.SetInt("SoundOn", soundOn ? 1 : 0);
+        PlayerPrefs.SetInt("soundOn", soundOn ? 1 : 0);
         PlayerPrefs.Save();
     }
 
     public void OnMusicChanged(int value)
     {
         musicOn = value == 0;
-
-        // MusicManager.Instance.SetMusic(musicOn);
-
-        PlayerPrefs.SetInt("MusicOn", musicOn ? 1 : 0);
+        HandleMusic();
+        PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
     }
 }
