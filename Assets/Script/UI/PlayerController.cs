@@ -21,13 +21,6 @@ public class PlayerController : MonoBehaviour
     bool isOnPlatform;
     bool isSupported;
 
-    //private AudioSource playerAudio;
-    //public AudioClip DashSound;
-    //public AudioClip CrashSound;
-    //public AudioClip EnemySmashSound;
-    //public AudioClip WallSmashSound;
-
-
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
@@ -53,10 +46,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trail = GetComponent<TrailRenderer>();
-
-        //playerAudio = GetComponent<AudioSource>();
-        //if (playerAudio == null)
-        //    playerAudio = gameObject.AddComponent<AudioSource>();
 
         rb.gravityScale = gravityScale;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
