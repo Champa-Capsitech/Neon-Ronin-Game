@@ -431,8 +431,8 @@ MonoBehaviour:
   musicSource: {fileID: 25683111}
   sfxSource: {fileID: 25683111}
   dashSound: {fileID: 8300000, guid: 1f0b47a777f42fd4399f3524dae3ca7f, type: 3}
-  crashSound: {fileID: 8300000, guid: 1121300ea625f4b499834b92336060fd, type: 3}
-  enemySmashSound: {fileID: 8300000, guid: 735a3f384fbccfa45bc018716b77f6e6, type: 3}
+  crashSound: {fileID: 8300000, guid: 735a3f384fbccfa45bc018716b77f6e6, type: 3}
+  enemySmashSound: {fileID: 8300000, guid: 60dc7ecdb940a854c8e46fafda909634, type: 3}
   wallSmashSound: {fileID: 8300000, guid: 60dc7ecdb940a854c8e46fafda909634, type: 3}
   soundOn: 1
   musicOn: 1
@@ -449,7 +449,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6db7ca777e7173e4fad31e408825274d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
