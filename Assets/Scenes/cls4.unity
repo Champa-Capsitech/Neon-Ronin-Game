@@ -432,8 +432,8 @@ MonoBehaviour:
   sfxSource: {fileID: 25683111}
   dashSound: {fileID: 8300000, guid: 1f0b47a777f42fd4399f3524dae3ca7f, type: 3}
   crashSound: {fileID: 8300000, guid: 1121300ea625f4b499834b92336060fd, type: 3}
-  enemySmashSound: {fileID: 0}
-  wallSmashSound: {fileID: 0}
+  enemySmashSound: {fileID: 8300000, guid: 735a3f384fbccfa45bc018716b77f6e6, type: 3}
+  wallSmashSound: {fileID: 8300000, guid: 60dc7ecdb940a854c8e46fafda909634, type: 3}
   soundOn: 1
   musicOn: 1
 --- !u!82 &25683111
