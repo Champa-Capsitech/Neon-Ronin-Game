@@ -16,13 +16,11 @@ public class EnergyBarUI : MonoBehaviour
     {
         if (player == null)
         {
-            Debug.LogError("EnergyBarUI: PlayerController NOT assigned");
             return;
         }
 
         if (slider == null)
         {
-            Debug.LogError("EnergyBarUI: Slider NOT assigned");
             return;
         }
 

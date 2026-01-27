@@ -77,9 +77,6 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentState != GameManager.GameState.Running)
             return;
 
-        Debug.Log("isSoundOn" + isSoundOn);
-        Debug.Log("isMusicOn" + isMusicOn);
-
         HandleInput();
         EnergyDrain();
         RefillEnergy();
