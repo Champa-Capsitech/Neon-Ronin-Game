@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     private float spawnGap = 6f;
     private float spawnXOffset = 15f;
 
-    public Transform Camera;
+    public Transform cameraTransform;
 
     float distanceCounter;
 
@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {
         float randomY = Random.Range(ySpawnMin, ySpawnMax);
-        Vector2 spawnPos = new Vector2(Camera.position.x + spawnXOffset, randomY);
+        Vector2 spawnPos = new Vector2(cameraTransform.position.x + spawnXOffset, randomY);
 
         int index = Random.Range(0, obstaclePrefabs.Length);
         Instantiate(obstaclePrefabs[index], spawnPos, Quaternion.identity);

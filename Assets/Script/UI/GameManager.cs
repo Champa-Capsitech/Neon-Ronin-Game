@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] GameObject player;
+    [SerializeField]
+    GameObject player;
     public TextMeshProUGUI InGame_Scoretext;
     private float playerStartX;
 
@@ -58,13 +59,23 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI overallHighScoreText;
     private bool isPaused = false;
 
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField]
+    private AudioSource musicSource;
 
-    [SerializeField] private AudioClip dashSound;
-    [SerializeField] private AudioClip crashSound;
-    [SerializeField] private AudioClip enemySmashSound;
-    [SerializeField] private AudioClip wallSmashSound;
+    [SerializeField]
+    private AudioSource sfxSource;
+
+    [SerializeField]
+    private AudioClip dashSound;
+
+    [SerializeField]
+    private AudioClip crashSound;
+
+    [SerializeField]
+    private AudioClip enemySmashSound;
+
+    [SerializeField]
+    private AudioClip wallSmashSound;
 
     public bool soundOn = true;
     public bool musicOn = true;
@@ -123,9 +134,10 @@ public class GameManager : MonoBehaviour
         }
 
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        worldSpeed = (playerBlocked || rb.linearVelocity.x <= 0.01f)
-            ? 0f
-            : rb.linearVelocity.x * speedMultiplier;
+        worldSpeed =
+            (playerBlocked || rb.linearVelocity.x <= 0.01f)
+                ? 0f
+                : rb.linearVelocity.x * speedMultiplier;
 
         score = (player.transform.position.x - playerStartX) * scoreRate + extraScore;
         GameScoreText.text = "SCORE : " + Mathf.CeilToInt(score);
@@ -144,8 +156,7 @@ public class GameManager : MonoBehaviour
         if (currentState != GameState.Running)
             return;
 
-        Time.timeScale = 1f;
-        isPaused = false;
+        SetPaused(false);
 
         int finalScore = Mathf.CeilToInt(score);
         GameOverScoreText.text = "SCORE : " + finalScore;
@@ -247,10 +258,15 @@ public class GameManager : MonoBehaviour
         currentEnergy = maxEnergy;
     }
 
+    void SetPaused(bool paused)
+    {
+        Time.timeScale = paused ? 0f : 1f;
+        isPaused = paused;
+    }
+
     public void RestartGame()
     {
-        Time.timeScale = 1f;
-        isPaused = false;
+        SetPaused(false);
         restartFromGameOver = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -260,8 +276,7 @@ public class GameManager : MonoBehaviour
         if (currentState != GameState.Running)
             return;
 
-        Time.timeScale = 0f;
-        isPaused = true;
+        SetPaused(true);
         SetState(GameState.Paused);
     }
 
@@ -270,8 +285,7 @@ public class GameManager : MonoBehaviour
         if (!isPaused)
             return;
 
-        Time.timeScale = 1f;
-        isPaused = false;
+        SetPaused(false);
         SetState(GameState.Running);
     }
 
@@ -316,8 +330,7 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Start)
             return;
 
-        Time.timeScale = 1f;
-        isPaused = false;
+        SetPaused(false);
         SetState(GameState.Start);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -330,18 +343,24 @@ public class GameManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
+    public void PlayDashSound()
+    {
+        PlaySFX(dashSound);
+    }
 
-    public void PlayDashSound() { 
-        PlaySFX(dashSound); 
+    public void PlayCrashSound()
+    {
+        PlaySFX(crashSound);
     }
-    public void PlayCrashSound() { 
-        PlaySFX(crashSound); 
+
+    public void PlayEnemySmashSound()
+    {
+        PlaySFX(enemySmashSound);
     }
-    public void PlayEnemySmashSound() { 
-        PlaySFX(enemySmashSound); 
-    }
-    public void PlayWallSmashSound() { 
-        PlaySFX(wallSmashSound); 
+
+    public void PlayWallSmashSound()
+    {
+        PlaySFX(wallSmashSound);
     }
 
     public void QuitGame()
