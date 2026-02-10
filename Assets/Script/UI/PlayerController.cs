@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
         if (!isOnPlatform || GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
             return;
 
-        GameManager.instance.currentEnergy += 40f * Time.deltaTime;
+        GameManager.instance.currentEnergy += 80f * Time.deltaTime;
     }
 
     void UpdateOutline()

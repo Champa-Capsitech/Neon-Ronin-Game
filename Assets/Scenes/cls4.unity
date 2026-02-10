@@ -10426,6 +10426,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1582169711}
     - target: {fileID: 2119398568101080673, guid: 2d72d9b2c81382d48ab336a2563f2ef3, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 1582169711}
+    - target: {fileID: 2119398568101080673, guid: 2d72d9b2c81382d48ab336a2563f2ef3, type: 3}
       propertyPath: 'obstaclePrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 1496965632819513881, guid: 399c54a60bbb26c4682885506d5ba830, type: 3}

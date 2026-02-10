@@ -255,7 +255,7 @@ public class GameManager : MonoBehaviour
 
     public void FullEnergy()
     {
-        currentEnergy = maxEnergy;
+        currentEnergy = Mathf.Clamp(currentEnergy + maxEnergy / 4f, 0, maxEnergy);
     }
 
     void SetPaused(bool paused)
