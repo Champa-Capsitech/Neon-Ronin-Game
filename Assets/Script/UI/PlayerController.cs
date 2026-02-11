@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private float gravityRotateSpeed = 0.5f;
 
     private float minY = -12f;
-    private float maxY = 2f;
+    private float maxY = 30f;
     private float deathY = -12f;
 
     private float dashDuration = 0.15f;
@@ -152,7 +152,6 @@ public class PlayerController : MonoBehaviour
             cameraFollow.Shake();
 
         GameManager.instance.PlayDashSound();
-
     }
 
     void EnergyDrain()

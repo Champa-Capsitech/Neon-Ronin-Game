@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 public class MoveLeft : MonoBehaviour
 {
     void Update()
@@ -19,10 +20,10 @@ public class MoveLeft : MonoBehaviour
     void DestroyIfOffCamera()
     {
         Camera cam = Camera.main;
-        if (cam == null) return;
+        if (cam == null)
+            return;
 
-        float leftEdge =
-            cam.transform.position.x - cam.orthographicSize * cam.aspect;
+        float leftEdge = cam.transform.position.x - cam.orthographicSize * cam.aspect;
 
         if (transform.position.x < leftEdge - 5f)
         {
@@ -30,4 +31,3 @@ public class MoveLeft : MonoBehaviour
         }
     }
 }
-

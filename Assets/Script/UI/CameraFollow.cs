@@ -6,9 +6,9 @@ public class CameraFollow : MonoBehaviour
     private AudioSource musicSource;
 
     [Range(0f, 1f)]
-    public float safeZonePercent = 0.4f; 
+    public float safeZonePercent = 0.4f;
 
-    private float cameraTopLimitY = 3f;
+    private float cameraTopLimitY = 40f;
 
     public float shakeStrength = 2f;
     public float shakeDuration = 0.15f;
@@ -26,7 +26,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (player == null) return;
+        if (player == null)
+            return;
 
         Vector3 cameraPosition = transform.position;
 
@@ -86,7 +87,6 @@ public class CameraFollow : MonoBehaviour
                     musicSource.Stop();
             }
         }
-
 
         transform.position = cameraPosition;
     }

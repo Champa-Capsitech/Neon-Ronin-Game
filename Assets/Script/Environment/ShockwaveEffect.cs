@@ -23,11 +23,6 @@ public class ShockwaveEffect : MonoBehaviour
 
         // Fade out over time
         float fadeStep = Time.deltaTime / lifeTime;
-        sr.color = new Color(
-            startColor.r,
-            startColor.g,
-            startColor.b,
-            sr.color.a - fadeStep
-        );
+        sr.color = new Color(startColor.r, startColor.g, startColor.b, sr.color.a - fadeStep);
     }
 }

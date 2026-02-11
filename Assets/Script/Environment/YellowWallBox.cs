@@ -24,7 +24,6 @@ public class YellowWallBox : MonoBehaviour
 
             Break(collision.gameObject.transform);
         }
-
     }
 
     private void Break(Transform followTarget)

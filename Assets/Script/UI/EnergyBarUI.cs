@@ -7,7 +7,7 @@ public class EnergyBarUI : MonoBehaviour
     public Slider slider;
 
     private float lowEnergyThreshold = 25f;
-    public Color lowEnergyColor ;
+    public Color lowEnergyColor;
 
     private Image fillImage;
     private Color normalColor;
@@ -25,7 +25,7 @@ public class EnergyBarUI : MonoBehaviour
         }
 
         fillImage = slider.fillRect.GetComponent<Image>();
-        normalColor = fillImage.color; 
+        normalColor = fillImage.color;
 
         slider.maxValue = GameManager.instance.maxEnergy;
         slider.value = GameManager.instance.currentEnergy;
