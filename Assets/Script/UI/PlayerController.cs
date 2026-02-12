@@ -20,10 +20,14 @@ public class PlayerController : MonoBehaviour
     bool isBlockedByYellow;
     bool isOnPlatform;
     bool isSupported;
+    private bool inputLocked = false;
+
 
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
+    [SerializeField]private float minDragDistance = 0.6f;
+
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
@@ -84,6 +88,12 @@ public class PlayerController : MonoBehaviour
         UpdateOutline();
 
         collidedThisFrame = false;
+
+        if (inputLocked && rb.linearVelocity.magnitude < minDashForce)
+        {
+            inputLocked = false;
+        }
+
     }
 
     void FixedUpdate()
@@ -101,12 +111,16 @@ public class PlayerController : MonoBehaviour
 
     void HandleInput()
     {
+        if (inputLocked)
+            return;
+
         if (GameManager.instance.currentEnergy <= 0f)
             return;
 
         if (Input.GetMouseButtonDown(0))
         {
             dragStart = ScreenToWorld(Input.mousePosition);
+            dragEnd = dragStart; 
             isDragging = true;
         }
 
@@ -115,9 +129,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && isDragging)
         {
-            Dash();
+            float dragDistance = Vector2.Distance(dragStart, dragEnd);
+
+            if (dragDistance >= minDragDistance)
+            {
+                Dash();
+            }
+
             isDragging = false;
         }
+
     }
 
     void Dash()
@@ -127,6 +148,8 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             return;
         }
+        
+        inputLocked = true;
 
         Vector2 dragDirection = dragEnd - dragStart;
         if (dragDirection.x <= 0f)
@@ -180,6 +203,8 @@ public class PlayerController : MonoBehaviour
         collidedThisFrame = true;
 
         rb.gravityScale = originalGravity;
+
+        inputLocked = false;
     }
 
     void OnCollisionStay2D(Collision2D collision)
