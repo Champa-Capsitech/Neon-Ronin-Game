@@ -155,8 +155,8 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Running)
             return;
-
         SetPaused(false);
+        InterstitialAdManager.Instance.ShowInterstitialIfReady();
 
         int finalScore = Mathf.CeilToInt(score);
         GameOverScoreText.text = "SCORE : " + finalScore;
@@ -266,10 +266,29 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SetPaused(false);
-        restartFromGameOver = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        RewardedAdManager.Instance.ShowRewarded(() =>
+        {
+            SetPaused(false);
+            restartFromGameOver = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
     }
+
+    // public void RestartGame()
+    // {
+    //     RewardedAdManager.Instance.ShowRewarded();
+    //     executedResetCoroutine = StartCoroutine(RestartGameRoutine());
+    //     SetPaused(false);
+    //     restartFromGameOver = true;
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
+
+    // IEnumerator RestartGameRoutine()
+    // {
+    //     smashText.gameObject.SetActive(true);
+    //     yield return new WaitForSeconds(5);
+    //     smashText.gameObject.SetActive(false);
+    // }
 
     public void PauseGame()
     {
@@ -330,6 +349,7 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Start)
             return;
 
+        InterstitialAdManager.Instance.ShowInterstitialIfReady();
         SetPaused(false);
         SetState(GameState.Start);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
