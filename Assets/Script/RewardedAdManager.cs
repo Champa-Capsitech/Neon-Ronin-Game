@@ -11,9 +11,9 @@ public class RewardedAdManager : MonoBehaviour
     private bool rewardEarned;
 
 #if UNITY_ANDROID
-    public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+    public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
 #elif UNITY_IOS || UNITY_IPHONE
-    public string rewardedAdUnitId = "ca-app-pub-3940256099942544/1712485313";
+    public string rewardedAdUnitId = "ca-app-pub-8530302013109448/8140713739";
 #else
     private string rewardedAdUnitId = "unused";
 #endif

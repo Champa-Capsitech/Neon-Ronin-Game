@@ -11,9 +11,9 @@ public class InterstitialAdManager : MonoBehaviour
     private bool adLoaded = false;
 
 #if UNITY_ANDROID
-    public string interstitialAdUnitId = "ca-app-pub-8530302013109448/8178210550";
+    public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
 #elif UNITY_IOS || UNITY_IPHONE
-    public string interstitialAdUnitId = "ca-app-pub-8530302013109448/9131822270";
+    public string interstitialAdUnitId = "ca-app-pub-8530302013109448/8024339254";
 #else
     private string interstitialAdUnitId = "unexpected_platform";
 #endif
