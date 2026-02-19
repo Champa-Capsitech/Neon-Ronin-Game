@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject outlineObject;
 
     public Slider energyBar;
-    private float energyCost = 20f;
+    private float energyCost = 0.25f;
 
     Rigidbody2D rb;
     TrailRenderer trail;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
-    [SerializeField]private float minDragDistance = 0.6f;
+    [SerializeField] private float minDragDistance = 0.6f;
 
 
     private float gravityScale = 0.65f;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         HandleInput();
-        EnergyDrain();
+        //EnergyDrain();
         RefillEnergy();
         UpdateEnergyUI();
         CheckDeath();
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             dragStart = ScreenToWorld(Input.mousePosition);
-            dragEnd = dragStart; 
+            dragEnd = dragStart;
             isDragging = true;
         }
 
@@ -143,17 +143,17 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (GameManager.instance.currentEnergy <= 0f)
-        {
-            rb.linearVelocity = Vector2.zero;
+        if (GameManager.instance.currentEnergy <= 10f)
             return;
-        }
-        
+
         inputLocked = true;
 
         Vector2 dragDirection = dragEnd - dragStart;
         if (dragDirection.x <= 0f)
+        {
+            inputLocked = false;
             return;
+        }
 
         float dashSpeed = Mathf.Clamp(
             dragDirection.magnitude * dragSensitivity,
@@ -165,6 +165,13 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         dashTimer = dashDuration;
 
+        GameManager.instance.currentEnergy *= (1f - energyCost);
+        GameManager.instance.currentEnergy = Mathf.Clamp(
+            GameManager.instance.currentEnergy,
+            0f,
+            GameManager.instance.maxEnergy
+        );
+
         if (ringPrefab)
             Instantiate(ringPrefab, transform.position, Quaternion.identity);
 
@@ -175,19 +182,6 @@ public class PlayerController : MonoBehaviour
             cameraFollow.Shake();
 
         GameManager.instance.PlayDashSound();
-    }
-
-    void EnergyDrain()
-    {
-        if (rb.linearVelocity.magnitude < 0.1f)
-            return;
-
-        GameManager.instance.currentEnergy -= energyCost * Time.deltaTime;
-        GameManager.instance.currentEnergy = Mathf.Clamp(
-            GameManager.instance.currentEnergy,
-            0f,
-            GameManager.instance.maxEnergy
-        );
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -265,7 +259,7 @@ public class PlayerController : MonoBehaviour
         if (!isOnPlatform || GameManager.instance.currentEnergy >= GameManager.instance.maxEnergy)
             return;
 
-        GameManager.instance.currentEnergy += 80f * Time.deltaTime;
+        GameManager.instance.currentEnergy += 40f * Time.deltaTime;
     }
 
     void UpdateOutline()
