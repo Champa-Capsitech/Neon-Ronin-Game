@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\UI\Minimap.cs" />
     <Compile Include="Assets\Script\Environment\InfiniteBackground.cs" />
     <Compile Include="Assets\Script\RewardedAdManager.cs" />
+    <Compile Include="Assets\Script\UI\FirebaseManager.cs" />
     <Compile Include="Assets\Script\Environment\MoveLeft.cs" />
     <Compile Include="Assets\Script\UI\CameraFollow.cs" />
     <Compile Include="Assets\Script\UI\GameManager.cs" />
