@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\Environment\Enemy.cs" />
     <Compile Include="Assets\Script\Environment\RepeatBackground.cs" />
     <Compile Include="Assets\Script\UI\PlayerController.cs" />
+    <Compile Include="Assets\Script\UI\Minimap.cs" />
     <Compile Include="Assets\Script\Environment\InfiniteBackground.cs" />
     <Compile Include="Assets\Script\RewardedAdManager.cs" />
     <Compile Include="Assets\Script\Environment\MoveLeft.cs" />
