@@ -3303,7 +3303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ef0e154f59da64ca32b56878b52419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardedAdUnitId: ca-app-pub-8530302013109448/4518432412
 --- !u!4 &733781863
 Transform:
   m_ObjectHideFlags: 0
@@ -8639,7 +8638,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8664,7 +8663,7 @@ Transform:
   m_GameObject: {fileID: 1693431681}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 10, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9544,7 +9543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459691a650c4d914d8bced2182971596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interstitialAdUnitId: ca-app-pub-8530302013109448/7789359949
 --- !u!4 &1797958927
 Transform:
   m_ObjectHideFlags: 0
