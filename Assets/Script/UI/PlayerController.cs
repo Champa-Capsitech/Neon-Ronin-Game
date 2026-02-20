@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
     bool isSupported;
     private bool inputLocked = false;
 
-
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
-    [SerializeField] private float minDragDistance = 0.6f;
 
+    [SerializeField]
+    private float minDragDistance = 0.6f;
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
             return;
 
         HandleInput();
-        //EnergyDrain();
         RefillEnergy();
         UpdateEnergyUI();
         CheckDeath();
@@ -93,7 +92,6 @@ public class PlayerController : MonoBehaviour
         {
             inputLocked = false;
         }
-
     }
 
     void FixedUpdate()
@@ -138,7 +136,6 @@ public class PlayerController : MonoBehaviour
 
             isDragging = false;
         }
-
     }
 
     void Dash()

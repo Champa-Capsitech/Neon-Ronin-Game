@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using Firebase;
+﻿using Firebase;
 using Firebase.Analytics;
 using Firebase.Extensions;
+using UnityEngine;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -33,7 +33,8 @@ public class FirebaseManager : MonoBehaviour
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void InitializeFirebase()
     {
-        FirebaseApp.CheckAndFixDependenciesAsync()
+        FirebaseApp
+            .CheckAndFixDependenciesAsync()
             .ContinueWithOnMainThread(task =>
             {
                 if (task.Result == DependencyStatus.Available)
@@ -47,15 +48,11 @@ public class FirebaseManager : MonoBehaviour
                     Debug.Log("🔥 Firebase initialized successfully");
 
                     // App-level event (safe, one-time)
-                    FirebaseAnalytics.LogEvent(
-                        FirebaseAnalytics.EventAppOpen
-                    );
+                    FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventAppOpen);
                 }
                 else
                 {
-                    Debug.LogError(
-                        "❌ Firebase dependency error: " + task.Result
-                    );
+                    Debug.LogError("❌ Firebase dependency error: " + task.Result);
                 }
             });
     }

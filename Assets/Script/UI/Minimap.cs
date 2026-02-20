@@ -10,10 +10,6 @@ public class Minimap : MonoBehaviour
         if (!player)
             return;
 
-        transform.position = new Vector3(
-            player.position.x,
-            player.position.y,
-            fixedZ
-        );
+        transform.position = new Vector3(player.position.x, player.position.y, fixedZ);
     }
 }
