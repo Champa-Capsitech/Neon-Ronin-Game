@@ -9,9 +9,11 @@ public class RewardedAdManager : MonoBehaviour
     private RewardedAd rewardedAd;
     private Action rewardCallback;
     private bool rewardEarned;
+    // public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+    // public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
 
 #if UNITY_ANDROID
-    public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
+    public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IOS || UNITY_IPHONE
     public string rewardedAdUnitId = "ca-app-pub-8530302013109448/8140713739";
 #else
@@ -89,7 +91,8 @@ public class RewardedAdManager : MonoBehaviour
     {
         if (rewardedAd == null || !rewardedAd.CanShowAd())
         {
-            Debug.Log("Rewarded not ready");
+            Debug.Log("Rewarded not ready - restarting without ad");
+            onReward?.Invoke(); // ✅ Always continue
             return;
         }
 
