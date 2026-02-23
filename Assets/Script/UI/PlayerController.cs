@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
 public class PlayerController : MonoBehaviour
 {
     public GameObject ringPrefab;
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
     [SerializeField] private float minDragDistance = 0.6f;
-
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
@@ -60,9 +58,6 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.currentEnergy = GameManager.instance.maxEnergy;
 
-        // isSoundOn = GameManager.instance.soundOn;
-        // isMusicOn = GameManager.instance.musicOn;
-
         if (energyBar)
         {
             energyBar.maxValue = GameManager.instance.maxEnergy;
@@ -78,7 +73,6 @@ public class PlayerController : MonoBehaviour
             return;
 
         HandleInput();
-        //EnergyDrain();
         RefillEnergy();
         UpdateEnergyUI();
         CheckDeath();
@@ -93,7 +87,6 @@ public class PlayerController : MonoBehaviour
         {
             inputLocked = false;
         }
-
     }
 
     void FixedUpdate()
@@ -267,14 +260,13 @@ public class PlayerController : MonoBehaviour
         if (!outlineObject)
             return;
 
-        bool dashForceLow =
-            rb.linearVelocity.magnitude < minDashForce && rb.linearVelocity.magnitude > 0.1f;
-        bool idle = rb.linearVelocity.magnitude <= 0.1f;
+        bool canDash =
+            !inputLocked &&
+            GameManager.instance.currentState == GameManager.GameState.Running &&
+            GameManager.instance.currentEnergy > 10f;
 
-        bool shouldShowOutline = dashForceLow || collidedThisFrame || idle;
-
-        if (outlineObject.activeSelf != shouldShowOutline)
-            outlineObject.SetActive(shouldShowOutline);
+        if (outlineObject.activeSelf != canDash)
+            outlineObject.SetActive(canDash);
     }
 
     void StopTrail()

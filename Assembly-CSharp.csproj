@@ -664,6 +664,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Analytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="GoogleMobileAds.Common">
       <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Common.dll</HintPath>
       <Private>False</Private>
@@ -678,6 +682,14 @@
     </Reference>
     <Reference Include="GoogleMobileAds">
       <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="GoogleMobileAds.Core">
@@ -708,28 +720,16 @@
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Platform">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@aea9d3bd5e19\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Firebase.App">
-      <HintPath>Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.TaskExtension">
-      <HintPath>Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Analytics">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Analytics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Google.MiniJson">
       <HintPath>Assets\Firebase\Plugins\Google.MiniJson.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Platform">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
