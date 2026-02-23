@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     bool isSupported;
     private bool inputLocked = false;
 
-
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
@@ -131,7 +130,6 @@ public class PlayerController : MonoBehaviour
 
             isDragging = false;
         }
-
     }
 
     void Dash()
