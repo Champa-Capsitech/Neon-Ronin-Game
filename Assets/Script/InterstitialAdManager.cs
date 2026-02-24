@@ -9,8 +9,6 @@ public class InterstitialAdManager : MonoBehaviour
     private InterstitialAd interstitialAd;
     private bool isShowingAd = false;
     private bool adLoaded = false;
-    // public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
-    // public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
 
 #if UNITY_ANDROID
     public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
@@ -20,6 +18,8 @@ public class InterstitialAdManager : MonoBehaviour
     private string interstitialAdUnitId = "unexpected_platform";
 #endif
 
+    // public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+    // public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
     void Awake()
     {
         if (Instance != null)
