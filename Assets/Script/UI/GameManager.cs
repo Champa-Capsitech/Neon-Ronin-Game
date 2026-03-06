@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
         Running,
         Paused,
         GameOver,
+        Language,
     }
 
     public TMP_Dropdown soundDropdown;
@@ -36,7 +38,14 @@ public class GameManager : MonoBehaviour
     public GameObject inGameScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
+    public GameObject LanguageScreen;
+    public string currentLanguage;
 
+
+    public GameObject englishCheck;
+    public GameObject portugueseCheck;
+    public GameObject russianCheck;
+    public GameObject frenchCheck;
     public float score;
     public float extraScore = 0;
     public float scoreRate = 10f;
@@ -104,7 +113,8 @@ public class GameManager : MonoBehaviour
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
-
+        string gameLanguage = PlayerPrefs.GetString("GameLanguage", "");
+        ChangeLanguage(gameLanguage);
         HandleMusic();
 
         if (restartFromGameOver)
@@ -182,6 +192,7 @@ public class GameManager : MonoBehaviour
         inGameScreen.SetActive(newState == GameState.Running);
         pauseGameScreen.SetActive(newState == GameState.Paused);
         gameSettingScreen.SetActive(newState == GameState.Setting);
+        LanguageScreen.SetActive(newState == GameState.Language);
 
         if (newState == GameState.Start)
         {
@@ -406,5 +417,52 @@ public class GameManager : MonoBehaviour
         HandleMusic();
         PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
+    }
+    
+    public void GoBackToSetting()
+    {
+        if (currentState != GameState.Language)
+            return;
+
+        SetState(GameState.Setting);
+    }
+
+    public void GoToLanguageScreen()
+    {
+        if (currentState != GameState.Setting)
+            return;
+
+        SetState(GameState.Language);
+    }
+
+    public void ChangeLanguage(string languageName)
+    {
+        englishCheck.SetActive(false);
+        portugueseCheck.SetActive(false);
+        russianCheck.SetActive(false);
+        frenchCheck.SetActive(false);
+
+        switch (languageName)
+        {
+            case "English":
+                englishCheck.SetActive(true);
+                break;
+
+            case "Portuguese":
+                portugueseCheck.SetActive(true);
+                break;
+
+            case "Russian":
+                russianCheck.SetActive(true);
+                break;
+
+            case "French":
+                frenchCheck.SetActive(true);
+                break;
+        }
+        PlayerPrefs.SetString("GameLanguage", languageName);
+        PlayerPrefs.Save();
+
+        Debug.Log("Language Changed To: " + languageName);
     }
 }
