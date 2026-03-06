@@ -1,0 +1,104 @@
+{
+  "BEST_SCORE": {
+    "en": "Best Score",
+    "fr": "Meilleur Score",
+    "pt": "Melhor Pontuação",
+    "ru": "Лучший счёт"
+  },
+  "START_MISSION": {
+    "en": "Start Mission",
+    "fr": "Commencer Mission",
+    "pt": "Iniciar Missão",
+    "ru": "Начать миссию"
+  },
+  "GAME_SETTINGS": {
+    "en": "Game Settings",
+    "fr": "Paramètres du Jeu",
+    "pt": "Configurações do Jogo",
+    "ru": "Настройки игры"
+  },
+  "MUSIC": {
+    "en": "Music",
+    "fr": "Musique",
+    "pt": "Música",
+    "ru": "Музыка"
+  },
+  "SOUND": {
+    "en": "Sound",
+    "fr": "Son",
+    "pt": "Som",
+    "ru": "Звук"
+  },
+  "LANGUAGE": {
+    "en": "Language",
+    "fr": "Langue",
+    "pt": "Idioma",
+    "ru": "Язык"
+  },
+  "BACK": {
+    "en": "Back",
+    "fr": "Retour",
+    "pt": "Voltar",
+    "ru": "Назад"
+  },
+  "PAUSED": {
+    "en": "Paused",
+    "fr": "Pause",
+    "pt": "Pausado",
+    "ru": "Пауза"
+  },
+  "HOME": {
+    "en": "Home",
+    "fr": "Accueil",
+    "pt": "Início",
+    "rs": "Главная"
+  },
+  "RESUME": {
+    "en": "Resume",
+    "fr": "Reprendre",
+    "pt": "Continuar",
+    "ru": "Продолжить"
+  },
+  "RESTART": {
+    "en": "Restart",
+    "fr": "Redémarrer",
+    "pt": "Reiniciar",
+    "ru": "Перезапуск"
+  },
+  "PRIVACY_POLICY": {
+    "en": "Privacy Policy",
+    "fr": "Politique de Confidentialité",
+    "pt": "Política de Privacidade",
+    "ru": "Политика конфиденциальности"
+  },
+  "SCORE": {
+    "en": "Score",
+    "fr": "Score",
+    "pt": "Pontuação",
+    "ru": "Счёт"
+  },
+  "SMASH": {
+    "en": "Smash!",
+    "fr": "Écrasé!",
+    "pt": "Esmagado!",
+    "ru": "Разбито!"
+  },
+  "CRASHED": {
+    "en": "Crashed!",
+    "fr": "Crash!",
+    "pt": "Colidiu!",
+    "ru": "Крушение!"
+  },
+  "LANGUAGE SETTINGS": {
+    "en": "Language Settings",
+    "fr": "Paramètres de Langue",
+    "pt": "Configurações de Idioma",
+    "ru": "Настройки языка"
+  },
+  "EXECUTED": {
+    "en": "Executed!",
+    "fr": "Exécuté!",
+    "pt": "Executado!",
+    "ru": "Уничтожен!"
+  }
+}

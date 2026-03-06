@@ -119,9 +119,9 @@ public class GameManager : MonoBehaviour
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
-        string gameLanguage = PlayerPrefs.GetString("GameLanguage", "");
-        ChangeLanguage(gameLanguage);
-        gameLanguageText.text = gameLanguage;
+        string gameLanguage = PlayerPrefs.GetString("GameLanguage", "English");
+        // ChangeLanguage(gameLanguage);
+        // gameLanguageText.text = gameLanguage;
         HandleMusic();
 
         if (restartFromGameOver)
@@ -192,7 +192,7 @@ public class GameManager : MonoBehaviour
         SetState(GameState.GameOver);
     }
 
-    void SetState(GameState newState)
+    public void SetState(GameState newState)
     {
         currentState = newState;
 
@@ -465,35 +465,43 @@ public class GameManager : MonoBehaviour
         Application.OpenURL("https://www.thegamewise.com/privacy-policy/");
     }
 
-    public void ChangeLanguage(string languageName)
+    // public void ChangeLanguage(string languageName)
+    // {
+    //     englishCheck.SetActive(false);
+    //     portugueseCheck.SetActive(false);
+    //     russianCheck.SetActive(false);
+    //     frenchCheck.SetActive(false);
+
+    //     switch (languageName)
+    //     {
+    //         case "English":
+    //             englishCheck.SetActive(true);
+    //             LocalizationManager.Instance.SetLanguage("en");
+    //             break;
+
+    //         case "Portuguese":
+    //             portugueseCheck.SetActive(true);
+    //             LocalizationManager.Instance.SetLanguage("pt-BR");
+    //             break;
+
+    //         case "Russian":
+    //             russianCheck.SetActive(true);
+    //             LocalizationManager.Instance.SetLanguage("ru");
+    //             break;
+
+    //         case "French":
+    //             frenchCheck.SetActive(true);
+    //             LocalizationManager.Instance.SetLanguage("fr");
+    //             break;
+    //     }
+    //     gameLanguageText.text = languageName;
+    //     PlayerPrefs.SetString("GameLanguage", languageName);
+    //     PlayerPrefs.Save();
+    //     SetState(GameState.Setting);
+    //     Debug.Log("Language Changed To: " + languageName);
+    // }
+    public void LanguageChange()
     {
-        englishCheck.SetActive(false);
-        portugueseCheck.SetActive(false);
-        russianCheck.SetActive(false);
-        frenchCheck.SetActive(false);
-
-        switch (languageName)
-        {
-            case "English":
-                englishCheck.SetActive(true);
-                break;
-
-            case "Portuguese":
-                portugueseCheck.SetActive(true);
-                break;
-
-            case "Russian":
-                russianCheck.SetActive(true);
-                break;
-
-            case "French":
-                frenchCheck.SetActive(true);
-                break;
-        }
-        gameLanguageText.text = languageName;
-        PlayerPrefs.SetString("GameLanguage", languageName);
-        PlayerPrefs.Save();
         SetState(GameState.Setting);
-        Debug.Log("Language Changed To: " + languageName);
     }
 }
