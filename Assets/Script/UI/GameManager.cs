@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     public GameObject LanguageScreen;
     public string currentLanguage;
 
-
     public GameObject englishCheck;
     public GameObject portugueseCheck;
     public GameObject russianCheck;
@@ -66,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
+    public TextMeshProUGUI gameLanguageText;
     private bool isPaused = false;
 
     [SerializeField]
@@ -86,16 +86,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip wallSmashSound;
 
-    
-    
-    [SerializeField] private Image musicToggleImage;
-    [SerializeField] private Image soundToggleImage;
+    [SerializeField]
+    private Image musicToggleImage;
 
-    [SerializeField] private Sprite toggleOnSprite;
-    [SerializeField] private Sprite toggleOffSprite;
+    [SerializeField]
+    private Image soundToggleImage;
 
-    
-    
+    [SerializeField]
+    private Sprite toggleOnSprite;
+
+    [SerializeField]
+    private Sprite toggleOffSprite;
+
     public bool soundOn = true;
     public bool musicOn = true;
 
@@ -119,6 +121,7 @@ public class GameManager : MonoBehaviour
         overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
         string gameLanguage = PlayerPrefs.GetString("GameLanguage", "");
         ChangeLanguage(gameLanguage);
+        gameLanguageText.text = gameLanguage;
         HandleMusic();
 
         if (restartFromGameOver)
@@ -286,9 +289,9 @@ public class GameManager : MonoBehaviour
     {
         //RewardedAdManager.Instance.ShowRewarded(() =>
         //{
-            SetPaused(false);
-            restartFromGameOver = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SetPaused(false);
+        restartFromGameOver = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //});
     }
 
@@ -431,7 +434,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
     }
-    
+
     public void GoBackToSetting()
     {
         if (currentState != GameState.Language)
@@ -482,8 +485,11 @@ public class GameManager : MonoBehaviour
                 frenchCheck.SetActive(true);
                 break;
         }
+
+        gameLanguageText.text = languageName;
         PlayerPrefs.SetString("GameLanguage", languageName);
         PlayerPrefs.Save();
+        SetState(GameState.Setting);
 
         Debug.Log("Language Changed To: " + languageName);
     }
