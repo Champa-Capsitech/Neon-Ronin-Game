@@ -91,12 +91,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         instance = this;
 
         soundOn = PlayerPrefs.GetInt("soundOn", 1) == 1;
@@ -363,7 +357,7 @@ public class GameManager : MonoBehaviour
 
         //InterstitialAdManager.Instance.ShowInterstitialIfReady();
         SetPaused(false);
-        SetState(GameState.Start);
+        // SetState(GameState.Start);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
