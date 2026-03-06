@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     public GameObject ringPrefab;
@@ -24,7 +25,9 @@ public class PlayerController : MonoBehaviour
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
     private float dragSensitivity = 0.8f;
-    [SerializeField] private float minDragDistance = 0.6f;
+
+    [SerializeField]
+    private float minDragDistance = 0.6f;
 
     private float gravityScale = 0.65f;
     private float gravityRotateSpeed = 0.5f;
@@ -259,9 +262,9 @@ public class PlayerController : MonoBehaviour
             return;
 
         bool canDash =
-            !inputLocked &&
-            GameManager.instance.currentState == GameManager.GameState.Running &&
-            GameManager.instance.currentEnergy > 10f;
+            !inputLocked
+            && GameManager.instance.currentState == GameManager.GameState.Running
+            && GameManager.instance.currentEnergy > 10f;
 
         if (outlineObject.activeSelf != canDash)
             outlineObject.SetActive(canDash);

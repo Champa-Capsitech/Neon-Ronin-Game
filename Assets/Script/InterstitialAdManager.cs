@@ -11,13 +11,15 @@ public class InterstitialAdManager : MonoBehaviour
     private bool adLoaded = false;
 
 #if UNITY_ANDROID
-    public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
+    public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IOS || UNITY_IPHONE
     public string interstitialAdUnitId = "ca-app-pub-8530302013109448/8024339254";
 #else
     private string interstitialAdUnitId = "unexpected_platform";
 #endif
 
+    // public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+    // public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
     void Awake()
     {
         if (Instance != null)

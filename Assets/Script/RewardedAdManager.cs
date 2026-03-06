@@ -11,12 +11,15 @@ public class RewardedAdManager : MonoBehaviour
     private bool rewardEarned;
 
 #if UNITY_ANDROID
-    public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
+    public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IOS || UNITY_IPHONE
     public string rewardedAdUnitId = "ca-app-pub-8530302013109448/8140713739";
 #else
-    private string rewardedAdUnitId = "unused";
+    private string rewardedAdUnitId = "unexpected_platform";
 #endif
+
+    // public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
+    // public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
 
     void Awake()
     {
@@ -89,7 +92,8 @@ public class RewardedAdManager : MonoBehaviour
     {
         if (rewardedAd == null || !rewardedAd.CanShowAd())
         {
-            Debug.Log("Rewarded not ready");
+            Debug.Log("Rewarded not ready - restarting without ad");
+            onReward?.Invoke(); // ✅ Always continue
             return;
         }
 
