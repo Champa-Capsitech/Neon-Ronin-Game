@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     public GameObject LanguageScreen;
     public string currentLanguage;
 
-
     public GameObject englishCheck;
     public GameObject portugueseCheck;
     public GameObject russianCheck;
@@ -87,16 +86,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip wallSmashSound;
 
-    
-    
-    [SerializeField] private Image musicToggleImage;
-    [SerializeField] private Image soundToggleImage;
+    [SerializeField]
+    private Image musicToggleImage;
 
-    [SerializeField] private Sprite toggleOnSprite;
-    [SerializeField] private Sprite toggleOffSprite;
+    [SerializeField]
+    private Image soundToggleImage;
 
-    
-    
+    [SerializeField]
+    private Sprite toggleOnSprite;
+
+    [SerializeField]
+    private Sprite toggleOffSprite;
+
     public bool soundOn = true;
     public bool musicOn = true;
 
@@ -288,9 +289,9 @@ public class GameManager : MonoBehaviour
     {
         //RewardedAdManager.Instance.ShowRewarded(() =>
         //{
-            SetPaused(false);
-            restartFromGameOver = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SetPaused(false);
+        restartFromGameOver = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //});
     }
 
@@ -433,7 +434,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
     }
-    
+
     public void GoBackToSetting()
     {
         if (currentState != GameState.Language)
