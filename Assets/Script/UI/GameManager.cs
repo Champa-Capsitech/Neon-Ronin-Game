@@ -86,6 +86,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip wallSmashSound;
 
+    
+    
+    [SerializeField] private Image musicToggleImage;
+    [SerializeField] private Image soundToggleImage;
+
+    [SerializeField] private Sprite toggleOnSprite;
+    [SerializeField] private Sprite toggleOffSprite;
+
+    
+    
     public bool soundOn = true;
     public bool musicOn = true;
 
@@ -120,6 +130,8 @@ public class GameManager : MonoBehaviour
         {
             SetState(GameState.Start);
         }
+
+        UpdateToggleUI();
     }
 
     void Update()
@@ -317,16 +329,23 @@ public class GameManager : MonoBehaviour
     public void ToggleSound()
     {
         soundOn = !soundOn;
+
         PlayerPrefs.SetInt("soundOn", soundOn ? 1 : 0);
         PlayerPrefs.Save();
+
+        UpdateToggleUI();
     }
 
     public void ToggleMusic()
     {
         musicOn = !musicOn;
+
         HandleMusic();
+
         PlayerPrefs.SetInt("musicOn", musicOn ? 1 : 0);
         PlayerPrefs.Save();
+
+        UpdateToggleUI();
     }
 
     public void ToggleSettingMode()
@@ -427,6 +446,15 @@ public class GameManager : MonoBehaviour
             return;
 
         SetState(GameState.Language);
+    }
+
+    void UpdateToggleUI()
+    {
+        if (musicToggleImage != null)
+            musicToggleImage.sprite = musicOn ? toggleOnSprite : toggleOffSprite;
+
+        if (soundToggleImage != null)
+            soundToggleImage.sprite = soundOn ? toggleOnSprite : toggleOffSprite;
     }
 
     public void ChangeLanguage(string languageName)
