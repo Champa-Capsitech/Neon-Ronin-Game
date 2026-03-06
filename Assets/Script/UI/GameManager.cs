@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         musicDropdown.onValueChanged.AddListener(OnMusicChanged);
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
+        overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
 
         HandleMusic();
 
@@ -156,7 +157,7 @@ public class GameManager : MonoBehaviour
         if (currentState != GameState.Running)
             return;
         SetPaused(false);
-        InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        //InterstitialAdManager.Instance.ShowInterstitialIfReady();
 
         int finalScore = Mathf.CeilToInt(score);
         GameOverScoreText.text = "SCORE : " + finalScore;
@@ -266,12 +267,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        RewardedAdManager.Instance.ShowRewarded(() =>
-        {
+        //RewardedAdManager.Instance.ShowRewarded(() =>
+        //{
             SetPaused(false);
             restartFromGameOver = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        });
+        //});
     }
 
     // public void RestartGame()
@@ -349,7 +350,7 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Start)
             return;
 
-        InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        //InterstitialAdManager.Instance.ShowInterstitialIfReady();
         SetPaused(false);
         SetState(GameState.Start);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
