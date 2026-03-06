@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
+    public TextMeshProUGUI gameLanguageText;
     private bool isPaused = false;
 
     [SerializeField]
@@ -119,6 +120,7 @@ public class GameManager : MonoBehaviour
         overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
         string gameLanguage = PlayerPrefs.GetString("GameLanguage", "");
         ChangeLanguage(gameLanguage);
+        gameLanguageText.text = gameLanguage;
         HandleMusic();
 
         if (restartFromGameOver)
@@ -457,6 +459,11 @@ public class GameManager : MonoBehaviour
             soundToggleImage.sprite = soundOn ? toggleOnSprite : toggleOffSprite;
     }
 
+    public void OpenPrivacyPolicy()
+    {
+        Application.OpenURL("https://www.thegamewise.com/privacy-policy/");
+    }
+
     public void ChangeLanguage(string languageName)
     {
         englishCheck.SetActive(false);
@@ -482,9 +489,10 @@ public class GameManager : MonoBehaviour
                 frenchCheck.SetActive(true);
                 break;
         }
+        gameLanguageText.text = languageName;
         PlayerPrefs.SetString("GameLanguage", languageName);
         PlayerPrefs.Save();
-
+        SetState(GameState.Setting);
         Debug.Log("Language Changed To: " + languageName);
     }
 }
