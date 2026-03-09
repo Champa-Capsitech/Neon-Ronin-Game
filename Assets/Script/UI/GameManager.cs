@@ -496,9 +496,9 @@ public class GameManager : MonoBehaviour
                 LocalizationManager.Instance.SetLanguage("pt-BR");
                 break;
 
-            case "Russian":
+            case "Spanish":
                 russianCheck.SetActive(true);
-                LocalizationManager.Instance.SetLanguage("ru");
+                LocalizationManager.Instance.SetLanguage("sp");
                 break;
 
             case "French":

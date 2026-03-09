@@ -11923,7 +11923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Russian
+  m_text: Spanish
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b47ab1780ee94c4a9546d7e8d586c4f, type: 2}
   m_sharedMaterial: {fileID: 8443378489648574382, guid: 7b47ab1780ee94c4a9546d7e8d586c4f, type: 2}
@@ -12015,7 +12015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6db35dc2b152348add0b08d1f6e080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LocalizedTMPText
-  localizationKey: RUSSIAN
+  localizationKey: Spanish
 --- !u!1 &1392268491
 GameObject:
   m_ObjectHideFlags: 0
