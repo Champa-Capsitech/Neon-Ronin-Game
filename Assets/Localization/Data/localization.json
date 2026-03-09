@@ -1,104 +1,110 @@
 {
   "BEST_SCORE": {
-    "en": "Best Score",
-    "fr": "Meilleur Score",
-    "pt": "Melhor Pontuação",
-    "ru": "Лучший счёт"
+    "en": "BEST SCORE : {0}",
+    "fr": "MEILLEUR SCORE : {0}",
+    "pt-BR": "MELHOR PONTUAÇÃO : {0}",
+    "ru": "ЛУЧШИЙ СЧЁТ : {0}"
   },
   "START_MISSION": {
-    "en": "Start Mission",
+    "en": "START MISSION",
     "fr": "Commencer Mission",
-    "pt": "Iniciar Missão",
+    "pt-BR": "Iniciar Missão",
     "ru": "Начать миссию"
   },
   "GAME_SETTINGS": {
-    "en": "Game Settings",
+    "en": "GAME SETTINGS",
     "fr": "Paramètres du Jeu",
-    "pt": "Configurações do Jogo",
+    "pt-BR": "Configurações do Jogo",
     "ru": "Настройки игры"
   },
   "MUSIC": {
-    "en": "Music",
+    "en": "MUSIC",
     "fr": "Musique",
-    "pt": "Música",
+    "pt-BR": "Música",
     "ru": "Музыка"
   },
   "SOUND": {
-    "en": "Sound",
+    "en": "SOUND",
     "fr": "Son",
-    "pt": "Som",
+    "pt-BR": "Som",
     "ru": "Звук"
   },
   "LANGUAGE": {
-    "en": "Language",
+    "en": "LANGUAGE",
     "fr": "Langue",
-    "pt": "Idioma",
+    "pt-BR": "Idioma",
     "ru": "Язык"
   },
   "BACK": {
-    "en": "Back",
+    "en": "BACK",
     "fr": "Retour",
-    "pt": "Voltar",
+    "pt-BR": "Voltar",
     "ru": "Назад"
   },
   "PAUSED": {
-    "en": "Paused",
+    "en": "PAUSED",
     "fr": "Pause",
-    "pt": "Pausado",
+    "pt-BR": "Pausado",
     "ru": "Пауза"
   },
   "HOME": {
-    "en": "Home",
+    "en": "HOME",
     "fr": "Accueil",
-    "pt": "Início",
-    "rs": "Главная"
+    "pt-BR": "Início",
+    "ru": "Главная"
   },
   "RESUME": {
-    "en": "Resume",
+    "en": "RESUME",
     "fr": "Reprendre",
-    "pt": "Continuar",
+    "pt-BR": "Continuar",
     "ru": "Продолжить"
   },
   "RESTART": {
-    "en": "Restart",
+    "en": "RESTART",
     "fr": "Redémarrer",
-    "pt": "Reiniciar",
+    "pt-BR": "Reiniciar",
     "ru": "Перезапуск"
   },
   "PRIVACY_POLICY": {
-    "en": "Privacy Policy",
+    "en": "PRIVACY POLICY",
     "fr": "Politique de Confidentialité",
-    "pt": "Política de Privacidade",
+    "pt-BR": "Política de Privacidade",
     "ru": "Политика конфиденциальности"
   },
   "SCORE": {
-    "en": "Score",
+    "en": "SCORE",
     "fr": "Score",
-    "pt": "Pontuação",
+    "pt-BR": "Pontuação",
     "ru": "Счёт"
   },
   "SMASH": {
-    "en": "Smash!",
+    "en": "SMASH!",
     "fr": "Écrasé!",
-    "pt": "Esmagado!",
+    "pt-BR": "Esmagado!",
     "ru": "Разбито!"
   },
   "CRASHED": {
-    "en": "Crashed!",
+    "en": "CRASHED!",
     "fr": "Crash!",
-    "pt": "Colidiu!",
+    "pt-BR": "Colidiu!",
     "ru": "Крушение!"
   },
-  "LANGUAGE SETTINGS": {
-    "en": "Language Settings",
+  "LANGUAGE_SETTINGS": {
+    "en": "LANGUAGE SETTINGS",
     "fr": "Paramètres de Langue",
-    "pt": "Configurações de Idioma",
+    "pt-BR": "Configurações de Idioma",
     "ru": "Настройки языка"
   },
   "EXECUTED": {
-    "en": "Executed!",
+    "en": "EXECUTED!",
     "fr": "Exécuté!",
-    "pt": "Executado!",
+    "pt-BR": "Executado!",
     "ru": "Уничтожен!"
+  },
+  "SCORE_2": {
+    "en": "SCORE : {0}",
+    "fr": "Score : {0}",
+    "pt-BR": "Pontuação : {0}",
+    "ru": "Счёт : {0}"
   }
 }
