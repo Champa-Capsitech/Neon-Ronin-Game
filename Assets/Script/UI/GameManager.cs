@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
     public GameObject LanguageScreen;
+    public GameObject SpawnManagerObject;
+    public GameObject Prefeb_1;
     public string currentLanguage;
 
     public GameObject englishCheck;
@@ -119,9 +121,10 @@ public class GameManager : MonoBehaviour
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
         overallHighScoreText.text = "BEST SCORE : " + overallHighScore;
-        string gameLanguage = PlayerPrefs.GetString("GameLanguage", "English");
-        // ChangeLanguage(gameLanguage);
-        // gameLanguageText.text = gameLanguage;
+        // string gameLanguage = PlayerPrefs.GetString("GameLanguage", "English");
+        // LanguageChange(gameLanguage);
+        string gameLanguage = PlayerPrefs.GetString("GameLanguage");
+        LanguageChange(gameLanguage);
         HandleMusic();
 
         if (restartFromGameOver)
@@ -202,15 +205,9 @@ public class GameManager : MonoBehaviour
         pauseGameScreen.SetActive(newState == GameState.Paused);
         gameSettingScreen.SetActive(newState == GameState.Setting);
         LanguageScreen.SetActive(newState == GameState.Language);
-
-        if (newState == GameState.Start)
-        {
-            player.SetActive(false);
-        }
-        else if (newState == GameState.Running)
-        {
-            player.SetActive(true);
-        }
+        player.SetActive(newState == GameState.Running);
+        SpawnManagerObject.SetActive(newState == GameState.Running);
+        Prefeb_1.SetActive(newState == GameState.Running);
         InGame_Scoretext.gameObject.SetActive(newState == GameState.Running);
     }
 
@@ -465,43 +462,41 @@ public class GameManager : MonoBehaviour
         Application.OpenURL("https://www.thegamewise.com/privacy-policy/");
     }
 
-    // public void ChangeLanguage(string languageName)
-    // {
-    //     englishCheck.SetActive(false);
-    //     portugueseCheck.SetActive(false);
-    //     russianCheck.SetActive(false);
-    //     frenchCheck.SetActive(false);
-
-    //     switch (languageName)
-    //     {
-    //         case "English":
-    //             englishCheck.SetActive(true);
-    //             LocalizationManager.Instance.SetLanguage("en");
-    //             break;
-
-    //         case "Portuguese":
-    //             portugueseCheck.SetActive(true);
-    //             LocalizationManager.Instance.SetLanguage("pt-BR");
-    //             break;
-
-    //         case "Russian":
-    //             russianCheck.SetActive(true);
-    //             LocalizationManager.Instance.SetLanguage("ru");
-    //             break;
-
-    //         case "French":
-    //             frenchCheck.SetActive(true);
-    //             LocalizationManager.Instance.SetLanguage("fr");
-    //             break;
-    //     }
-    //     gameLanguageText.text = languageName;
-    //     PlayerPrefs.SetString("GameLanguage", languageName);
-    //     PlayerPrefs.Save();
-    //     SetState(GameState.Setting);
-    //     Debug.Log("Language Changed To: " + languageName);
-    // }
-    public void LanguageChange()
+  
+    public void LanguageChange(string languageName)
     {
+        englishCheck.SetActive(false);
+        portugueseCheck.SetActive(false);
+        russianCheck.SetActive(false);
+        frenchCheck.SetActive(false);
+
+        switch (languageName)
+        {
+            case "English":
+                englishCheck.SetActive(true);
+                LocalizationManager.Instance.SetLanguage("en");
+                break;
+
+            case "Portuguese":
+                portugueseCheck.SetActive(true);
+                LocalizationManager.Instance.SetLanguage("pt-BR");
+                break;
+
+            case "Russian":
+                russianCheck.SetActive(true);
+                LocalizationManager.Instance.SetLanguage("ru");
+                break;
+
+            case "French":
+                frenchCheck.SetActive(true);
+                LocalizationManager.Instance.SetLanguage("fr");
+                break;
+        }
+        gameLanguageText.text = languageName;
+        PlayerPrefs.SetString("GameLanguage", languageName);
+        PlayerPrefs.Save();
+        SetState(GameState.Setting);
+        Debug.Log("Language Changed To: " + languageName);
         SetState(GameState.Setting);
     }
 }

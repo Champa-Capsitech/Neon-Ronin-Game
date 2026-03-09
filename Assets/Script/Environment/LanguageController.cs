@@ -26,27 +26,21 @@ public class LanguageController : MonoBehaviour
 
     public void English()
     {
-        ChangeLanguage("en");
+        GameManager.instance.LanguageChange("English");
     }
 
     public void Portuguese()
     {
-        ChangeLanguage("pt");
+        GameManager.instance.LanguageChange("Portuguese");
     }
 
     public void Russian()
     {
-        ChangeLanguage("rs");
+        GameManager.instance.LanguageChange("Russian");
     }
 
     public void French()
     {
-        ChangeLanguage("fr");
-    }
-
-    public void ChangeLanguage(string lang)
-    {
-        LocalizationManager.Instance?.SetLanguage(lang);
-        GameManager.instance.LanguageChange();
+        GameManager.instance.LanguageChange("French");
     }
 }
