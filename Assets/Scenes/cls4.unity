@@ -1241,10 +1241,10 @@ RectTransform:
   - {fileID: 1506353374}
   m_Father: {fileID: 1812539987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.040508542}
-  m_AnchorMax: {x: 0.5, y: 0.040508542}
+  m_AnchorMin: {x: 0.77260417, y: 0.89612687}
+  m_AnchorMax: {x: 0.77260417, y: 0.89612687}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 60}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73823669
 MonoBehaviour:
@@ -3708,10 +3708,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1812539987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9594792, y: 0.91300005}
-  m_AnchorMax: {x: 0.9594792, y: 0.91300005}
+  m_AnchorMin: {x: 0.94000006, y: 0.90050733}
+  m_AnchorMax: {x: 0.94000006, y: 0.90050733}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 90, y: 90}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &453104294
 MonoBehaviour:
@@ -12686,8 +12686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.1718979, y: 4.0765}
-  m_SizeDelta: {x: 8.6498, y: -0.1628}
+  m_AnchoredPosition: {x: 0.25, y: 3.25}
+  m_SizeDelta: {x: 7.4999995, y: -14.500002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471006432
 MonoBehaviour:
@@ -14754,8 +14754,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: START MISSION
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb4c6c5468b268c458472437be0c19bb, type: 2}
-  m_sharedMaterial: {fileID: -7562819045890519147, guid: fb4c6c5468b268c458472437be0c19bb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18658,8 +18658,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'SCORE : 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: da3ae2e189d50a845880fb2cf59793e5, type: 2}
-  m_sharedMaterial: {fileID: 2764801152863578380, guid: da3ae2e189d50a845880fb2cf59793e5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19148,8 +19148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NEON RONIN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7b47ab1780ee94c4a9546d7e8d586c4f, type: 2}
-  m_sharedMaterial: {fileID: 8443378489648574382, guid: 7b47ab1780ee94c4a9546d7e8d586c4f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
