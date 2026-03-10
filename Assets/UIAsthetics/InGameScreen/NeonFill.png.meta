@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3af1bfa0a73c01d4887537c32ba707b0
+guid: c886ee67015f7e84187ec7bf60068591
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8410971265998951256
-    second: Rectangle 2 (1)_0
+      213: -4047271155211885146
+    second: NeonFill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rectangle 2 (1)_0
+      name: NeonFill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2236
-        height: 133
+        width: 3780
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ac6d12623a364b80800000000000000
-      internalID: -8410971265998951256
+      spriteID: 6a529e3e35435d7c0800000000000000
+      internalID: -4047271155211885146
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rectangle 2 (1)_0: -8410971265998951256
+      NeonFill_0: -4047271155211885146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
