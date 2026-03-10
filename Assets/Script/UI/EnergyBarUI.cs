@@ -38,9 +38,9 @@ public class EnergyBarUI : MonoBehaviour
 
         slider.value = GameManager.instance.currentEnergy;
 
-        if (slider.value <= lowEnergyThreshold)
-            fillImage.color = lowEnergyColor;
-        else
-            fillImage.color = normalColor;
+        // if (slider.value <= lowEnergyThreshold)
+        //     fillImage.color = lowEnergyColor;
+        // else
+        fillImage.color = normalColor;
     }
 }
