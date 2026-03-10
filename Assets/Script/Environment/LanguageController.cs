@@ -36,7 +36,7 @@ public class LanguageController : MonoBehaviour
 
     public void Russian()
     {
-        GameManager.instance.LanguageChange("Russian");
+        GameManager.instance.LanguageChange("Spanish");
     }
 
     public void French()
