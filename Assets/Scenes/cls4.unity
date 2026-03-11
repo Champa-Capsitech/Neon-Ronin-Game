@@ -1121,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &93498631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2622,8 +2622,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'SCORE : 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d16b2ce6af285c48b7816d0a1e727f9, type: 2}
+  m_sharedMaterial: {fileID: -4300468923794254585, guid: 8d16b2ce6af285c48b7816d0a1e727f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8105,7 +8105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1091999706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10845,7 +10845,7 @@ RectTransform:
   m_Father: {fileID: 1506353374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.6949768, y: 3.9499989}
   m_SizeDelta: {x: -12.570036, y: -15.500003}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12076,8 +12076,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PAUSED
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fb4c6c5468b268c458472437be0c19bb, type: 2}
-  m_sharedMaterial: {fileID: -7562819045890519147, guid: fb4c6c5468b268c458472437be0c19bb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2afa0fbee63c5d74f8339d8263a95a43, type: 2}
+  m_sharedMaterial: {fileID: -2858437344657339158, guid: 2afa0fbee63c5d74f8339d8263a95a43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14590,7 +14590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1812539987
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16159,8 +16159,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'SCORE : 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d16b2ce6af285c48b7816d0a1e727f9, type: 2}
+  m_sharedMaterial: {fileID: -4300468923794254585, guid: 8d16b2ce6af285c48b7816d0a1e727f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16442,7 +16442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2064913773
 RectTransform:
   m_ObjectHideFlags: 0
