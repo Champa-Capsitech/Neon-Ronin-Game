@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Yellow_Wall
+  - Yellow_wall_box
+  - Background
+  - Plateform
+  - Platform
+  - Pink_Square
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1621576585
+    locked: 0
+  - name: Effects
+    uniqueID: 881951087
+    locked: 0
+  - name: Player
+    uniqueID: 64073745
+    locked: 0
+  - name: Environment
+    uniqueID: 4013389639
+    locked: 0
+  - name: Background
+    uniqueID: 985517561
+    locked: 0
+  m_RenderingLayers:
+  - Default

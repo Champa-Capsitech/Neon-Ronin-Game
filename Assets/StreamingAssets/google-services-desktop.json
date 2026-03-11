@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1059158682294",
+    "project_id": "neon-ronin",
+    "storage_bucket": "neon-ronin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059158682294:android:dff4072765d6d4b1a2d417",
+        "android_client_info": {
+          "package_name": "com.TheGameWise.NeonRonin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEDTc6RJrDKaXwo2giu3KDS7cuK5WK-iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

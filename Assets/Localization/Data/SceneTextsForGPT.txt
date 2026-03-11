@@ -1,0 +1,55 @@
+Generate ONLY valid JSON for a game localization file.
+
+Constraints:
+- No markdown
+- No comments
+- No explanations
+- No trailing commas
+- Preserve key order
+- Use uppercase keys
+
+Structure:
+{
+  "KEY": {
+    "en": "English",
+    "pt-BR": "Portuguese (Brazil)",
+    "ru": "Russian",
+    "sp": "Spanish",
+    "fr": "French",
+    "ar": "Arabic"
+  }
+}
+
+Entries:
+
+1 = NEON RONIN
+3 = START MISSION
+OPTIONS = Options
+4 = BEST SCORE : 0000
+BACK = BACK
+5 = GAME SETTINGS
+MUSIC = MUSIC
+SOUND = SOUND
+LANGUAGE = LANGUAGE
+ENGLISH = English
+ENGLISH = ENGLISH
+ON = ON
+6 = Option A
+8 = PRIVACY POLICY
+PAUSED = PAUSED
+HOME = HOME
+RESUME = RESUME
+RESTART = RESTART
+EXIT = EXIT
+9 = SOUND ON/OFF
+10 = SCORE : 0
+SMASH = SMASH!
+EXECUTED = EXECUTED
+12 = HIGH SCORE : 0
+CRASHED = CRASHED!
+HOME = Home
+13 = MAIN MANU
+14 = LANGUAGE SETTINGS
+PORTUGUESE = Portuguese
+RUSSIAN = Russian
+FRENCH = French

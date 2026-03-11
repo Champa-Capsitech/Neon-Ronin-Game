@@ -1,0 +1,12 @@
+# ninja log v5
+38	127	7893903482643191	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b1329d060ecf1609
+129	219	7893903483547963	D:/Protos/Neon-Ronin-Game/Library/PramData/AndroidApplicationController/Cache/com.TheGameWise.NeonRonin/gradle-project/unityLibrary/build/intermediates/cxx/Debug/2s95i241/obj/armeabi-v7a/libswappywrapper.so	9d9d92a75fbe2650
+9	603	7893903487372117	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5c186d21dd8d761c
+5	620	7893903487522027	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	fc4bc6d9f133e634
+18	623	7893903487562356	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5e80216d9c283dfd
+22	630	7893903487660375	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a8984dcb883366c1
+26	632	7893903487660375	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	51f376c6b4d224a1
+13	714	7893903488442847	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	62a2dc6afdcbc905
+31	715	7893903488493297	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	54d6f6d25665545a
+1	744	7893903488717992	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	bb3f3d39cccb6fea
+744	825	7893903489577459	D:/Protos/Neon-Ronin-Game/Library/PramData/AndroidApplicationController/Cache/com.TheGameWise.NeonRonin/gradle-project/unityLibrary/build/intermediates/cxx/Debug/2s95i241/obj/armeabi-v7a/libgame.so	311065a7ade7374a

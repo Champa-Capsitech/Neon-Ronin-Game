@@ -1,0 +1,128 @@
+{
+  "BEST_SCORE": {
+    "en": "BEST SCORE : {0}",
+    "fr": "MEILLEUR SCORE : {0}",
+    "pt-BR": "MELHOR PONTUAÇÃO : {0}",
+    "ru": "ЛУЧШИЙ СЧЁТ : {0}",
+    "sp": "MEJOR PUNTUACIÓN : {0}"
+  },
+  "START_MISSION": {
+    "en": "START MISSION",
+    "fr": "Commencer Mission",
+    "pt-BR": "Iniciar Missão",
+    "ru": "Начать миссию",
+    "sp": "INICIAR MISIÓN"
+  },
+  "GAME_SETTINGS": {
+    "en": "GAME SETTINGS",
+    "fr": "Paramètres du Jeu",
+    "pt-BR": "Configurações do Jogo",
+    "ru": "Настройки игры",
+    "sp": "CONFIGURACIÓN DEL JUEGO"
+  },
+  "MUSIC": {
+    "en": "MUSIC",
+    "fr": "Musique",
+    "pt-BR": "Música",
+    "ru": "Музыка",
+    "sp": "MÚSICA"
+  },
+  "SOUND": {
+    "en": "SOUND",
+    "fr": "Son",
+    "pt-BR": "Som",
+    "ru": "Звук",
+    "sp": "SONIDO"
+  },
+  "LANGUAGE": {
+    "en": "LANGUAGE",
+    "fr": "Langue",
+    "pt-BR": "Idioma",
+    "ru": "Язык",
+    "sp": "IDIOMA"
+  },
+  "BACK": {
+    "en": "BACK",
+    "fr": "Retour",
+    "pt-BR": "Voltar",
+    "ru": "Назад",
+    "sp": "ATRÁS"
+  },
+  "PAUSED": {
+    "en": "PAUSED",
+    "fr": "Pause",
+    "pt-BR": "Pausado",
+    "ru": "Пауза",
+    "sp": "PAUSADO"
+  },
+  "HOME": {
+    "en": "HOME",
+    "fr": "Accueil",
+    "pt-BR": "Início",
+    "ru": "Главная",
+    "sp": "INICIO"
+  },
+  "RESUME": {
+    "en": "RESUME",
+    "fr": "Reprendre",
+    "pt-BR": "Continuar",
+    "ru": "Продолжить",
+    "sp": "CONTINUAR"
+  },
+  "RESTART": {
+    "en": "RESTART",
+    "fr": "Redémarrer",
+    "pt-BR": "Reiniciar",
+    "ru": "Перезапуск",
+    "sp": "REINICIAR"
+  },
+  "PRIVACY_POLICY": {
+    "en": "PRIVACY POLICY",
+    "fr": "Politique de Confidentialité",
+    "pt-BR": "Política de Privacidade",
+    "ru": "Политика конфиденциальности",
+    "sp": "POLÍTICA DE PRIVACIDAD"
+  },
+  "SCORE": {
+    "en": "SCORE",
+    "fr": "Score",
+    "pt-BR": "Pontuação",
+    "ru": "Счёт",
+    "sp": "PUNTUACIÓN"
+  },
+  "SMASH": {
+    "en": "SMASH!",
+    "fr": "Écrasé!",
+    "pt-BR": "Esmagado!",
+    "ru": "Разбито!",
+    "sp": "¡APLASTADO!"
+  },
+  "CRASHED": {
+    "en": "CRASHED!",
+    "fr": "Crash!",
+    "pt-BR": "Colidiu!",
+    "ru": "Крушение!",
+    "sp": "¡CHOQUE!"
+  },
+  "LANGUAGE_SETTINGS": {
+    "en": "LANGUAGE SETTINGS",
+    "fr": "Paramètres de Langue",
+    "pt-BR": "Configurações de Idioma",
+    "ru": "Настройки языка",
+    "sp": "CONFIGURACIÓN DE IDIOMA"
+  },
+  "EXECUTED": {
+    "en": "EXECUTED!",
+    "fr": "Exécuté!",
+    "pt-BR": "Executado!",
+    "ru": "Уничтожен!",
+    "sp": "¡ELIMINADO!"
+  },
+  "SCORE_2": {
+    "en": "SCORE : {0}",
+    "fr": "Score : {0}",
+    "pt-BR": "Pontuação : {0}",
+    "ru": "Счёт : {0}",
+    "sp": "PUNTUACIÓN : {0}"
+  }
+}
