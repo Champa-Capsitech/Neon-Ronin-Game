@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = gravityScale;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.linearDamping = 0f;
+        //rb.linearDamping = 0f;
 
         originalGravity = gravityScale;
 
