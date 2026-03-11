@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         Language,
     }
 
+
     public TMP_Dropdown soundDropdown;
     public TMP_Dropdown musicDropdown;
     public GameObject gameSettingScreen;
