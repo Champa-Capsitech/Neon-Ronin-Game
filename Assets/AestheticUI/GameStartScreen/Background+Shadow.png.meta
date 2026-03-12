@@ -1,0 +1,2444 @@
+fileFormatVersion: 2
+guid: bdf4e2f747a52344bb1de350be098ce1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5429128655105248203
+    second: Background+Shadow_0
+  - first:
+      213: 4211213861244362078
+    second: Background+Shadow_1
+  - first:
+      213: -5121724007805465722
+    second: Background+Shadow_2
+  - first:
+      213: 636399706625607477
+    second: Background+Shadow_3
+  - first:
+      213: 3852836664443871829
+    second: Background+Shadow_4
+  - first:
+      213: -9012301992403563009
+    second: Background+Shadow_5
+  - first:
+      213: 8263010276431318371
+    second: Background+Shadow_6
+  - first:
+      213: 8666212530321717986
+    second: Background+Shadow_7
+  - first:
+      213: -5718806005895923955
+    second: Background+Shadow_8
+  - first:
+      213: 197236781952661268
+    second: Background+Shadow_9
+  - first:
+      213: -6732693636145725993
+    second: Background+Shadow_10
+  - first:
+      213: -7188363955175715587
+    second: Background+Shadow_11
+  - first:
+      213: -7962488898139490314
+    second: Background+Shadow_12
+  - first:
+      213: -7181980098710614954
+    second: Background+Shadow_13
+  - first:
+      213: 4415602780736982046
+    second: Background+Shadow_14
+  - first:
+      213: 2716579025238181078
+    second: Background+Shadow_15
+  - first:
+      213: -8795097619044588929
+    second: Background+Shadow_16
+  - first:
+      213: 1428018596042928254
+    second: Background+Shadow_17
+  - first:
+      213: -7586644152798724344
+    second: Background+Shadow_18
+  - first:
+      213: -3238718332332260570
+    second: Background+Shadow_19
+  - first:
+      213: 2656508611418219186
+    second: Background+Shadow_20
+  - first:
+      213: -7953433972880824359
+    second: Background+Shadow_21
+  - first:
+      213: 7742585229540984305
+    second: Background+Shadow_22
+  - first:
+      213: -7912424672747079226
+    second: Background+Shadow_23
+  - first:
+      213: 736804961565345548
+    second: Background+Shadow_24
+  - first:
+      213: 5185229520495785501
+    second: Background+Shadow_25
+  - first:
+      213: 1508868441498078561
+    second: Background+Shadow_26
+  - first:
+      213: -5341429001631078609
+    second: Background+Shadow_27
+  - first:
+      213: 5816153494511708288
+    second: Background+Shadow_28
+  - first:
+      213: 5638238023568247955
+    second: Background+Shadow_29
+  - first:
+      213: -4566228732859533260
+    second: Background+Shadow_30
+  - first:
+      213: 26611249532372050
+    second: Background+Shadow_31
+  - first:
+      213: 3035756687634309240
+    second: Background+Shadow_32
+  - first:
+      213: 5356156204836581069
+    second: Background+Shadow_33
+  - first:
+      213: 6529410544952997956
+    second: Background+Shadow_34
+  - first:
+      213: 4980042701747963653
+    second: Background+Shadow_35
+  - first:
+      213: -668304782102436260
+    second: Background+Shadow_36
+  - first:
+      213: 1595898785704636632
+    second: Background+Shadow_37
+  - first:
+      213: -727942742215203959
+    second: Background+Shadow_38
+  - first:
+      213: 8106552506352721608
+    second: Background+Shadow_39
+  - first:
+      213: 5533573347156938265
+    second: Background+Shadow_40
+  - first:
+      213: -4348134999817209818
+    second: Background+Shadow_41
+  - first:
+      213: -1100524828178491043
+    second: Background+Shadow_42
+  - first:
+      213: 6690099490063711533
+    second: Background+Shadow_43
+  - first:
+      213: 7192384611858947861
+    second: Background+Shadow_44
+  - first:
+      213: -6386093229120526219
+    second: Background+Shadow_45
+  - first:
+      213: -2476315815224877677
+    second: Background+Shadow_46
+  - first:
+      213: -9159247632253970464
+    second: Background+Shadow_47
+  - first:
+      213: 1072283619512415228
+    second: Background+Shadow_48
+  - first:
+      213: -7157004105879020830
+    second: Background+Shadow_49
+  - first:
+      213: -367969634830770371
+    second: Background+Shadow_50
+  - first:
+      213: 2088849562511921902
+    second: Background+Shadow_51
+  - first:
+      213: 6838117421792982903
+    second: Background+Shadow_52
+  - first:
+      213: 5761714872057131486
+    second: Background+Shadow_53
+  - first:
+      213: -3419486717660132508
+    second: Background+Shadow_54
+  - first:
+      213: 1718664934306486741
+    second: Background+Shadow_55
+  - first:
+      213: 8767384536186588635
+    second: Background+Shadow_56
+  - first:
+      213: 6990204241162176770
+    second: Background+Shadow_57
+  - first:
+      213: -7174044489575316251
+    second: Background+Shadow_58
+  - first:
+      213: 5210956001517684664
+    second: Background+Shadow_59
+  - first:
+      213: -5965391150553296524
+    second: Background+Shadow_60
+  - first:
+      213: -5209200715048688147
+    second: Background+Shadow_61
+  - first:
+      213: 641462845635404134
+    second: Background+Shadow_62
+  - first:
+      213: 9107948445055650130
+    second: Background+Shadow_63
+  - first:
+      213: -8666168432829672563
+    second: Background+Shadow_64
+  - first:
+      213: 3743266171305232037
+    second: Background+Shadow_65
+  - first:
+      213: 8612838921761300648
+    second: Background+Shadow_66
+  - first:
+      213: 8163327168513723314
+    second: Background+Shadow_67
+  - first:
+      213: -5800486364204479394
+    second: Background+Shadow_68
+  - first:
+      213: -3506828996329337246
+    second: Background+Shadow_69
+  - first:
+      213: 3731035907537083018
+    second: Background+Shadow_70
+  - first:
+      213: 5082856106718710868
+    second: Background+Shadow_71
+  - first:
+      213: 3584249330719549778
+    second: Background+Shadow_72
+  - first:
+      213: 3224563170808614500
+    second: Background+Shadow_73
+  - first:
+      213: -7175920043621046735
+    second: Background+Shadow_74
+  - first:
+      213: -4325836564162678727
+    second: Background+Shadow_75
+  - first:
+      213: 7801955883393184245
+    second: Background+Shadow_76
+  - first:
+      213: -6325562770825605044
+    second: Background+Shadow_77
+  - first:
+      213: 9178145263767062212
+    second: Background+Shadow_78
+  - first:
+      213: -8309153215670634226
+    second: Background+Shadow_79
+  - first:
+      213: -3541918182331482320
+    second: Background+Shadow_80
+  - first:
+      213: 3064213743685110923
+    second: Background+Shadow_81
+  - first:
+      213: 3825367818103279786
+    second: Background+Shadow_82
+  - first:
+      213: 5643138824936590927
+    second: Background+Shadow_83
+  - first:
+      213: 5546968509750595399
+    second: Background+Shadow_84
+  - first:
+      213: 8038722164521459272
+    second: Background+Shadow_85
+  - first:
+      213: -1126663541833785479
+    second: Background+Shadow_86
+  - first:
+      213: -614416980142899266
+    second: Background+Shadow_87
+  - first:
+      213: 1509753635212042483
+    second: Background+Shadow_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Background+Shadow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1392
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534be80c04cd7a4b0800000000000000
+      internalID: -5429128655105248203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 281
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ddba0e1bc317a30800000000000000
+      internalID: 4211213861244362078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 280
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b4a25a62bfbe8b0800000000000000
+      internalID: -5121724007805465722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 278
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53705905922f4d800800000000000000
+      internalID: 636399706625607477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_4
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 283
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55227c97886087530800000000000000
+      internalID: 3852836664443871829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_5
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 281
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd8d3e461fdde280800000000000000
+      internalID: -9012301992403563009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_6
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 280
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d471e211c1ca270800000000000000
+      internalID: 8263010276431318371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_7
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 280
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea7dd97162944870800000000000000
+      internalID: 8666212530321717986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_8
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07f337bc38b2a0b0800000000000000
+      internalID: -5718806005895923955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_9
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 281
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417fde4eec9bcb200800000000000000
+      internalID: 197236781952661268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_10
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 282
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd300c2fcaa092a0800000000000000
+      internalID: -6732693636145725993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_11
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc878f711dcd3c90800000000000000
+      internalID: -7188363955175715587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_12
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 283
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f77762c88e8f7190800000000000000
+      internalID: -7962488898139490314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_13
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 283
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ccd68e62b745c90800000000000000
+      internalID: -7181980098710614954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_14
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 280
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c0e0f855f574d30800000000000000
+      internalID: 4415602780736982046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_15
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 280
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4499bfa3a33b520800000000000000
+      internalID: 2716579025238181078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_16
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72a6fb505981f580800000000000000
+      internalID: -8795097619044588929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_17
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 281
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e707acdd85751d310800000000000000
+      internalID: 1428018596042928254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_18
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 282
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f332bb653d6b690800000000000000
+      internalID: -7586644152798724344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_19
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6234ac116d2cd03d0800000000000000
+      internalID: -3238718332332260570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_20
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 283
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2695ed180ddd420800000000000000
+      internalID: 2656508611418219186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_21
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 283
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d72ae5d0f9bf9190800000000000000
+      internalID: -7953433972880824359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_22
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 280
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f50af98e30337b60800000000000000
+      internalID: 7742585229540984305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_23
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 280
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9bfd49eab613290800000000000000
+      internalID: -7912424672747079226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_24
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0709d27538a93a00800000000000000
+      internalID: 736804961565345548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_25
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 281
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d163500c6c2a5f740800000000000000
+      internalID: 5185229520495785501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_26
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 282
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d4a4c6ad390f410800000000000000
+      internalID: 1508868441498078561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_27
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f276fc48f9e6fd5b0800000000000000
+      internalID: -5341429001631078609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_28
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 283
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0886487b9c027b050800000000000000
+      internalID: 5816153494511708288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_29
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 283
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39cc2e91c9b0f3e40800000000000000
+      internalID: 5638238023568247955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_30
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 280
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438b9be092f71a0c0800000000000000
+      internalID: -4566228732859533260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_31
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 280
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254086b5aca8e5000800000000000000
+      internalID: 26611249532372050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_32
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870a5fe8f9c212a20800000000000000
+      internalID: 3035756687634309240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_33
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 281
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcee9cea0b3e45a40800000000000000
+      internalID: 5356156204836581069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_34
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 282
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448fc9cdb402d9a50800000000000000
+      internalID: 6529410544952997956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_35
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 282
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 507c6fba37aac1540800000000000000
+      internalID: 4980042701747963653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_36
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 283
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c56e61d6754b9b6f0800000000000000
+      internalID: -668304782102436260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_37
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 283
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0f66b7d75c52610800000000000000
+      internalID: 1595898785704636632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_38
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 280
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9836079cee3d5e5f0800000000000000
+      internalID: -727942742215203959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_39
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 281
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ced43edd82408070800000000000000
+      internalID: 8106552506352721608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_40
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 280
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91ecbdf14a33bcc40800000000000000
+      internalID: 5533573347156938265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_41
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 282
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 628b37c414258a3c0800000000000000
+      internalID: -4348134999817209818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_42
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 283
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d595ce5ef762ab0f0800000000000000
+      internalID: -1100524828178491043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_43
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 276
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2df4416a0208dc50800000000000000
+      internalID: 6690099490063711533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_44
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 266
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f96d592bb70d360800000000000000
+      internalID: 7192384611858947861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_45
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 265
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5786eb70b0a0067a0800000000000000
+      internalID: -6386093229120526219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_46
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 250
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39dd6d9d2eb52add0800000000000000
+      internalID: -2476315815224877677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_47
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 241
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e71aa56ec0d3e080800000000000000
+      internalID: -9159247632253970464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_48
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 250
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3f18f454481ee00800000000000000
+      internalID: 1072283619512415228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_49
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 240
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea91156fa63dac90800000000000000
+      internalID: -7157004105879020830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_50
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 223
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f18c31195b4eaf0800000000000000
+      internalID: -367969634830770371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_51
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 227
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2d0c22c951dfc10800000000000000
+      internalID: 2088849562511921902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7777162b09fd5ee50800000000000000
+      internalID: 6838117421792982903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_53
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 215
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed1fc063629b5ff40800000000000000
+      internalID: 5761714872057131486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_54
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 201
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b83bf82fa8b80d0800000000000000
+      internalID: -3419486717660132508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_55
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 202
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d91241e6ace9d710800000000000000
+      internalID: 1718664934306486741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd87a8b8c10ca970800000000000000
+      internalID: 8767384536186588635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_57
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 188
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20986edb8b1320160800000000000000
+      internalID: 6990204241162176770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_58
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 182
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4c304eb8ca07c90800000000000000
+      internalID: -7174044489575316251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_59
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 182
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7c6a2efd8015840800000000000000
+      internalID: 5210956001517684664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_60
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 171
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4711305ca5ca63da0800000000000000
+      internalID: -5965391150553296524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_61
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 176
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de5efc79c8335b7b0800000000000000
+      internalID: -5209200715048688147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_62
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 158
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661a5ba3f0fe6e800800000000000000
+      internalID: 641462845635404134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_63
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 160
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2590d14dadee56e70800000000000000
+      internalID: 9107948445055650130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_64
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 146
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83db75c9b59bb780800000000000000
+      internalID: -8666168432829672563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_65
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 118
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6826800c0c2f330800000000000000
+      internalID: 3743266171305232037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_66
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 105
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0ad37dd53f68770800000000000000
+      internalID: 8612838921761300648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_67
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 105
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb4e800fc6f94170800000000000000
+      internalID: 8163327168513723314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c48115268808fa0800000000000000
+      internalID: -5800486364204479394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_69
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 95
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26e00c99b9d355fc0800000000000000
+      internalID: -3506828996329337246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_70
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 88
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a99f8d36d47c330800000000000000
+      internalID: 3731035907537083018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_71
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 89
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cc46de2bee98640800000000000000
+      internalID: 5082856106718710868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_72
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 81
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25968ffa6cfcdb130800000000000000
+      internalID: 3584249330719549778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_73
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 79
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ecadf8e13ffbc20800000000000000
+      internalID: 3224563170808614500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_74
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 60
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136ac5f6db20a6c90800000000000000
+      internalID: -7175920043621046735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_75
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 930ffac609a87f3c0800000000000000
+      internalID: -4325836564162678727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_76
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 61
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f17be61a8d164c60800000000000000
+      internalID: 7801955883393184245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_77
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 49
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4011889c261738a0800000000000000
+      internalID: -6325562770825605044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_78
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 54
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c605cf4d725f5f70800000000000000
+      internalID: 9178145263767062212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0938a39c25ffac80800000000000000
+      internalID: -8309153215670634226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_80
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 43
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f72a6dd2498dec0800000000000000
+      internalID: -3541918182331482320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_81
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 40
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c883c3a26468a20800000000000000
+      internalID: 3064213743685110923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_82
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 29
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0d14d43cf661530800000000000000
+      internalID: 3825367818103279786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_83
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 21
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e8f86dcd4705e40800000000000000
+      internalID: 5643138824936590927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_84
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 13
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f46f3787acafc40800000000000000
+      internalID: 5546968509750595399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_85
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 9
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e5c58b7374f8f60800000000000000
+      internalID: 8038722164521459272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_86
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 10
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f1d9f5a794d50f0800000000000000
+      internalID: -1126663541833785479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_87
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf3d9a03072977f0800000000000000
+      internalID: -614416980142899266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background+Shadow_88
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f02b25aee8b3f410800000000000000
+      internalID: 1509753635212042483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Background+Shadow_0: -5429128655105248203
+      Background+Shadow_1: 4211213861244362078
+      Background+Shadow_10: -6732693636145725993
+      Background+Shadow_11: -7188363955175715587
+      Background+Shadow_12: -7962488898139490314
+      Background+Shadow_13: -7181980098710614954
+      Background+Shadow_14: 4415602780736982046
+      Background+Shadow_15: 2716579025238181078
+      Background+Shadow_16: -8795097619044588929
+      Background+Shadow_17: 1428018596042928254
+      Background+Shadow_18: -7586644152798724344
+      Background+Shadow_19: -3238718332332260570
+      Background+Shadow_2: -5121724007805465722
+      Background+Shadow_20: 2656508611418219186
+      Background+Shadow_21: -7953433972880824359
+      Background+Shadow_22: 7742585229540984305
+      Background+Shadow_23: -7912424672747079226
+      Background+Shadow_24: 736804961565345548
+      Background+Shadow_25: 5185229520495785501
+      Background+Shadow_26: 1508868441498078561
+      Background+Shadow_27: -5341429001631078609
+      Background+Shadow_28: 5816153494511708288
+      Background+Shadow_29: 5638238023568247955
+      Background+Shadow_3: 636399706625607477
+      Background+Shadow_30: -4566228732859533260
+      Background+Shadow_31: 26611249532372050
+      Background+Shadow_32: 3035756687634309240
+      Background+Shadow_33: 5356156204836581069
+      Background+Shadow_34: 6529410544952997956
+      Background+Shadow_35: 4980042701747963653
+      Background+Shadow_36: -668304782102436260
+      Background+Shadow_37: 1595898785704636632
+      Background+Shadow_38: -727942742215203959
+      Background+Shadow_39: 8106552506352721608
+      Background+Shadow_4: 3852836664443871829
+      Background+Shadow_40: 5533573347156938265
+      Background+Shadow_41: -4348134999817209818
+      Background+Shadow_42: -1100524828178491043
+      Background+Shadow_43: 6690099490063711533
+      Background+Shadow_44: 7192384611858947861
+      Background+Shadow_45: -6386093229120526219
+      Background+Shadow_46: -2476315815224877677
+      Background+Shadow_47: -9159247632253970464
+      Background+Shadow_48: 1072283619512415228
+      Background+Shadow_49: -7157004105879020830
+      Background+Shadow_5: -9012301992403563009
+      Background+Shadow_50: -367969634830770371
+      Background+Shadow_51: 2088849562511921902
+      Background+Shadow_52: 6838117421792982903
+      Background+Shadow_53: 5761714872057131486
+      Background+Shadow_54: -3419486717660132508
+      Background+Shadow_55: 1718664934306486741
+      Background+Shadow_56: 8767384536186588635
+      Background+Shadow_57: 6990204241162176770
+      Background+Shadow_58: -7174044489575316251
+      Background+Shadow_59: 5210956001517684664
+      Background+Shadow_6: 8263010276431318371
+      Background+Shadow_60: -5965391150553296524
+      Background+Shadow_61: -5209200715048688147
+      Background+Shadow_62: 641462845635404134
+      Background+Shadow_63: 9107948445055650130
+      Background+Shadow_64: -8666168432829672563
+      Background+Shadow_65: 3743266171305232037
+      Background+Shadow_66: 8612838921761300648
+      Background+Shadow_67: 8163327168513723314
+      Background+Shadow_68: -5800486364204479394
+      Background+Shadow_69: -3506828996329337246
+      Background+Shadow_7: 8666212530321717986
+      Background+Shadow_70: 3731035907537083018
+      Background+Shadow_71: 5082856106718710868
+      Background+Shadow_72: 3584249330719549778
+      Background+Shadow_73: 3224563170808614500
+      Background+Shadow_74: -7175920043621046735
+      Background+Shadow_75: -4325836564162678727
+      Background+Shadow_76: 7801955883393184245
+      Background+Shadow_77: -6325562770825605044
+      Background+Shadow_78: 9178145263767062212
+      Background+Shadow_79: -8309153215670634226
+      Background+Shadow_8: -5718806005895923955
+      Background+Shadow_80: -3541918182331482320
+      Background+Shadow_81: 3064213743685110923
+      Background+Shadow_82: 3825367818103279786
+      Background+Shadow_83: 5643138824936590927
+      Background+Shadow_84: 5546968509750595399
+      Background+Shadow_85: 8038722164521459272
+      Background+Shadow_86: -1126663541833785479
+      Background+Shadow_87: -614416980142899266
+      Background+Shadow_88: 1509753635212042483
+      Background+Shadow_9: 197236781952661268
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
