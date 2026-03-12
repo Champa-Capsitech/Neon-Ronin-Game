@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private float ySpawnMax = 7.5f;
 
     private float spawnGap = 6f;
-    private float spawnXOffset = 15f;
+    private float spawnXOffset = 30f;
 
     public Transform cameraTransform;
 
