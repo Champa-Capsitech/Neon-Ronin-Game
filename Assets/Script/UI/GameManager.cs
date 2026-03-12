@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private Coroutine comboResetCoroutine;
     private Coroutine executedResetCoroutine;
 
-    public float maxEnergy = 100f;
+    public float maxEnergy = 0f;
     public float currentEnergy;
 
     public int overallHighScore;

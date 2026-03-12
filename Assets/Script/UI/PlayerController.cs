@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public CameraFollow cameraFollow;
     public GameObject outlineObject;
 
-    public Slider energyBar;
+    public CustomSliderFill energyBar;
     private float energyCost = 0.25f;
 
     Rigidbody2D rb;
@@ -62,8 +62,7 @@ public class PlayerController : MonoBehaviour
 
         if (energyBar)
         {
-            energyBar.maxValue = GameManager.instance.maxEnergy;
-            energyBar.value = GameManager.instance.currentEnergy;
+            energyBar.sliderValue = GameManager.instance.currentEnergy;
         }
 
         UpdateOutline();
@@ -176,6 +175,7 @@ public class PlayerController : MonoBehaviour
             cameraFollow.Shake();
 
         GameManager.instance.PlayDashSound();
+        // energyBar.AddSliderValue();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour
     void UpdateEnergyUI()
     {
         if (energyBar)
-            energyBar.value = GameManager.instance.currentEnergy;
+            energyBar.sliderValue = GameManager.instance.currentEnergy;
     }
 
     Vector2 ScreenToWorld(Vector2 screenPos)
