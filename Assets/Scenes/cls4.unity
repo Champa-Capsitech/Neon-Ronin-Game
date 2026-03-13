@@ -2027,22 +2027,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 25683110}
-    - target: {fileID: 1038070768742658158, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039623497030671312, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
-      propertyPath: localizationKey
-      value: RESTART
-      objectReference: {fileID: 0}
     - target: {fileID: 4809202526140750354, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 25683110}
-    - target: {fileID: 4809202526140750354, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GotoMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 4824458522609367274, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
       propertyPath: m_Name
       value: PauseGameScreen
@@ -2055,14 +2043,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 25683110}
-    - target: {fileID: 4839933919351775069, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 6313212467812248929, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
-      propertyPath: localizationKey
-      value: RESUME
-      objectReference: {fileID: 0}
     - target: {fileID: 8767754811759634104, guid: f230d90eeb567aa4d8a43496deb7c3b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4904,19 +4884,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750558658672737732, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4501178748100689454, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.50980395
       objectReference: {fileID: 0}
     - target: {fileID: 4501178748100689454, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_Color.g
-      value: 0.0806483
+      value: 0.28627452
       objectReference: {fileID: 0}
     - target: {fileID: 4501178748100689454, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.20392157
       objectReference: {fileID: 0}
     - target: {fileID: 4501178748100689454, guid: 5f1aec8df8c1f30478033b89fd12819a, type: 3}
       propertyPath: m_SortingOrder
