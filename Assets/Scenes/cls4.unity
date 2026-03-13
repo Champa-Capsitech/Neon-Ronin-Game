@@ -2708,7 +2708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3527,7 +3527,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1658716835
 RectTransform:
