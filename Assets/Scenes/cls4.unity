@@ -1239,6 +1239,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1658716835}
     m_Modifications:
+    - target: {fileID: 1313963474848821182, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ecd3bd2842358f4388e9dfa620f9d3e, type: 3}
+    - target: {fileID: 1313963474848821182, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313963474848821182, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313963474848821182, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3509615526245648189, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1259,6 +1275,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 49.899994
       objectReference: {fileID: 0}
+    - target: {fileID: 4845884232621957764, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ecd3bd2842358f4388e9dfa620f9d3e, type: 3}
+    - target: {fileID: 4845884232621957764, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845884232621957764, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845884232621957764, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422801348782255576, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ecd3bd2842358f4388e9dfa620f9d3e, type: 3}
+    - target: {fileID: 5422801348782255576, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422801348782255576, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422801348782255576, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5535342516338449177, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1269,6 +1317,22 @@ PrefabInstance:
       objectReference: {fileID: 412795699608632233, guid: a4bd944538d0f884681045bc600763a6, type: 2}
     - target: {fileID: 5535342516338449177, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800346621639351858, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ecd3bd2842358f4388e9dfa620f9d3e, type: 3}
+    - target: {fileID: 6800346621639351858, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800346621639351858, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800346621639351858, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7438450649185073913, guid: e5d2d37ff93595f4ab91986646db570b, type: 3}
