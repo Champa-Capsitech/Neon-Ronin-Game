@@ -20,8 +20,10 @@ public class CustomSliderFill : MonoBehaviour
 
     public void UpdateFill()
     {
-        sliderValue = GameManager.instance.currentEnergy;
-        if (fillTransform == null) return;
+        if (GameManager.instance != null)
+            sliderValue = GameManager.instance.currentEnergy;
+        if (fillTransform == null)
+            return;
 
         float xPos = Mathf.Lerp(minX, maxX, sliderValue / 100f);
 

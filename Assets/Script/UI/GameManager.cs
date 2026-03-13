@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public TMP_Dropdown soundDropdown;
-    public TMP_Dropdown musicDropdown;
+    // public TMP_Dropdown soundDropdown;
+    // public TMP_Dropdown musicDropdown;
     public GameObject gameSettingScreen;
     public GameState currentState;
     public GameObject gameStartScreen;
@@ -114,11 +114,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        soundDropdown.value = soundOn ? 0 : 1;
-        musicDropdown.value = musicOn ? 0 : 1;
+        // soundDropdown.value = soundOn ? 0 : 1;
+        // musicDropdown.value = musicOn ? 0 : 1;
 
-        soundDropdown.onValueChanged.AddListener(OnSoundChanged);
-        musicDropdown.onValueChanged.AddListener(OnMusicChanged);
+        // soundDropdown.onValueChanged.AddListener(OnSoundChanged);
+        // musicDropdown.onValueChanged.AddListener(OnMusicChanged);
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
 
