@@ -27,6 +27,13 @@
     "ru": "Музыка",
     "sp": "MÚSICA"
   },
+  "REBOOT": {
+    "en": "REBOOT",
+    "fr": "Redémarrer",
+    "pt-BR": "Reiniciar",
+    "ru": "Перезагрузка",
+    "sp": "REINICIAR"
+  },
   "SOUND": {
     "en": "SOUND",
     "fr": "Son",
