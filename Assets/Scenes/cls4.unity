@@ -1746,8 +1746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LanguageController
   englishBtn: {fileID: 1855709313}
   portBtn: {fileID: 1934333120}
-  frenBtn: {fileID: 597725613}
-  rsnBtn: {fileID: 1663601415}
+  rsnBtn: {fileID: 597725613}
+  frenBtn: {fileID: 1663601415}
 --- !u!4 &802994788
 Transform:
   m_ObjectHideFlags: 0

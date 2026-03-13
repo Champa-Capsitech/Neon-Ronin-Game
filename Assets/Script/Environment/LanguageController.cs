@@ -11,10 +11,10 @@ public class LanguageController : MonoBehaviour
     private Button portBtn;
 
     [SerializeField]
-    private Button frenBtn;
+    private Button rsnBtn;
 
     [SerializeField]
-    private Button rsnBtn;
+    private Button frenBtn;
 
     private void Start()
     {
