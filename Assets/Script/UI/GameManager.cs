@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         Language,
     }
 
-
     // public TMP_Dropdown soundDropdown;
     // public TMP_Dropdown musicDropdown;
     public GameObject gameSettingScreen;
@@ -220,7 +219,7 @@ public class GameManager : MonoBehaviour
         pauseGameScreen.SetActive(newState == GameState.Paused);
         gameSettingScreen.SetActive(newState == GameState.Setting);
         LanguageScreen.SetActive(newState == GameState.Language);
-        player.SetActive(newState == GameState.Running);
+        player.SetActive(newState == GameState.Running || newState == GameState.Paused);
         SpawnManagerObject.SetActive(newState == GameState.Running);
         if (Prefeb_1 != null)
             Prefeb_1.SetActive(newState == GameState.Running);
