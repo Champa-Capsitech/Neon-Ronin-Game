@@ -21,7 +21,9 @@ public class CustomSliderFill : MonoBehaviour
     public void UpdateFill()
     {
         if (GameManager.instance != null)
-            sliderValue = GameManager.instance.currentEnergy;
+            sliderValue =
+                GameManager.instance.currentEnergy > 10 ? GameManager.instance.currentEnergy : 0;
+
         if (fillTransform == null)
             return;
 

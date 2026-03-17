@@ -120,6 +120,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink_Square_4
       objectReference: {fileID: 0}
+    - target: {fileID: 5080258175895014831, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080258175895014831, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6396519817770928156, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.72
@@ -159,6 +167,14 @@ PrefabInstance:
     - target: {fileID: 6396519817770928156, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069976924726532608, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
+      propertyPath: m_Size.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069976924726532608, guid: 7ef9f9f4fe6a10f45895dc6d8271cf6a, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

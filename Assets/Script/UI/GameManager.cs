@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject englishCheck;
     public GameObject portugueseCheck;
-    public GameObject russianCheck;
+    public GameObject spanishCheck;
     public GameObject frenchCheck;
     public float score;
     public float extraScore = 0;
@@ -481,7 +481,7 @@ public class GameManager : MonoBehaviour
     {
         englishCheck.SetActive(false);
         portugueseCheck.SetActive(false);
-        russianCheck.SetActive(false);
+        spanishCheck.SetActive(false);
         frenchCheck.SetActive(false);
 
         switch (languageName)
@@ -497,7 +497,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case "Spanish":
-                russianCheck.SetActive(true);
+                spanishCheck.SetActive(true);
                 LocalizationManager.Instance.SetLanguage("sp");
                 break;
 

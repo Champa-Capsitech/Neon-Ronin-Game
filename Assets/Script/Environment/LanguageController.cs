@@ -11,7 +11,7 @@ public class LanguageController : MonoBehaviour
     private Button portBtn;
 
     [SerializeField]
-    private Button rsnBtn;
+    private Button spnBtn;
 
     [SerializeField]
     private Button frenBtn;
@@ -20,7 +20,7 @@ public class LanguageController : MonoBehaviour
     {
         englishBtn.onClick.AddListener(English);
         portBtn.onClick.AddListener(Portuguese);
-        rsnBtn.onClick.AddListener(Russian);
+        spnBtn.onClick.AddListener(Spanish);
         frenBtn.onClick.AddListener(French);
     }
 
@@ -34,7 +34,7 @@ public class LanguageController : MonoBehaviour
         GameManager.instance.LanguageChange("Portuguese");
     }
 
-    public void Russian()
+    public void Spanish()
     {
         GameManager.instance.LanguageChange("Spanish");
     }

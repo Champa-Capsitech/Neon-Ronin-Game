@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2071204629032589779, guid: 47ee04dd08a9f584495d4b6a1ee504ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16852ad99e49d24418ef74504347084a, type: 3}
   m_Color: {r: 0.2042542, g: 0.286047, b: 0.509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ringPrefab: {fileID: 5039912117826882298, guid: 90167d4941206284a82916c617a56c7c, type: 3}
   cameraFollow: {fileID: 0}
-  outlineObject: {fileID: 644796351372148905}
   energyBar: {fileID: 0}
   minDragDistance: 0.6
 --- !u!50 &8591414808612533176
@@ -269,7 +268,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.11, y: 2.21}
+    oldSize: {x: 3.32, y: 2.52}
     newSize: {x: 3.11, y: 2.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

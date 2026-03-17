@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject ringPrefab;
     public CameraFollow cameraFollow;
-    public GameObject outlineObject;
+
+    // public GameObject outlineObject;
 
     public CustomSliderFill energyBar;
     private float energyCost = 0.25f;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     bool isBlockedByYellow;
     bool isOnPlatform;
     bool isSupported;
-    private bool inputLocked = false;
+    // private bool inputLocked = false;
 
     private float minDashForce = 10f;
     private float maxDashForce = 20f;
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
             energyBar.sliderValue = GameManager.instance.currentEnergy;
         }
 
-        UpdateOutline();
+        // UpdateOutline();
     }
 
     void Update()
@@ -80,14 +81,14 @@ public class PlayerController : MonoBehaviour
 
         GameManager.instance.playerBlocked = isBlockedByYellow;
 
-        UpdateOutline();
+        // UpdateOutline();
 
         collidedThisFrame = false;
 
-        if (inputLocked && rb.linearVelocity.magnitude < minDashForce)
-        {
-            inputLocked = false;
-        }
+        // if (inputLocked && rb.linearVelocity.magnitude < minDashForce)
+        // {
+        //     inputLocked = false;
+        // }
     }
 
     void FixedUpdate()
@@ -105,8 +106,8 @@ public class PlayerController : MonoBehaviour
 
     void HandleInput()
     {
-        if (inputLocked)
-            return;
+        // if (inputLocked)
+        //     return;
 
         if (GameManager.instance.currentEnergy <= 0f)
             return;
@@ -139,12 +140,12 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.currentEnergy <= 10f)
             return;
 
-        inputLocked = true;
+        // inputLocked = true;
 
         Vector2 dragDirection = dragEnd - dragStart;
         if (dragDirection.x <= 0f)
         {
-            inputLocked = false;
+            // inputLocked = false;
             return;
         }
 
@@ -192,7 +193,7 @@ public class PlayerController : MonoBehaviour
 
         rb.gravityScale = originalGravity;
 
-        inputLocked = false;
+        // inputLocked = false;
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -256,19 +257,16 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.currentEnergy += 40f * Time.deltaTime;
     }
 
-    void UpdateOutline()
-    {
-        if (!outlineObject)
-            return;
+    // void UpdateOutline()
+    // {
+    //     if (!outlineObject)
+    //         return;
 
-        bool canDash =
-            !inputLocked
-            && GameManager.instance.currentState == GameManager.GameState.Running
-            && GameManager.instance.currentEnergy > 10f;
+    //     bool canDash = !inputLocked&& GameManager.instance.currentState == GameManager.GameState.Running && GameManager.instance.currentEnergy > 10f;
 
-        if (outlineObject.activeSelf != canDash)
-            outlineObject.SetActive(canDash);
-    }
+    //     if (outlineObject.activeSelf != canDash)
+    //         outlineObject.SetActive(canDash);
+    // }
 
     void StopTrail()
     {
