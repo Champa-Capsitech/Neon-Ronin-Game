@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
             return;
 
         GameManager.instance.PlayCrashSound();
-        GameManager.instance.GameOver();
-        Destroy(other.gameObject);
+        GameManager.instance.GameOver(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     bool isBlockedByYellow;
     bool isOnPlatform;
     bool isSupported;
+
     // private bool inputLocked = false;
 
     private float minDashForce = 10f;
@@ -183,12 +184,19 @@ public class PlayerController : MonoBehaviour
     {
         EvaluateSupport(collision);
 
-        if (collision.gameObject.CompareTag("Platform"))
+        if (
+            collision.gameObject.CompareTag("Platform")
+            || collision.gameObject.CompareTag("DontDestroyPlatform")
+        )
             isOnPlatform = true;
 
         if (collision.gameObject.CompareTag("Yellow_wall_box") && rb.linearVelocity.x < 5f)
             isBlockedByYellow = true;
 
+        if (collision.gameObject.CompareTag("Pink_Square"))
+        {
+            Die(collision.gameObject);
+        }
         collidedThisFrame = true;
 
         rb.gravityScale = originalGravity;
@@ -205,11 +213,19 @@ public class PlayerController : MonoBehaviour
     {
         isSupported = false;
 
-        if (collision.gameObject.CompareTag("Platform"))
+        if (
+            collision.gameObject.CompareTag("Platform")
+            || collision.gameObject.CompareTag("DontDestroyPlatform")
+        )
             isOnPlatform = false;
 
         if (collision.gameObject.CompareTag("Yellow_wall_box"))
             isBlockedByYellow = false;
+
+        if (collision.gameObject.CompareTag("Pink_Square"))
+        {
+            Die(collision.gameObject);
+        }
     }
 
     void EvaluateSupport(Collision2D collision)
@@ -277,11 +293,18 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y < deathY)
         {
-            rb.linearVelocity = Vector2.zero;
-            trail.emitting = false;
-            GameManager.instance.GameOver();
-            Destroy(gameObject);
+            Die(null);
         }
+    }
+
+    void Die(GameObject hitObject)
+    {
+        rb.linearVelocity = Vector2.zero;
+        trail.emitting = false;
+
+        GameManager.instance.GameOver(hitObject);
+
+        gameObject.SetActive(false);
     }
 
     void UpdateEnergyUI()
@@ -293,5 +316,16 @@ public class PlayerController : MonoBehaviour
     Vector2 ScreenToWorld(Vector2 screenPos)
     {
         return Camera.main.ScreenToWorldPoint(screenPos);
+    }
+
+    public void ResetPlayer()
+    {
+        // rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = originalGravity;
+        trail.emitting = false;
+
+        isDragging = false;
+        isBlockedByYellow = false;
+        isOnPlatform = false;
     }
 }

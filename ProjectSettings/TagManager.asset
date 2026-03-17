@@ -10,6 +10,7 @@ TagManager:
   - Plateform
   - Platform
   - Pink_Square
+  - DontDestroyPlatform
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -103,6 +104,15 @@ public class GameManager : MonoBehaviour
     public bool soundOn = true;
     public bool musicOn = true;
 
+    [HideInInspector]
+    public Vector3 lastDeathPosition;
+
+    [HideInInspector]
+    public GameObject lastHitObstacle;
+
+    [HideInInspector]
+    public bool canReboot = false;
+
     void Awake()
     {
         instance = this;
@@ -184,12 +194,15 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Running);
     }
 
-    public void GameOver()
+    public void GameOver(GameObject hitObject = null)
     {
         if (currentState != GameState.Running)
             return;
         SetPaused(false);
         //InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        lastDeathPosition = player.transform.position;
+        lastHitObstacle = hitObject;
+        canReboot = true;
 
         int finalScore = Mathf.CeilToInt(score);
 
@@ -219,7 +232,10 @@ public class GameManager : MonoBehaviour
         pauseGameScreen.SetActive(newState == GameState.Paused);
         gameSettingScreen.SetActive(newState == GameState.Setting);
         LanguageScreen.SetActive(newState == GameState.Language);
-        player.SetActive(newState == GameState.Running || newState == GameState.Paused);
+        if (player != null)
+        {
+            player.SetActive(newState == GameState.Running || newState == GameState.Paused);
+        }
         SpawnManagerObject.SetActive(newState == GameState.Running);
         if (Prefeb_1 != null)
             Prefeb_1.SetActive(newState == GameState.Running);
@@ -322,6 +338,43 @@ public class GameManager : MonoBehaviour
     //     yield return new WaitForSeconds(5);
     //     smashText.gameObject.SetActive(false);
     // }
+
+    public void Reboot()
+    {
+        if (!canReboot)
+            return;
+
+        SetPaused(false);
+        // RewardedAdManager.Instance.ShowRewarded(OnRebootSuccess);
+        OnRebootSuccess();
+    }
+
+    void OnRebootSuccess()
+    {
+        canReboot = false;
+
+        lastDeathPosition.y = lastDeathPosition.y <= -30 ? 5.05f : lastDeathPosition.y;
+
+        player.SetActive(true);
+        Prefeb_1.SetActive(true);
+        player.transform.position = lastDeathPosition;
+        lastDeathPosition.y = lastDeathPosition.y - 7f;
+        Prefeb_1.transform.position = lastDeathPosition;
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.ResetPlayer();
+        // rb.linearVelocity = Vector2.zero;
+
+        currentEnergy = 20;
+
+        if (lastHitObstacle != null && lastHitObstacle.CompareTag("Pink_Square"))
+        {
+            lastHitObstacle.SetActive(false);
+        }
+
+        SetState(GameState.Running);
+    }
 
     public void PauseGame()
     {

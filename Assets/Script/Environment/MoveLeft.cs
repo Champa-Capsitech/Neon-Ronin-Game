@@ -27,7 +27,12 @@ public class MoveLeft : MonoBehaviour
 
         if (transform.position.x < leftEdge - 5f)
         {
-            Destroy(gameObject);
+            if (!gameObject.CompareTag("DontDestroyPlatform"))
+                Destroy(gameObject);
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
