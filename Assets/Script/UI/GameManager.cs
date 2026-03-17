@@ -366,7 +366,7 @@ public class GameManager : MonoBehaviour
         pc.ResetPlayer();
         // rb.linearVelocity = Vector2.zero;
 
-        currentEnergy = 20;
+        currentEnergy = currentEnergy > 10 ? currentEnergy : 20;
 
         if (lastHitObstacle != null && lastHitObstacle.CompareTag("Pink_Square"))
         {
