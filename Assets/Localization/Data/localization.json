@@ -104,6 +104,13 @@
     "ru": "Разбито!",
     "sp": "¡APLASTADO!"
   },
+  "SMASH_2": {
+    "en": "SMASH x{0}",
+    "fr": "Écrasé x{0}",
+    "pt-BR": "Esmagado x{0}",
+    "ru": "Разбито x{0}",
+    "sp": "¡APLASTADO x{0}"
+  },
   "CRASHED": {
     "en": "CRASHED!",
     "fr": "Crash!",
@@ -131,5 +138,33 @@
     "pt-BR": "Pontuação : {0}",
     "ru": "Счёт : {0}",
     "sp": "PUNTUACIÓN : {0}"
+  },
+  "UPDATE_NOW_LATEST_VERSION": {
+    "en": "UPDATE NOW TO ENJOY THE LATEST VERSION.",
+    "fr": "MISE À JOUR MAINTENANT POUR PROFITER DE LA DERNIÈRE VERSION.",
+    "pt-BR": "ATUALIZE AGORA PARA APROVEITAR A VERSÃO MAIS RECENTE.",
+    "ru": "ОБНОВИТЕ СЕЙЧАС, ЧТОБЫ НАСЛАДИТЬСЯ ПОСЛЕДНЕЙ ВЕРСИЕЙ.",
+    "sp": "ACTUALIZA AHORA PARA DISFRUTAR DE LA ÚLTIMA VERSIÓN."
+  },
+  "NEW_UPDATE_AVAILABLE": {
+    "en": "NEW UPDATE AVAILABLE!",
+    "fr": "NOUVELLE MISE À JOUR DISPONIBLE !",
+    "pt-BR": "NOVA ATUALIZAÇÃO DISPONÍVEL!",
+    "ru": "НОВОЕ ОБНОВЛЕНИЕ ДОСТУПНО!",
+    "sp": "¡NUEVA ACTUALIZACIÓN DISPONIBLE!"
+  },
+  "WHATS_NEW": {
+    "en": "WHAT'S NEW",
+    "fr": "QUOI DE NEUF",
+    "pt-BR": "O QUE HÁ DE NOVO",
+    "ru": "ЧТО НОВОГО",
+    "sp": "¿QUÉ HAY DE NUEVO?"
+  },
+  "UPDATE": {
+    "en": "UPDATE",
+    "fr": "METTRE À JOUR",
+    "pt-BR": "ATUALIZAR",
+    "ru": "ОБНОВИТЬ",
+    "sp": "ACTUALIZAR"
   }
 }

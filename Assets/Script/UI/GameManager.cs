@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         Paused,
         GameOver,
         Language,
+        Update,
     }
 
     // public TMP_Dropdown soundDropdown;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject pauseGameScreen;
     public GameObject inGameScreen;
+    public GameObject UpdateScreen;
     public TextMeshProUGUI GameScoreText;
     public TextMeshProUGUI GameOverScoreText;
     public GameObject LanguageScreen;
@@ -232,6 +234,7 @@ public class GameManager : MonoBehaviour
         pauseGameScreen.SetActive(newState == GameState.Paused);
         gameSettingScreen.SetActive(newState == GameState.Setting);
         LanguageScreen.SetActive(newState == GameState.Language);
+        UpdateScreen.SetActive(newState == GameState.Update);
         if (player != null)
         {
             player.SetActive(newState == GameState.Running || newState == GameState.Paused);
@@ -260,7 +263,17 @@ public class GameManager : MonoBehaviour
             StopCoroutine(comboResetCoroutine);
 
         comboResetCoroutine = StartCoroutine(ComboResetTimer());
-        smashText.text = smashCombo <= 1 ? "SMASH" : $"SMASH x{smashCombo}";
+        if (smashCombo > 0)
+        {
+            smashText.text = string.Format(
+                LocalizationManager.Instance.GetText("SMASH_2"),
+                smashCombo
+            );
+        }
+        else
+        {
+            smashText.text = LocalizationManager.Instance.GetText("SMASH");
+        }
         StartCoroutine(SmashTextRoutine());
     }
 
@@ -516,6 +529,11 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Language);
     }
 
+    public void ToggleUpdateScreen()
+    {
+        SetState(currentState == GameState.Update ? GameState.Start : GameState.Update);
+    }
+
     void UpdateToggleUI()
     {
         if (musicToggleImage != null)
@@ -570,7 +588,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("GameLanguage", languageName);
         PlayerPrefs.Save();
         SetState(GameState.Setting);
-        Debug.Log("Language Changed To: " + languageName);
+        // Debug.Log("Language Changed To: " + languageName);
         SetState(GameState.Setting);
     }
 }
