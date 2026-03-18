@@ -509,7 +509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &93498631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1680,7 +1680,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1876
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2920,14 +2920,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530643809368660900, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530643809368660900, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_TagString
       value: DontDestroyPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Size.x
+      value: 26.614481
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.39124966
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.79091406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 26.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210081675903721791, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.084375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970527015041910668, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 757caedb99455b44285fed04426fe60a, type: 3}
+    - target: {fileID: 6970527015041910668, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970527015041910668, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970527015041910668, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970527015041910668, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
@@ -2969,6 +3017,14 @@ PrefabInstance:
     - target: {fileID: 7445990886145096975, guid: dafae79c31df2064cb531635ad48305d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539672991159599050, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539672991159599050, guid: dafae79c31df2064cb531635ad48305d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4582,7 +4638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1812539987
 RectTransform:
   m_ObjectHideFlags: 0
