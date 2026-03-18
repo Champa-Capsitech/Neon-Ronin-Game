@@ -201,7 +201,6 @@ public class GameManager : MonoBehaviour
         if (currentState != GameState.Running)
             return;
         SetPaused(false);
-        //InterstitialAdManager.Instance.ShowInterstitialIfReady();
         lastDeathPosition = player.transform.position;
         lastHitObstacle = hitObject;
         canReboot = true;
@@ -328,38 +327,25 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        //RewardedAdManager.Instance.ShowRewarded(() =>
-        //{
+        InterstitialAdManager.Instance.AdShown++;
+        if (InterstitialAdManager.Instance.AdShown % 2 == 0)
+        {
+            InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        }
         SetPaused(false);
         restartFromGameOver = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //});
     }
-
-    // public void RestartGame()
-    // {
-    //     RewardedAdManager.Instance.ShowRewarded();
-    //     executedResetCoroutine = StartCoroutine(RestartGameRoutine());
-    //     SetPaused(false);
-    //     restartFromGameOver = true;
-    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    // }
-
-    // IEnumerator RestartGameRoutine()
-    // {
-    //     smashText.gameObject.SetActive(true);
-    //     yield return new WaitForSeconds(5);
-    //     smashText.gameObject.SetActive(false);
-    // }
 
     public void Reboot()
     {
         if (!canReboot)
             return;
-
-        SetPaused(false);
-        // RewardedAdManager.Instance.ShowRewarded(OnRebootSuccess);
-        OnRebootSuccess();
+        RewardedAdManager.Instance.ShowRewarded(() =>
+        {
+            SetPaused(false);
+            OnRebootSuccess();
+        });
     }
 
     void OnRebootSuccess()
@@ -454,8 +440,11 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == GameState.Start)
             return;
-
-        //InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        InterstitialAdManager.Instance.AdShown++;
+        if (InterstitialAdManager.Instance.AdShown % 2 == 0)
+        {
+            InterstitialAdManager.Instance.ShowInterstitialIfReady();
+        }
         SetPaused(false);
         // SetState(GameState.Start);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -54,9 +54,9 @@
     <Compile Include="Assets\Localization\Editor\LocalizationAllInOneTool.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.IOSResolver.dll" />
     <None Include="Assets\Firebase\Editor\FirebaseAnalytics_version-13.8.0_manifest.txt" />
-    <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.VersionHandlerImpl.dll" />
     <None Include="Assets\Firebase\Editor\AppDependencies.xml" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.PackageManagerResolver.dll" />
@@ -748,6 +748,18 @@
     </Reference>
     <Reference Include="Firebase.Editor">
       <HintPath>Assets\Firebase\Editor\Firebase.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Installations">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Installations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Firestore">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Firestore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

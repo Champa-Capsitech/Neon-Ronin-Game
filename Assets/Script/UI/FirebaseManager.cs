@@ -45,14 +45,14 @@ public class FirebaseManager : MonoBehaviour
 
                     IsFirebaseReady = true;
 
-                    Debug.Log("🔥 Firebase initialized successfully");
+                    Debug.Log("Firebase initialized successfully");
 
                     // App-level event (safe, one-time)
                     FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventAppOpen);
                 }
                 else
                 {
-                    Debug.LogError("❌ Firebase dependency error: " + task.Result);
+                    Debug.LogError(" Firebase dependency error: " + task.Result);
                 }
             });
     }

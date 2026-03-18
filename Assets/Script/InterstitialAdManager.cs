@@ -10,6 +10,21 @@ public class InterstitialAdManager : MonoBehaviour
     private bool isShowingAd = false;
     private bool adLoaded = false;
 
+    [HideInInspector]
+    public int AdShown
+    {
+        get { return PlayerPrefs.GetInt("AdShown", 0); }
+        set
+        {
+            // if (value >= 10)
+            // {
+            //     value = 2;
+            // }
+            PlayerPrefs.SetInt("AdShown", value);
+            PlayerPrefs.Save();
+        }
+    }
+
 #if UNITY_ANDROID
     public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IOS || UNITY_IPHONE
@@ -18,8 +33,8 @@ public class InterstitialAdManager : MonoBehaviour
     private string interstitialAdUnitId = "unexpected_platform";
 #endif
 
-    // public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
-    // public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949";
+    // public string interstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712"; // testing
+    // public string interstitialAdUnitId = "ca-app-pub-8530302013109448/7789359949"; //real
     void Awake()
     {
         if (Instance != null)

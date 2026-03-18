@@ -18,8 +18,8 @@ public class RewardedAdManager : MonoBehaviour
     private string rewardedAdUnitId = "unexpected_platform";
 #endif
 
-    // public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917";
-    // public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412";
+    // public string rewardedAdUnitId = "ca-app-pub-3940256099942544/5224354917"; //testing
+    // public string rewardedAdUnitId = "ca-app-pub-8530302013109448/4518432412"; //real
 
     void Awake()
     {
@@ -73,27 +73,12 @@ public class RewardedAdManager : MonoBehaviour
         );
     }
 
-    // public void ShowRewarded()
-    // {
-    //     if (rewardedAd == null || !rewardedAd.CanShowAd())
-    //     {
-    //         Debug.Log("Rewarded not ready");
-    //         return;
-    //     }
-
-    //     rewardedAd.Show(reward =>
-    //     {
-    //         rewardEarned = true;
-    //         Debug.Log("Reward earned");
-    //     });
-    // }
-
     public void ShowRewarded(Action onReward)
     {
         if (rewardedAd == null || !rewardedAd.CanShowAd())
         {
             Debug.Log("Rewarded not ready - restarting without ad");
-            onReward?.Invoke(); // ✅ Always continue
+            onReward?.Invoke();
             return;
         }
 
@@ -106,22 +91,4 @@ public class RewardedAdManager : MonoBehaviour
             Debug.Log("Reward earned");
         });
     }
-
-    // public void ShowRewarded(Action onReward)
-    // {
-    //     if (rewardedAd == null || !rewardedAd.CanShowAd())
-    //     {
-    //         Debug.Log("Rewarded not ready");
-    //         onReward?.Invoke();
-    //         return;
-    //     }
-
-    //     rewardCallback = onReward;
-
-    //     rewardedAd.Show(reward =>
-    //     {
-    //         rewardEarned = true;
-    //         Debug.Log("Reward earned");
-    //     });
-    // }
 }
