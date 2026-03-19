@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
 
     private bool collidedThisFrame;
 
+    [HideInInspector]
+    private float minEnergyToDash = 10f;
+
+
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -110,7 +115,7 @@ public class PlayerController : MonoBehaviour
         // if (inputLocked)
         //     return;
 
-        if (GameManager.instance.currentEnergy <= 0f)
+        if (GameManager.instance.currentEnergy <= minEnergyToDash)
             return;
 
         if (Input.GetMouseButtonDown(0))
@@ -138,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (GameManager.instance.currentEnergy <= 10f)
+        if (GameManager.instance.currentEnergy <= minEnergyToDash)
             return;
 
         // inputLocked = true;

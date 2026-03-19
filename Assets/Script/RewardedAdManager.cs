@@ -73,16 +73,15 @@ public class RewardedAdManager : MonoBehaviour
         );
     }
 
-    public void ShowRewarded(Action onReward)
+    public void ShowRewarded(Action onReward, Action NoAd)
     {
         if (rewardedAd == null || !rewardedAd.CanShowAd())
         {
-            Debug.Log("Rewarded not ready - restarting without ad");
-            onReward?.Invoke();
+            Debug.Log("Rewarded not ready");
+            NoAd?.Invoke();
             return;
         }
 
-        rewardEarned = false;
         rewardCallback = onReward;
 
         rewardedAd.Show(reward =>
@@ -91,4 +90,9 @@ public class RewardedAdManager : MonoBehaviour
             Debug.Log("Reward earned");
         });
     }
+
+    // internal void ShowRewarded(Action value)
+    // {
+    //     throw new NotImplementedException();
+    // }
 }

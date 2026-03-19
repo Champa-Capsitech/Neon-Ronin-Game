@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject player;
     public TextMeshProUGUI InGame_Scoretext;
+
+    [HideInInspector]
     private float playerStartX;
 
     public float worldSpeed;
+
+    [HideInInspector]
     public float speedMultiplier = 1f;
     public bool playerBlocked;
 
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI GameOverScoreText;
     public GameObject LanguageScreen;
     public GameObject SpawnManagerObject;
+    public GameObject NoAdGameObject;
     public GameObject Prefeb_1;
     public string currentLanguage;
 
@@ -50,27 +55,52 @@ public class GameManager : MonoBehaviour
     public GameObject portugueseCheck;
     public GameObject spanishCheck;
     public GameObject frenchCheck;
+
+    [HideInInspector]
     public float score;
+
+    [HideInInspector]
     public float extraScore = 0;
+
+    [HideInInspector]
     public float scoreRate = 10f;
 
+    [HideInInspector]
     public static bool restartFromGameOver = false;
+
+    [HideInInspector]
+    public static bool restartFromMainMenu = false;
 
     public TextMeshProUGUI smashText;
     public TextMeshProUGUI executedText;
+
+    [HideInInspector]
     private float smashTextDuration = 0.5f;
+
+    [HideInInspector]
     private int smashCombo = 0;
+
+    [HideInInspector]
     private int ExecutedCombo = 0;
+
+    [HideInInspector]
     private float comboResetTime = 0.5f;
+
+    [HideInInspector]
     private Coroutine comboResetCoroutine;
+
+    [HideInInspector]
     private Coroutine executedResetCoroutine;
 
     public float maxEnergy = 0f;
     public float currentEnergy;
 
+    [HideInInspector]
     public int overallHighScore;
     public TextMeshProUGUI overallHighScoreText;
     public TextMeshProUGUI gameLanguageText;
+
+    [HideInInspector]
     private bool isPaused = false;
 
     [SerializeField]
@@ -118,7 +148,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-
         soundOn = PlayerPrefs.GetInt("soundOn", 1) == 1;
         musicOn = PlayerPrefs.GetInt("musicOn", 1) == 1;
     }
@@ -137,8 +166,6 @@ public class GameManager : MonoBehaviour
             LocalizationManager.Instance.GetText("BEST_SCORE"),
             overallHighScore
         );
-        // string gameLanguage = PlayerPrefs.GetString("GameLanguage", "English");
-        // LanguageChange(gameLanguage);
         string gameLanguage = PlayerPrefs.GetString("GameLanguage");
         LanguageChange(gameLanguage);
         HandleMusic();
@@ -150,6 +177,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            restartFromMainMenu = false;
             SetState(GameState.Start);
         }
 
@@ -243,6 +271,40 @@ public class GameManager : MonoBehaviour
             Prefeb_1.SetActive(newState == GameState.Running);
         InGame_Scoretext.gameObject.SetActive(newState == GameState.Running);
     }
+
+    //  public void SetState(GameState newState)
+    // {
+    //     if (currentState == newState)
+    //         return;
+
+    //     currentState = newState;
+
+    //     void SafeSetActive(GameObject obj, bool condition)
+    //     {
+    //         if (obj != null && obj.activeSelf != condition)
+    //         {
+    //             obj.SetActive(condition);
+    //         }
+    //     }
+
+    //     SafeSetActive(gameStartScreen, newState == GameState.Start);
+    //     SafeSetActive(gameOverScreen, newState == GameState.GameOver);
+    //     SafeSetActive(inGameScreen, newState == GameState.Running);
+    //     SafeSetActive(pauseGameScreen, newState == GameState.Paused);
+    //     SafeSetActive(gameSettingScreen, newState == GameState.Setting);
+    //     SafeSetActive(LanguageScreen, newState == GameState.Language);
+    //     SafeSetActive(UpdateScreen, newState == GameState.Update);
+
+    //     SafeSetActive(player, newState == GameState.Running || newState == GameState.Paused);
+
+    //     SafeSetActive(SpawnManagerObject, newState == GameState.Running);
+    //     SafeSetActive(Prefeb_1, newState == GameState.Running);
+
+    //     if (InGame_Scoretext != null && InGame_Scoretext.gameObject != null)
+    //     {
+    //         SafeSetActive(InGame_Scoretext.gameObject, newState == GameState.Running);
+    //     }
+    // }
 
     public void AddScore(float amount)
     {
@@ -341,11 +403,18 @@ public class GameManager : MonoBehaviour
     {
         if (!canReboot)
             return;
-        RewardedAdManager.Instance.ShowRewarded(() =>
-        {
-            SetPaused(false);
-            OnRebootSuccess();
-        });
+        RewardedAdManager.Instance.ShowRewarded(
+            () =>
+            {
+                SetPaused(false);
+                OnRebootSuccess();
+            },
+            () =>
+            {
+                Debug.Log("No Ad Available");
+                // Instantiate(NoAdGameObject, gameOverScreen.transform);
+            }
+        );
     }
 
     void OnRebootSuccess()
@@ -447,6 +516,7 @@ public class GameManager : MonoBehaviour
         }
         SetPaused(false);
         // SetState(GameState.Start);
+        restartFromMainMenu = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -565,6 +635,10 @@ public class GameManager : MonoBehaviour
                 frenchCheck.SetActive(true);
                 LocalizationManager.Instance.SetLanguage("fr");
                 break;
+            default:
+                englishCheck.SetActive(true);
+                LocalizationManager.Instance.SetLanguage("en");
+                break;
         }
 
         overallHighScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -576,8 +650,6 @@ public class GameManager : MonoBehaviour
         gameLanguageText.text = languageName;
         PlayerPrefs.SetString("GameLanguage", languageName);
         PlayerPrefs.Save();
-        SetState(GameState.Setting);
-        // Debug.Log("Language Changed To: " + languageName);
         SetState(GameState.Setting);
     }
 }

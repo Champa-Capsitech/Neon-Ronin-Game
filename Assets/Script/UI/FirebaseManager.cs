@@ -10,7 +10,6 @@ public class FirebaseManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton pattern
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -47,7 +46,6 @@ public class FirebaseManager : MonoBehaviour
 
                     Debug.Log("Firebase initialized successfully");
 
-                    // App-level event (safe, one-time)
                     FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventAppOpen);
                 }
                 else

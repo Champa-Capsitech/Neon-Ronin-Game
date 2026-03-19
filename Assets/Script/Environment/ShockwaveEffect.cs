@@ -18,10 +18,8 @@ public class ShockwaveEffect : MonoBehaviour
 
     void Update()
     {
-        // Expand the ring
         transform.localScale += Vector3.one * expandSpeed * Time.deltaTime;
 
-        // Fade out over time
         float fadeStep = Time.deltaTime / lifeTime;
         sr.color = new Color(startColor.r, startColor.g, startColor.b, sr.color.a - fadeStep);
     }

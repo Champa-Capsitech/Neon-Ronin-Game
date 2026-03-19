@@ -49,34 +49,37 @@ public class VersionChecker : MonoBehaviour
     {
         LoadingTxt.gameObject.SetActive(true);
 
-        StartCoroutine(
-            SafeFirestoreCall<DocumentSnapshot>(
-                () => db.Collection("AppConfig").Document("version").GetSnapshotAsync(),
-                snapshot =>
-                {
-                    LoadingTxt.gameObject.SetActive(false);
-
-                    if (snapshot.Exists)
+        if (UpdatePanel.activeSelf)
+        {
+            StartCoroutine(
+                SafeFirestoreCall<DocumentSnapshot>(
+                    () => db.Collection("AppConfig").Document("version").GetSnapshotAsync(),
+                    snapshot =>
                     {
-                        string latestVersion = snapshot.GetValue<string>("latestVersion");
-                        bool forceUpdate = snapshot.GetValue<bool>("forceUpdate");
+                        LoadingTxt.gameObject.SetActive(false);
 
-                        CompareVersions(currentVersion, latestVersion, forceUpdate);
-                    }
-                    else
+                        if (snapshot.Exists)
+                        {
+                            string latestVersion = snapshot.GetValue<string>("latestVersion");
+                            bool forceUpdate = snapshot.GetValue<bool>("forceUpdate");
+
+                            CompareVersions(currentVersion, latestVersion, forceUpdate);
+                        }
+                        else
+                        {
+                            AndroidToast.ShowToast("Can`t fetch the latest version");
+                            GoToHome();
+                        }
+                    },
+                    () =>
                     {
+                        LoadingTxt.gameObject.SetActive(false);
                         AndroidToast.ShowToast("Can`t fetch the latest version");
                         GoToHome();
                     }
-                },
-                () =>
-                {
-                    LoadingTxt.gameObject.SetActive(false);
-                    AndroidToast.ShowToast("Can`t fetch the latest version");
-                    GoToHome();
-                }
-            )
-        );
+                )
+            );
+        }
     }
 
     void CompareVersions(string current, string latest, bool force)

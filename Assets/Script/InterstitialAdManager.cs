@@ -16,10 +16,10 @@ public class InterstitialAdManager : MonoBehaviour
         get { return PlayerPrefs.GetInt("AdShown", 0); }
         set
         {
-            // if (value >= 10)
-            // {
-            //     value = 2;
-            // }
+            if (value >= 10)
+            {
+                value = 2;
+            }
             PlayerPrefs.SetInt("AdShown", value);
             PlayerPrefs.Save();
         }
@@ -49,7 +49,7 @@ public class InterstitialAdManager : MonoBehaviour
 
     void Start()
     {
-        MobileAds.Initialize(initStatus =>
+        MobileAds.Initialize(initStatus =>  
         {
             LoadInterstitial();
         });
