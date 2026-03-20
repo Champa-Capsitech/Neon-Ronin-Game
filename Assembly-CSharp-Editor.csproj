@@ -54,13 +54,15 @@
     <Compile Include="Assets\Localization\Editor\LocalizationAllInOneTool.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.IOSResolver.dll" />
     <None Include="Assets\Firebase\Editor\FirebaseAnalytics_version-13.8.0_manifest.txt" />
+    <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.VersionHandlerImpl.dll" />
+    <None Include="Assets\Firebase\Editor\FirestoreDependencies.xml" />
     <None Include="Assets\Firebase\Editor\AppDependencies.xml" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.PackageManagerResolver.dll" />
     <None Include="Assets\Firebase\Editor\AnalyticsDependencies.xml" />
+    <None Include="Assets\Firebase\Editor\FirebaseFirestore_version-13.7.0_manifest.txt" />
     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.187_manifest.txt" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.187\Google.JarResolver.dll" />
     <None Include="Assets\Firebase\Editor\Firebase.Editor.dll" />
@@ -670,6 +672,10 @@
       <HintPath>Assets\Firebase\Plugins\Firebase.Firestore.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@e566cd3e7623\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -708,6 +714,10 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@e566cd3e7623\Lib\Editor\unityplastic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="GoogleMobileAds.Ump.Unity">
@@ -760,18 +770,6 @@
     </Reference>
     <Reference Include="Firebase.Editor">
       <HintPath>Assets\Firebase\Editor\Firebase.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DOTweenUpgradeManager">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenUpgradeManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

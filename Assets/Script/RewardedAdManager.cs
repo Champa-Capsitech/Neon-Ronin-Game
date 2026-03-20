@@ -78,6 +78,7 @@ public class RewardedAdManager : MonoBehaviour
         if (rewardedAd == null || !rewardedAd.CanShowAd())
         {
             Debug.Log("Rewarded not ready");
+            LoadRewarded();
             NoAd?.Invoke();
             return;
         }

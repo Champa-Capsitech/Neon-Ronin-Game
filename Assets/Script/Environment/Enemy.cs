@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
             return;
-
+        AnalyticsLogger.LogPinkObstacleCollision();
         GameManager.instance.PlayCrashSound();
         GameManager.instance.GameOver(gameObject);
         gameObject.SetActive(false);

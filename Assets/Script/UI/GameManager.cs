@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     public static bool restartFromGameOver = false;
 
     [HideInInspector]
-    public static bool restartFromMainMenu = false;
+    // public static bool restartFromMainMenu = false;
 
     public TextMeshProUGUI smashText;
     public TextMeshProUGUI executedText;
@@ -177,9 +177,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            restartFromMainMenu = false;
+            // restartFromMainMenu = false;
             SetState(GameState.Start);
         }
+        // SetState(GameState.Update);
 
         UpdateToggleUI();
     }
@@ -218,6 +219,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        AnalyticsLogger.LogGameStart();
         score = 0;
         extraScore = 0;
         playerStartX = player.transform.position.x;
@@ -246,6 +248,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", overallHighScore);
             PlayerPrefs.Save();
         }
+        AnalyticsLogger.LogGameOver(finalScore, overallHighScore);
 
         overallHighScoreText.text = "HIGH SCORE : " + overallHighScore;
         SetState(GameState.GameOver);
@@ -403,6 +406,8 @@ public class GameManager : MonoBehaviour
     {
         if (!canReboot)
             return;
+        int finalScore2 = Mathf.CeilToInt(score);
+        AnalyticsLogger.LogReboot(finalScore2);
         RewardedAdManager.Instance.ShowRewarded(
             () =>
             {
@@ -412,7 +417,7 @@ public class GameManager : MonoBehaviour
             () =>
             {
                 Debug.Log("No Ad Available");
-                // Instantiate(NoAdGameObject, gameOverScreen.transform);
+                Instantiate(NoAdGameObject, gameOverScreen.transform);
             }
         );
     }
@@ -448,7 +453,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Running)
             return;
-
+        AnalyticsLogger.LogGamePaused();
         SetPaused(true);
         SetState(GameState.Paused);
     }
@@ -457,7 +462,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isPaused)
             return;
-
+        AnalyticsLogger.LogGameResume();
         SetPaused(false);
         SetState(GameState.Running);
     }
@@ -507,8 +512,8 @@ public class GameManager : MonoBehaviour
 
     public void GotoMainMenu()
     {
-        if (currentState == GameState.Start)
-            return;
+        // if (currentState == GameState.Start)
+        //     return;
         InterstitialAdManager.Instance.AdShown++;
         if (InterstitialAdManager.Instance.AdShown % 2 == 0)
         {
@@ -516,7 +521,7 @@ public class GameManager : MonoBehaviour
         }
         SetPaused(false);
         // SetState(GameState.Start);
-        restartFromMainMenu = true;
+        // restartFromMainMenu = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

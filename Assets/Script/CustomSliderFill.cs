@@ -12,6 +12,7 @@ public class CustomSliderFill : MonoBehaviour
 
     [Range(0f, 100f)]
     public float sliderValue = 0f;
+    private bool energyEmptyLogged = false;
 
     void Update()
     {
@@ -21,9 +22,22 @@ public class CustomSliderFill : MonoBehaviour
     public void UpdateFill()
     {
         if (GameManager.instance != null)
-            sliderValue =
-                GameManager.instance.currentEnergy > 10 ? GameManager.instance.currentEnergy : 0;
+        {
+            float energy = GameManager.instance.currentEnergy;
 
+            sliderValue = energy > 10 ? energy : 0;
+
+            if (energy <= 10 && !energyEmptyLogged)
+            {
+                AnalyticsLogger.LogEnergyEmpty();
+                energyEmptyLogged = true;
+            }
+
+            if (energy > 10)
+            {
+                energyEmptyLogged = false;
+            }
+        }
         if (fillTransform == null)
             return;
 

@@ -15,6 +15,7 @@ public class YellowWallBox : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
             return;
         float impactSpeed = collision.relativeVelocity.magnitude;
+        AnalyticsLogger.LogYellowCollision();
 
         if (impactSpeed >= breakVelocity)
         {
@@ -30,6 +31,7 @@ public class YellowWallBox : MonoBehaviour
     {
         if (breakFX != null)
         {
+            AnalyticsLogger.LogYellowBreak();
             GameObject fx = Instantiate(breakFX, transform.position, Quaternion.identity);
             fx.transform.SetParent(followTarget);
             GameManager.instance.AddExtraScore(100);
